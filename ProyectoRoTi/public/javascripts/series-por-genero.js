@@ -32,7 +32,7 @@ fetch("https://api.themoviedb.org/3/discover/tv?api_key="+api_key+"&sort_by=popu
   if (resultados[i].poster_path === null) {
       listado.innerHTML += `
     <h2>${titulo}</h2>
-    <img src='img/no-disponible.png' width="100">
+    <img src='/images/no-disponible.png' width="100">
       `
     }
     }

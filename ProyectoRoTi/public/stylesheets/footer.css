@@ -1,0 +1,52 @@
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: black;
+    opacity: 0.9;
+    justify-content: space-around;
+    color: #dc3545;
+    text-align: center;
+  }
+  
+  #seguinos,
+  #nosotros,
+  #informacion {
+    text-align: center;
+    margin: 20px;
+  }
+  
+   h1 {
+     font-family: 'Fjalla One', sans-serif;
+     color: #dc3545;
+   }
+  
+  .footer-hipervinculo {
+    color: #dc3545;
+    font-size: 20px;
+  }
+  
+  .footer-hipervinculo:hover{
+    color: white;
+    text-decoration: none
+  }
+  
+  .thdb {
+  width: 70px;
+  }
+  
+  .redes{
+   color: white;
+   width: 100px;
+   font-size: 30px;
+  }
+  
+  .redes:hover{
+    font-size: 30px;
+    color:#dc3545;
+  }
+  
+  footer .section {
+    text-align: center;
+  }
+  

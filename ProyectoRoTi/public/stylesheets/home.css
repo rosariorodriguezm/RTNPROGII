@@ -1,0 +1,33 @@
+main {
+    height: auto;
+  }
+   .populares,
+   .mayorPuntaje,
+   .AlAire {
+     width: 100%;
+  }
+  
+   .main-nav > ul > li,
+   .mayorPuntaje,
+   .AlAire,
+   .populares {
+     color:  #dc3545;
+     text-decoration: none;
+     font-size: 30px;
+     text-align: center;
+     text-transform: uppercase;
+   }
+  
+  .secciones{
+    margin: 10px;
+  }
+  
+  
+  .uk-container img {
+    width: 95%;
+    height: 90%;
+  }
+  
+  .uk-container img:hover{
+    opacity: 0.6;
+  }

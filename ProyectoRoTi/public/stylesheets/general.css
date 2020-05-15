@@ -1,0 +1,229 @@
+*{box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Fjalla One', sans-serif;
+  }
+  
+  main {
+    min-height: 100vh;
+  }
+  
+  body {
+    background-image: url(../img/pochoclo.JPG);
+  }
+  
+  
+  
+  .uk-container {
+    background-color: black ;
+    opacity: 0.9;
+    padding: 30px 15px;
+  }
+  
+  li {
+    list-style: none;
+  }
+  
+  #toptop {
+     text-decoration: none;
+     background-color: black;
+     color: #dc3545;
+     padding: 5px;
+     margin-left: 5px;
+     border-radius: 4px;
+     font-size: 30px;
+  }
+  
+  
+  
+  
+  /* INICIO MEDIA QUERIES ESCRITORIO - TABLET - SMARTPHONE */
+  
+  @media (max-width: 850px) {
+    }
+  
+  /* TABLET */
+   @media (min-width:451px) and (max-width:768px) {
+    #seguinos, #nosotros, #informacion {
+      text-align: center;
+      margin: 4px;
+  
+  }
+  
+  header {
+      background-color: rgb(246, 161, 62)
+  }
+  .uk-container{
+      background-color: rgb(246, 161, 62);
+      opacity: 0.9;
+      padding: 30px 15px;
+    }
+  footer {
+      background-color:rgb(246, 161, 62)
+  }
+  .footer-details:hover {
+    color: black
+  }
+  .busq_avanzada a {
+      text-decoration: none;
+      color:black ;
+      font-size: 14px;
+      border: solid 2px #dc3545;
+      padding: 2px;
+     }
+   #toptop {
+      text-decoration: none;
+      background-color: #dc3545 ;
+      color: white;
+      padding: 5px;
+      margin-left: 5px;
+      border-radius: 4px;
+      font-size: 30px
+        }
+        .redes{
+         color: #dc3545;
+         width: 100px;
+         font-size: 30px;
+        }
+  
+        .redes:hover{
+          font-size: 30px;
+          color:black;
+        }
+  
+        .descripcion , .titulo{
+            color: black;
+            font-size: 15px;
+            align-self: center;
+        }
+  .nombres{
+    color:#dc3545
+  }
+  .buscador {
+    background: #dc3545;
+  }
+  #videoTrailer{
+    display: none;
+  }
+  .buscar {
+      position: absolute;
+      left: 63%;
+      top: 35%
+  }
+  }
+  /* MOBILE */
+  @media  only screen  and (max-width:450px){
+  
+    .cuenta_usuario {
+      position: absolute;
+      right: 30px;
+      top: 30px;
+      display: none;
+    }
+    .logo{
+      width: 144px;
+    }
+    .main-nav {
+      margin-top: -100px;
+    }
+    .opciones {
+      font-size: 20px
+    }
+    .main-nav > ul {
+      display: flex;
+      justify-content: space-around;
+      width: 30%;
+      list-style: none; }
+  
+    .buscador{
+      width: 70px;
+      border-radius: 10px;
+      font-size: 10px;
+      padding: 1px;
+    }
+    .boton {
+      font-size: 15px
+    }
+  
+    .buscar {
+      position: absolute;
+      left: 70%;
+      top: 19%
+    }
+    .main-nav > ul {
+      display: block;
+  }
+  #imagen-busq{
+    width: 308px
+  }
+  .titulo {
+    font-size: 21px
+  }
+  .descripcion {
+    font-size: 13px
+  }
+  #serie_recomm{
+    border: double 3px #dc3545;
+    justify-content: space-around;
+    margin: 20px;
+    display: flex;
+    width: auto;
+    align-items: stretch;
+  }
+  .info_serie img {
+    width: 50px;
+  }
+  #videoTrailer{
+    display: none;
+  }
+  
+  header {
+      background-color: rgb(226, 238, 113)
+  }
+  .uk-container{
+      background-color: rgb(226, 238, 113);
+      opacity: 0.9;
+      padding: 30px 15px;
+    }
+  footer {
+      background-color: rgb(226, 238, 113)
+  }
+  .footer-details:hover {
+    color: black
+  }
+  .busq_avanzada a {
+      text-decoration: none;
+      color:black ;
+      font-size: 14px;
+  
+     }
+     #toptop {
+        text-decoration: none;
+        background-color: #dc3545 ;
+        color:  rgb(226, 238, 113);
+        padding: 5px;
+        margin-left: 5px;
+        border-radius: 4px;
+        font-size: 30px
+          }
+          .redes{
+           color: #dc3545;
+           width: 100px;
+           font-size: 30px;
+          }
+  
+          .redes:hover{
+            font-size: 30px;
+            color:black;
+          }
+  
+          .buscador {
+            background: #dc3545;
+          }
+  
+          #seguinos, #nosotros{
+            display: none
+          }
+  }
+  /* FIN MEDIA QUERIES CEL - TABLET - SMARTPHONE */
+  

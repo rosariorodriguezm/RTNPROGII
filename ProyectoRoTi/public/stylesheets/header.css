@@ -1,0 +1,120 @@
+header {
+    text-align: center;
+    background-color:black;
+    opacity: 0.9;
+    height:200px;
+    position: relative;
+    z-index: 200;
+  }
+  
+  .main-nav > ul {
+  display: flex;
+  justify-content: space-around;
+  width: 40%;
+  list-style: none;
+  }
+  
+  .buscador {
+    border-radius: 18px;
+    width: 180px;
+    padding: 5px;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+  
+  .boton {
+    background-color: rgba(204, 67, 140, 0);
+    padding: 5px;
+    color: #dc3545;
+    border: outset 2px rgba(139, 137, 90, 0);
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+  
+  .boton:hover {
+    background-color:black;
+    cursor: pointer;
+    border: outset 2px #dc3545;
+    padding: 5px;
+  }
+  
+  .opciones {
+    color: #dc3545;
+    text-decoration: none;
+    font-size: 35px;
+    border: solid 2px rgba(255, 255, 255, 0);
+    padding: 3px;
+  }
+  
+  .series-generos button {
+    line-height: 40px;
+  }
+  
+  .opciones:hover {
+    color: white;
+    border: outset 2px #dc3545;
+    padding: 3px;
+    background-color: #dc3545;
+    text-decoration: none;
+  }
+  
+  .logo {width:200px;}
+  .logo:hover{-webkit-transform:scale(0.9);transform:scale(0.9);}
+  .efecto-imagen {overflow: hidden;}
+  
+  .buscar {
+    position: absolute;
+    left:70%;
+    top: 43%;
+  }
+  
+  nav {
+  margin-top:-115px;
+  }
+  
+  .uk-dropdown-nav a {
+    font-size: 18px;
+    text-transform: capitalize;
+  }
+  
+  .uk-dropdown-nav a:hover {
+    text-decoration: underline;
+    color: black;
+  }
+  
+  .cuenta_usuario{
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    display: flex;
+  }
+  
+  #opciones_usuario a{
+    color: #dc3545;
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+  }
+  
+  #opciones_usuario a:hover{
+    color: white;
+    text-decoration: underline;
+  }
+  
+  .busq_avanzada a{
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+  
+  }
+  
+  .busq_avanzada {
+    text-align: left;
+    padding-left: 40px;
+    padding-top: 5px;
+  }
+  
+  .busq_avanzada a:hover {
+    text-decoration: underline;
+  }
+  

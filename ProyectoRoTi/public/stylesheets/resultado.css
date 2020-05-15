@@ -1,0 +1,60 @@
+.uk-slider-items h2 {
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    z-index: 200;
+    position: absolute;
+    text-transform: capitalize;
+    bottom: 50px;
+    margin: 20px;
+  
+  }
+  
+  .uk-slider-items h2:hover {
+    text-decoration: underline;
+  }
+  
+  .uk-container img {
+    width: 95%;
+    height: 90%;
+  }
+  
+  .uk-slider-items img:hover{
+    opacity: 0.7;
+  }
+  
+  li.uk-active {
+    position: relative;
+  }
+  
+  #titulo-resultados {
+  color: #dc3545;
+  text-decoration: none;
+  font-size: 25px;
+  text-align: center;
+  padding-bottom: 10px;
+  padding-top: 20px;
+  }
+  
+  .uk-container div{
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+  
+  .boton_2 {
+    background-color: rgba(204, 67, 140, 0);
+    padding: 5px;
+    color: #dc3545;
+    border: outset 2px rgba(139, 137, 90, 0);
+    font-size: 19px;
+    text-transform: capitalize;
+  }
+  
+  .boton_2:hover {
+    background-color:black;
+    cursor: pointer;
+    border: outset 2px #dc3545;
+    padding: 5px;
+    color: white;
+  }
+  

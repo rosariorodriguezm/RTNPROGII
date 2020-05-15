@@ -1,0 +1,31 @@
+.iniciar_sesion label {
+    color: #dc3545;
+    padding: 5px;
+    display: block;
+  }
+  
+  main {
+    text-align: center;
+  }
+  
+  .iniciar_sesion input{
+    border-radius: 10px;
+    width: 30%;
+    margin-bottom: 20px;
+    padding: 5px;
+  }
+  
+  .iniciar_sesion .enviar {
+    background-color: rgba(204, 67, 140, 0);
+    padding: 5px;
+    color: white;
+    border: outset 2px rgba(139, 137, 90, 0);
+    font-size: 20px;
+    text-transform: uppercase;
+    }
+  
+  .iniciar_sesion .enviar:hover {
+      cursor: pointer;
+      border: outset 2px #dc3545;
+      padding: 5px;
+    }

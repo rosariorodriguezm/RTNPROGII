@@ -1,0 +1,44 @@
+#registrarse label,
+#registrarse input,
+#registrarse legend{
+  color: #dc3545;
+  padding: 5px;
+}
+
+.enviar {
+  background-color: rgba(204, 67, 140, 0);
+  padding: 5px;
+  color: white;
+  border: outset 2px rgba(139, 137, 90, 0);
+  font-size: 20px;
+  text-transform: uppercase;
+  }
+
+.enviar:hover {
+    cursor: pointer;
+    border: outset 2px #dc3545;
+    padding: 5px;
+  }
+
+#registrarse input,
+#registrarse select{
+  border-radius: 10px;
+  width: 30%;
+  margin-bottom: 20px;
+}
+
+#registrarse select {
+  font-size: 15px;
+}
+main{
+  text-align: center;
+}
+
+label {
+  display: block;
+}
+
+#cuenta_existente a{
+  color: white;
+  padding-left: 8px;
+}

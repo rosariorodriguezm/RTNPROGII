@@ -1,0 +1,86 @@
+label {
+    display: block;
+  }
+  
+  form label,
+  form input,
+  form legend{
+    color: #dc3545;
+    padding: 5px;
+  }
+  
+  input,
+  select{
+    border-radius: 10px;
+    width: 30%;
+    margin-bottom: 20px;
+  }
+  
+  select {
+    padding: 20px;
+    font-size: 15px
+  }
+  
+  #titulo-main {
+    color: #dc3545;
+    font-size: 30px;
+    font-family: 'Fjalla One',sans-serif;
+  }
+  
+  .boton {
+    background-color: rgba(204, 67, 140, 0);
+    padding: 5px;
+    color: #dc3545;
+    border: outset 2px rgba(139, 137, 90, 0);
+    font-size: 20px;
+  }
+  .boton:hover{
+    color:white;
+  }
+  main{
+    text-align: center;
+  }
+  
+  #serie_recomm {
+  border: double 3px #dc3545;
+  justify-content: space-around;
+  margin: 20px;
+  display: flex;
+  width: auto;
+  align-items: center;
+  
+  
+  }
+  
+  #serie_recomm section {
+    flex-wrap: wrap;
+    width: 50%;
+    padding: 20px
+  
+  }
+  
+  #serie_recomm a{
+    color: #dc3545;
+    font-size: 30px
+  }
+  #serie_recomm a:hover {
+    color: #dc3545;
+    text-decoration: underline;
+  }
+  
+  #serie_recomm p {
+  color: white;
+  font-size: 15px;
+  align-self: center;
+  }
+  
+  #serie_recomm h3 {
+    color: white;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-family: 'Fjalla One',sans-serif;
+  }
+  .resultados ul {
+    margin: auto;
+  }
+  

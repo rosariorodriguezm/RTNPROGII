@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Buscador Avanzado</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css"/>
+
+    <link rel="stylesheet" href="css/avanzado.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/general.css">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+  </head>
+
+  <body>
+    <header>
+      <a href="home.html"><img class="logo" src="img/logo.png" alt="logotipo" width="100px"></a>
+      <nav class="main-nav">
+        <ul class="series-generos">
+          <li> <a href="series.html" class="opciones">SERIES</a></li>
+          <li>
+            <button class="uk-button uk-button-default opciones" type="button">GÉNEROS</button>
+              <div uk-dropdown="pos: bottom-justify">
+                <ul class="uk-nav uk-dropdown-nav" id="dropdown-generos">
+                </ul>
+              </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="cuenta_usuario">
+        <ul id="opciones_usuario">
+          <li><a href="perfil.html">Iniciar sesión</a></li>
+          <li><a href="registrarse.html">Registrarse</a></li>
+        </ul>
+      </div>
+      <form action="resultadosbusq.html" method="GET" class=buscar>
+        <input type="text" name="palabra_de_busqueda" class="buscador" minlength="3" required>
+        <button type="submit" class="boton">Buscar</button>
+        <li class="busq_avanzada"><a href="avanzado.html">Busqueda avanzada</a></button>
+          <li class="busq_avanzada"><a href="favoritos.html">Favoritos ❤ </a></button>
+      </form>
+    </header>
+
+<main>
+  <div class="uk-section">
+    <div class="uk-container">
+  <h2 id="titulo-main">BUSQUEDA AVANZADA</h2>
+
+  <form class="formulario-interior" action="avanzado.html" method="GET">
+    <label>GÉNERO</label>
+    <select id="genero-elegido" name="genre">
+      <option value="">Seleccionar</option>
+    </select>
+<!-- <br>
+    <label>GÉNEROS QUE SE DESEAN EXCLUIR</label><br>
+    <select id="genero-excluido" name="withoutGenres">
+      <option value="">Elegi</option>
+    </select> -->
+<br>
+    <label>AÑO DE ESTRENO</label>
+      <input type="text" name="date" value="" id="anio-estreno">
+<br>
+    <label>ORDEN DE LOS RESULTADOS</label>
+    <select id="orden" name="orden">
+      <option value="">Seleccionar</option>
+      <option value="vote_average.asc">Mayor Puntaje</option>
+      <option value="vote_average.desc">Menor Puntaje</option>
+      <option value="first_air_date.asc">Fecha de Estreno Ascendiente</option>
+      <option value="first_air_date.desc">Fecha de Estreno Descendiente</option>
+      <option value="popularity.asc">Popularidad Ascendente</option>
+      <option value="popularity.desc">Popularidad Descendente</option>
+
+    </select>
+<br>
+    <button type="submit" class="boton">BUSCAR</button>
+
+
+  </form>
+
+  <!-- Contenedor para los resultados -->
+  <div class="resultados-buscador-avanzado" id="contendorDeResultados">
+    <ul class="resultados">
+
+
+    </ul>
+  </div>
+
+</div>
+</div>
+
+<section>
+    <a href="#my-id" uk-scroll id="toptop">Ir arriba</a>
+</section>
+
+</main>
+
+
+
+
+
+
+    <footer>
+      <section id="seguinos">
+          <h1>Seguinos!</h1>
+            <ul class="iconos">
+              <a  href="https://twitter.com/login?lang=es"><i class="redes fab fa-twitter"></i></a>
+              <a  href="http://facebook.com"><i class="redes fab fa-facebook-square"></i></a>
+              <a  href="http://instagram.com"><i class="redes fab fa-instagram"></i></a>
+            </ul>
+          <h1>Descargá la app</h1>
+            <ul class="iconos">
+              <a href="https://www.apple.com/la/ios/app-store/"><i class="redes fab fa-apple"></i></a>
+              <a href="https://play.google.com/store/apps?hl=es"><i class="redes fab fa-android"></i></a>
+            </ul>
+      </section>
+      <section id="nosotros">
+        <h1>Nosotros</h1>
+          <p class="nombres">Tiziana Maddalena</p>
+          <p class="nombres">Nicolas Riccitelli</p>
+          <p class="nombres">Rosario Rodriguez Montenegro</p>
+      </section>
+      <section id="informacion">
+        <ul>
+          <li class="footer-details"><a class="footer-hipervinculo" href="#">Contacto</a></li>
+          <li class="footer-details"><a class="footer-hipervinculo" href="#">Preguntas frecuentes</a></li>
+          <li class="footer-details"><a class="footer-hipervinculo" href="registrarse.html">¡Unite!</a></li>
+          <li class="footer-details"><a class="footer-hipervinculo" href="#">Políticas y condiciones</a></li>
+        </ul>
+        <img src="img/tmdb.png" class="thdb"alt="">
+      </section>
+    </footer>
+
+  </body>
+
+  </html>
+  <script src="https://kit.fontawesome.com/e32b1dc814.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+
+  <!-- UIkit JS -->
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit-icons.min.js"></script>
+
+  <script type="text/javascript" src="js/generos.js"></script>
+  <script type="text/javascript" src="js/home.js"></script>
+  <script type="text/javascript" src="js/dropdown.js"></script>
+  <script type="text/javascript" src="js/avanzado.js"></script>
+
+  </html>

@@ -75,7 +75,7 @@ window.addEventListener('load',function(){
             console.log(`==== Resultado #${i} ====`);
             console.log(arrayDeResultados[i]);
   
-            var imgURL = 'img/no-disponible.png';
+            var imgURL = '/images/no-disponible.png';
   
             if (arrayDeResultados[i].poster_path != null) {
               imgURL = `https://image.tmdb.org/t/p/w500/${arrayDeResultados[i].poster_path}`

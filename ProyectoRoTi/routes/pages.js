@@ -5,6 +5,8 @@ const controller = require('../controllers/pagesController')
 
 router.get('/', controller.home);
 
+router.get('/avanzado', controller.avanzado);
+
 router.get('/detalle', controller.detalle);
 
 router.get('/favoritos', controller.favoritos);

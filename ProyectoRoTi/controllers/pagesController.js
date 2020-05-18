@@ -15,7 +15,7 @@ let controlador = {
         res.render('detalle')
     },
 
-    favotiros: function (req,res) {
+    favoritos: function (req,res) {
         res.render('favoritos')
     },
 

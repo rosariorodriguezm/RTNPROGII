@@ -3,7 +3,7 @@ const router = express.Router();
 
 const controller = require('../controllers/pagesController')
 
-router.get('/', controller.index);
+router.get('/', controller.home);
 
 
 

@@ -1,3 +1,4 @@
+let db = require('../database/models');
 
 let controlador = {
 

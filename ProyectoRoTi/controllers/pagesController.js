@@ -28,7 +28,7 @@ let controlador = {
         res.render('perfil')
     },
 
-    perfil: function(req, res) {
+    perfilUsuario: function(req, res) {
         res.render('perfil-usuario')
     },
 

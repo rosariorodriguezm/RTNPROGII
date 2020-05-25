@@ -32,6 +32,10 @@ let controlador = {
         res.render('perfil-usuario')
     },
 
+    buscarUsuario: function(req, res) {
+        res.render('buscar-usuarios')
+    },
+
     registrarse: function (req,res) {
         res.render('registrarse')
     },

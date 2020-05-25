@@ -17,6 +17,8 @@ router.get('/perfil', controller.perfil);
 
 router.get('/perfil-usuario', controller.perfilUsuario)
 
+router.get('/buscar-usuarios', controller.buscarUsuario)
+
 router.get('/registrarse', controller.registrarse)
 
 router.get('/resultadosbusq', controller.resultadosBusq);

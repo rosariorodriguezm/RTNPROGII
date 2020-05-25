@@ -106,83 +106,83 @@ window.addEventListener('load',function(){
       })
   
       //  COMENTARIOS
-      var api_key = "60be6317b0012697cb25d6ce427de920"
-      var urlParams = new URLSearchParams(location.search);
-      var id = urlParams.get('id');
-      var reviewSerie = "https://api.themoviedb.org/3/tv/"+ id +"/reviews?api_key="+api_key+"&language=en-US&page=1"
+ //     var api_key = "60be6317b0012697cb25d6ce427de920"
+ //    var urlParams = new URLSearchParams(location.search);
+ //     var id = urlParams.get('id');
+//    var reviewSerie = "https://api.themoviedb.org/3/tv/"+ id +"/reviews?api_key="+api_key+"&language=en-US&page=1"
   
-      fetch(reviewSerie)
-      .then(function(response){
-        return response.json()
-      })
-      .then(function(respuesta){
-        console.log(respuesta);
+ //     fetch(reviewSerie)
+ //     .then(function(response){
+ //       return response.json()
+ //     })
+ //     .then(function(respuesta){
+ //       console.log(respuesta);
   
-        if (respuesta.results.length > 0) {
+  //      if (respuesta.results.length > 0) {
   
-          var comentarios = document.querySelector("#reviews")
+//          var comentarios = document.querySelector("#reviews")
   
-          for (var i = 0; i < respuesta.results.length; i++) {
+ //         for (var i = 0; i < respuesta.results.length; i++) {
   
-          var contenido = respuesta.results[i].content
-          var autor = respuesta.results[i].author
-          comentarios.innerHTML += `
-              <h3>Opiniones de otros usuarios</h3>
-                <p> "${contenido}"</p>
-                <p>Por ${autor}</p>
+   //       var contenido = respuesta.results[i].content
+     //     var autor = respuesta.results[i].author
+       //   comentarios.innerHTML += `
+         //     <h3>Opiniones de otros usuarios</h3>
+          //      <p> "${contenido}"</p>
+  //              <p>Por ${autor}</p>
   
-          `
-          }
-        }
-        else {
-          var comentarios = document.querySelector("#reviews")
-          comentarios.innerHTML = `
-          <form>
-          <label id="comentario_1"> ¡Sé el primero en dejar un comentario! </label>
-            <textarea id="primer_comentario"></textarea>
-            <button type="button" name="button" id="but_comment">Enviar</button>
-          </form>
-          `
-          var coment = document.querySelector("#primer_comentario")
-          var but = document.querySelector("#but_comment")
+      //    `
+        //  }
+       // }
+     //   else {
+    //      var comentarios = document.querySelector("#reviews")
+ //         comentarios.innerHTML = `
+ //         <form>
+   //       <label id="comentario_1"> ¡Sé el primero en dejar un comentario! </label>
+ //           <textarea id="primer_comentario"></textarea>
+    //        <button type="button" name="button" id="but_comment">Enviar</button>
+      //    </form>
+       //   `
+     //     var coment = document.querySelector("#primer_comentario")
+      //    var but = document.querySelector("#but_comment")
   
-            but.onclick= function (){
-            alert("Gracias por tu comentario");
+//            but.onclick= function (){
+ //           alert("Gracias por tu comentario");
   
-            }
+ //           }
   
   ///////////////////////////GUARDO COMENTARIOS///////////////////////////////////////
   
-  $(document).ready(function(){
-      $('#but_comment').click(function(){
+ // $(document).ready(function(){
+  //    $('#but_comment').click(function(){
           /*Captura de datos escrito en los inputs*/
-          var coment = document.getElementById("primer_comentario").value;
+   //       var coment = document.getElementById("primer_comentario").value;
   
           /*Guardando los datos en el LocalStorage*/
-          localStorage.setItem("primer_comentario", coment);
+    //      localStorage.setItem("primer_comentario", coment);
   
           /*Pongo comentario en pagina*/
-          document.querySelector("#reviews").innerHTML =`
-          <form>
-          <label id="comentario_1"> ¡Dejá tu comentario! </label>
-            <textarea id="primer_comentario"></textarea>
-            <button type="button" name="button" id="but_comment">Enviar</button>
-          </form>
-          <h3>Opiniones de usuarios</h3>
-          <p>${coment}</p>
-          `
+     //     document.querySelector("#reviews").innerHTML =`
+      //    <form>
+       //   <label id="comentario_1"> ¡Dejá tu comentario! </label>
+        //    <textarea id="primer_comentario"></textarea>
+        //    <button type="button" name="button" id="but_comment">Enviar</button>
+     //     </form>
+   //       <h3>Opiniones de usuarios</h3>
+    //      <p>${coment}</p>
+    //      `
           /*Limpiando los campos o inputs*/
-          document.getElementById("primer_comentario").value = "";
+ //         document.getElementById("primer_comentario").value = "";
   
-      });
-  });
+  //    });
+  //});
   
   
   /////////////////////////////////////////////////////////////////////
   
   
-        }
-      })
+ //       }
+  //    })
   
       // FUNCION DE RECOMENDACION
   

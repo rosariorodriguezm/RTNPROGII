@@ -20,60 +20,53 @@
     </header>
 
     <main>
-    <div class="uk-section">
-      <div class="uk-container">
-        <section>
-          <div class="">
-            <form id="registrarse" action="home.html" method="post">
-              <label for="nombre">Nombre</label>
-                <input type="text" name="usuario" value="" required placeholder="Nombre">
+        <div class="uk-section">
+          <div class="uk-container">
+            <section>
+              <div class="">
 
-              <label for="email">Email</label>
-                <input type="email" name="correo" value="" required placeholder="E-mail">
+                <form action="" method="POST">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" name="usuario" id="" required>
 
-              <label for="contraseña">Contraseña</label>
-                <input type="password" name="contraseña" value="" required placeholder="Contraseña">
+                        <label for="email">E-mail</label>
+                        <input type="emial" name="correo" required>
 
-              <label for="Pais">Pais de origen</label>
-              <select class="" name= "Origen">
-                <option disabled selected>Paìs</option>
-                <option value="argentina">Argentina</option>
-                <option value="brasil">Brasil</option>
-                <option value="ee.uu">Estados Unidos</option>
-                <option value="otro"> Otro</option>
-              </select>
+                        <label for="fecha">Fecha de nacimiento</label>
+                        <input type="date"  required>
 
-              <legend class="info">Desea recibir Información?</legend>
-                <label for="si" class= "si"><input id="si" type="radio" name="recibirInfo" value="">SI</label>
-                <label for="no" class="no"><input id="no" type="radio" name="recibirInfo" value="">NO</label>
-
-              <button type="submit" name="button" class="enviar" id="regis">Enviar</button>
-            </form>
-
-            <p id="cuenta_existente">¿Ya tenes una cuenta?<a href="perfil.html">Inicia sesión</a></p>
-          </div>
-        </section>
-      </div>
-  </div>
-  </main>
-
-  <footer>
-    <%- include('./partials/footer')%>
-  </footer>
-
-</body>
+                        <label for="contraseña">Contraseña</label>
+                        <input type="password" name="contraseña" required>
+                       
+                        <button type="submit" name="button" class="enviar" id="regis">Enviar</button>
+                </form>
 
 
-<script src="https://kit.fontawesome.com/e32b1dc814.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-
-
-<!-- UIkit JS -->
-<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit-icons.min.js"></script>
-<script type="text/javascript" src="/javascripts/generos.js"></script>
-<script type="text/javascript" src="/javascripts/dropdown.js"></script>
-<script type="text/javascript" src="/javascripts/registrarse.js"></script>
-
-</html>
+                <p id="cuenta_existente">¿Ya tenes una cuenta?<a href="/pages/perfil">Inicia sesión</a></p>
+            </div>
+          </section>
+        </div>
+    </div>
+    </main>
+  
+    <footer>
+      <%- include('./partials/footer')%>
+    </footer>
+  
+  </body>
+  
+  
+  <script src="https://kit.fontawesome.com/e32b1dc814.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  
+  
+  <!-- UIkit JS -->
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit-icons.min.js"></script>
+  <script type="text/javascript" src="/javascripts/generos.js"></script>
+  <script type="text/javascript" src="/javascripts/dropdown.js"></script>
+  <script type="text/javascript" src="/javascripts/registrarse.js"></script>
+  
+  </html>
+    

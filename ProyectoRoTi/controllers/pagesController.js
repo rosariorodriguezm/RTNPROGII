@@ -29,7 +29,7 @@ let controlador = {
     },
 
     perfil: function(req, res) {
-        res.render('perfilUsuario')
+        res.render('perfil-usuario')
     },
 
     registrarse: function (req,res) {

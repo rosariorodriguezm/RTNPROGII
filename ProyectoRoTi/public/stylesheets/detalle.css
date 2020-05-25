@@ -3,7 +3,7 @@ main {
   }
   
   .uk-container {
-    background-color: red;
+    background-color: black;
     opacity: 0.9;
     padding: 30px;
     padding-bottom: 40px;
@@ -101,7 +101,7 @@ main {
   }
   #reviews {
     margin: 20px 0;
-    width: 50%;
+    width: 40%;
     margin-left: 40px;
   
   }
@@ -123,6 +123,7 @@ main {
   
   #reviews form {
     margin-top:10px;
+    
   }
   
   #primer_comentario {
@@ -172,3 +173,31 @@ main {
     width: 100%;
     color: rgb(104, 105, 100);
   }
+
+  #titulo {
+    color: #dc3545; 
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .inputs {
+    color: #dc3545;
+  }
+
+input {
+  border-radius: 10px;
+    width: 90%;
+    margin-bottom: 20px;
+    padding: 5px;
+    
+}
+
+textarea {
+  border-radius: 10px;
+    width: 90%;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+  
+  
+

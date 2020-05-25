@@ -25,7 +25,7 @@ fetch("https://api.themoviedb.org/3/discover/tv?api_key="+api_key+"&sort_by=popu
 
 
     listado.innerHTML += `
-    <a href='detalle.html?id=${id}'>
+    <a href='/pages/detalle?id=${id}'>
     <img class="serieGen" src="${posterURL}">
     </a>
     `

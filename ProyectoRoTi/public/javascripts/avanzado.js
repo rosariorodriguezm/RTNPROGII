@@ -89,7 +89,7 @@ window.addEventListener('load',function(){
               </section>
               <section id="resumen">
                 <p class="descripcion">${arrayDeResultados[i].overview}</p>
-                <a href="detalle.html?id=${arrayDeResultados[i].id}">VER MÁS</a>
+                <a href="/pages/detalle?id=${arrayDeResultados[i].id}">VER MÁS</a>
               </section>
               </div>
             `

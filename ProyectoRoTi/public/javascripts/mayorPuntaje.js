@@ -19,7 +19,7 @@ window.addEventListener('load',function(){
       posterURL = urlFija + information.results[i].poster_path
   
       serie = '<li  class="uk-animation-toggle" tabindex="0" >'
-      serie += '<a href="detalle.html?id=' + id + '">'
+      serie += '<a href="/pages/detalle?id=' + id + '">'
       serie +=   '<img class="uk-animation-fade" src="'+posterURL+'" alt="">'
       serie +=   '<div class="uk-position-center uk-panel"><h2 class="">'+'</h2></div>'
       serie += '</a>'

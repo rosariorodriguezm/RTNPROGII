@@ -23,7 +23,7 @@ window.addEventListener('load',function(){
        var listaGenero = ""
   
        for (var i = 0; i < genero.length; i++) {
-         listaGenero+= ' <a href="series-por-genero.html?genero='+ genero[i].id + '&name=' + genero[i].name + ' " >' + genero[i].name + '</a> ,'
+         listaGenero+= ' <a href="/pages/series-por-genero?genero='+ genero[i].id + '&name=' + genero[i].name + ' " >' + genero[i].name + '</a> ,'
        }
        detalleSerie.innerHTML = `
           <h2>${titulo}</h2>
@@ -201,7 +201,7 @@ window.addEventListener('load',function(){
            opciones= "https://image.tmdb.org/t/p/original" + information.results[i].poster_path
            console.log(opciones)
            reco.innerHTML +=
-           `<a href="detalle.html?id=${id}">
+           `<a href="/pages/detalle?id=${id}">
            <img class= "recomm" src="${opciones}" width="250">
            </a>`
   

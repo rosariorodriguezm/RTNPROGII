@@ -1,27 +1,27 @@
 
 
-const Reseña = require('models/Reseña.js')
-
-module.exports = function (sequelize, DataTypes) 
-{
-const Usuario = sequelize.define('Usuarios', 
-    { //cols//
+module.exports = function (sequelize, DataTypes) {
+const usuario = sequelize.define(
+    'Usuarios', 
+     { 
         nombre: DataTypes.STRING,
         email: DataTypes.STRING,
-        id: DataTypes.INTEGER,
+        usuario_id: DataTypes.INTEGER,
         password: DataTypes.STRING,
         fecha_nac: DataTypes.DATE,
 }, {
     timestamps: false,
 }); 
 
-return Usuario; 
+usuario.associate = function(models){
+    usuario.hasMany(models.Reseñas, {
+        as: 'usuario',
+        foreign_key: 'usuario_id'
+    });
+} 
 
-} ; 
+return usuario; 
 
-Usuario.associate = function(models){
-    Usuario.hasMany(Reseña, {
-        as: "usuarios",
-        foreign_key: "usuario_id"
-    })};
+}  
+
 

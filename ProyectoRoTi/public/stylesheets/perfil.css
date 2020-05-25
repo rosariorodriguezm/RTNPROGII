@@ -22,6 +22,7 @@
     border: outset 2px rgba(139, 137, 90, 0);
     font-size: 20px;
     text-transform: uppercase;
+    text-decoration: none;
     }
   
   .iniciar_sesion .enviar:hover {
@@ -29,3 +30,29 @@
       border: outset 2px #dc3545;
       padding: 5px;
     }
+
+  .iniciar_sesion a {
+    text-decoration: none;
+    color: white;
+  }
+
+.perfil_usuarios .explorar {
+  background-color: rgba(204, 67, 140, 0);
+  padding: 5px;
+  color: white;
+  border: outset 2px rgba(139, 137, 90, 0);
+  font-size: 20px;
+  text-transform: uppercase;
+  }
+
+.perfil_usuarios .explorar:hover {
+    cursor: pointer;
+    border: outset 2px #dc3545;
+    padding: 5px;
+  }
+
+.perfil_usuarios h2{
+  color: white;
+  font-family: 'Fjalla One';
+  font-size: 20px;
+}

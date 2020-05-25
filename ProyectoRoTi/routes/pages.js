@@ -21,7 +21,7 @@ router.get('/buscar-usuarios', controller.buscarUsuario)
 
 router.get('/registrarse', controller.registrarse)
 
-router.get('/resultadosbusq', controller.resultadosBusq);
+router.get('/resultadosBusq', controller.resultadosBusq);
 
 router.get('/series-por-genero', controller.seriesPorGenero);
 

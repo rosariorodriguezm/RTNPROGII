@@ -27,4 +27,7 @@ router.get('/series-por-genero', controller.seriesPorGenero);
 
 router.get('/series', controller.series);
 
+router.get('/resenasRecientes', controller.resenasRecientes);
+
+
 module.exports = router;

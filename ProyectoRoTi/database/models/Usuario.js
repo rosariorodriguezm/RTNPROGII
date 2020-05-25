@@ -1,6 +1,6 @@
 
 
-const Reseña = require('models/reseña.js')
+const Reseña = require('models/Reseña.js')
 
 module.exports = function (sequelize, DataTypes) 
 {

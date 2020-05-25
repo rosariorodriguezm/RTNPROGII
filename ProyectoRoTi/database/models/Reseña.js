@@ -1,5 +1,5 @@
 
-const Usuario = require('models/Usuario.js')
+const Usuario =require('models/Usuario.js')
 
 
 const Reseña = sequelize.define("Reseñas", 

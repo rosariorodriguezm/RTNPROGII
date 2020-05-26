@@ -104,7 +104,7 @@ window.addEventListener('load',function(){
       .catch(function(error) {
        console.log("Error: " + error);
       })
-  
+
       //  COMENTARIOS
  //     var api_key = "60be6317b0012697cb25d6ce427de920"
  //    var urlParams = new URLSearchParams(location.search);

@@ -15,9 +15,9 @@ router.get('/generos', controller.generos);
 
 router.get('/perfil', controller.perfil);
 
-router.get('/perfil-usuario', controller.perfilUsuario)
+router.get('/perfil-usuario', controller.perfilUsuario);
 
-router.get('/buscar-usuarios', controller.buscarUsuario)
+router.get('/buscar-usuarios', controller.buscarUsuario);
 
 router.get('/registrarse', controller.registrarse)
 

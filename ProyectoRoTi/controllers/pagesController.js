@@ -1,9 +1,7 @@
-let db = require('../database/models');
+const db = require('../database/models');
 
-let controlador = {
 
-    // aca adentro van los metodos
-
+module.exports = {
     home: function (req,res) {
         res.render('home')
     },
@@ -29,11 +27,34 @@ let controlador = {
     },
 
     perfilUsuario: function(req, res) {
-        res.render('perfil-usuario')
+        //muestra el perfil de un usuario
+        db.Usuarios
+            .findByPk(
+                req.params.id
+            )
+            .then(usuario => {
+                return res.render('perfil-usuario', {
+                    detalle: usuario, 
+                });
+            })
+            .catch(error => {
+                return res.send(error)
+            });
+        
     },
-
-    buscarUsuario: function(req, res) {
-        res.render('buscar-usuarios')
+    buscarUsuario: (req, res) => {
+        //muestra todos los usuarios
+        db.Usuarios
+        .findAll()
+        .then(usuarios => {
+            return res.render('buscar-usuarios', {
+                listaDeUsuarios: usuarios
+            });
+        })
+        .catch(error => {
+            return res.send(error);
+        })
+    
     },
 
     registrarse: function (req,res) {
@@ -59,4 +80,3 @@ let controlador = {
 
 
 
-module.exports = controlador 

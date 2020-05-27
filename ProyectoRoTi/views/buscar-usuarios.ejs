@@ -36,6 +36,17 @@
     <button type="submit" name="button" class="explorar" id="search_user">BUSCAR</button>
   </form>
 
+  <div> 
+    <ul>
+      <% for(let i = 0; i < listaDeUsuarios.length; i++) { %>
+        <li>
+          <%= listaDeUsuarios[i].title %>
+          <a href="/usuarios/perfil-usuario/<%=listaDeUsuarios[i].id %>">Ingresar al perfil</a>
+        </li>
+     <%}>
+    </ul>
+  </div>
+
   </body>
 
   </html>

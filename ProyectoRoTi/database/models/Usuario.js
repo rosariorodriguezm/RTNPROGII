@@ -15,7 +15,7 @@ const usuario = sequelize.define(
 
 usuario.associate = function(models){
     usuario.hasMany(models.Reseñas, {
-        as: 'usuario',
+        as: 'resenia',
         foreign_key: 'usuario_id'
     });
 } 

@@ -4,9 +4,9 @@ module.exports = function (sequelize, DataTypes) {
 const usuario = sequelize.define(
     'Usuarios', 
      { 
-        nombre: DataTypes.STRING,
+        nombre_usuario: DataTypes.STRING,
         email: DataTypes.STRING,
-        usuario_id: DataTypes.INTEGER,
+        id_usuario: DataTypes.INTEGER,
         password: DataTypes.STRING,
         fecha_nac: DataTypes.DATE,
 }, {
@@ -16,7 +16,7 @@ const usuario = sequelize.define(
 usuario.associate = function(models){
     usuario.hasMany(models.Reseñas, {
         as: 'resenia',
-        foreign_key: 'usuario_id'
+        foreign_key: 'id_usuario'
     });
 } 
 

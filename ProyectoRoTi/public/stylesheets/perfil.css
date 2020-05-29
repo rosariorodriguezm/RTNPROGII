@@ -56,3 +56,24 @@
   font-family: 'Fjalla One';
   font-size: 20px;
 }
+
+#lista_usuarios {
+  text-align: left;
+  margin: 30px;
+}
+
+#lista_usuarios h1 {
+  font-size: 30px;
+}
+
+#lista_usuarios li{
+  color: white;
+  font-size: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+
+}
+
+#lista_usuarios ul {
+  padding: 10px;
+}

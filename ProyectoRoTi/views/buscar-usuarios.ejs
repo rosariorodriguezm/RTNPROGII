@@ -36,13 +36,16 @@
     <button type="submit" name="button" class="explorar" id="search_user">BUSCAR</button>
   </form>
 
-  <div> 
+  <div id="lista_usuarios"> 
     <h1>Listado de usuarios</h1>
-    <ul>
+      <ul>
       <% for (let i=0; i < listaUsuarios.length; i++) { %>
-         <li> <%= listaUsuarios[i].nombre_usuario %></li>
-     <% } %> 
-  </ul> 
+         <li> <p><a href="/usuarios/perfil-usuario/<%=listaUsuarios[i].id%>"><%= listaUsuarios[i].nombre_usuario %></a></p>
+              <p> <%= listaUsuarios[i].email %></p>
+        </li>
+         
+      <% } %> 
+      </ul> 
   </div>
 
   </body>

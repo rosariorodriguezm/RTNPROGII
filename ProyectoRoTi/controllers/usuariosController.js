@@ -18,7 +18,12 @@ module.exports = {
             });
         
     },
-    perfil: (req, res) => {
+    
+    perfil: function(req, res){
+        res.render('perfil')
+    },
+
+    buscarUsuarios: (req, res) => {
         //muestra formulario para buscar usuarios
         db.Usuarios
         .findAll()

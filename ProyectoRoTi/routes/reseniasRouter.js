@@ -8,6 +8,8 @@ router.get('/', controller.index);
 
 router.get('/resenias-recientes', controller.resenasRecientes)
 
+router.get('/mis-resenas', controller.resenasUsuario);
+
 
 
 module.exports = router;

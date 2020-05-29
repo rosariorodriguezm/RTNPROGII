@@ -34,6 +34,10 @@ module.exports = {
           res.send(error);
         })
     }, 
+
+    resenasUsuario: function(req,res){
+      res.render('misResenas') 
+  },
     
 
 

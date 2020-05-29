@@ -20,7 +20,8 @@ module.exports = {
     },
     
     perfil: function(req, res){
-        res.render('perfil')
+        res.render('perfil');
+        
     },
 
     buscarUsuarios: (req, res) => {
@@ -45,4 +46,7 @@ module.exports = {
     favoritos: function (req,res) {
         res.render('favoritos')
     },
+
+    
+
 }

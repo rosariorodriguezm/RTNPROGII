@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Log in</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css"/>
+
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="/stylesheets/general.css">
+    <link rel="stylesheet" href="/stylesheets/perfil.css">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+  </head>
+
+<body>
+  <header>
+    <%- include('./partials/header')%>
+  </header>
+
+  <main>
+    <div class="uk-section">
+      <div class="uk-container">
+        <h1>Mis reseñas</h1>
+        <form  method="post" class="iniciar_sesion" action="/resenias/mis-resenas">
+           
+            <label for="email">Email</label>
+              <input type="text" name="" value="" required placeholder="E-mail" id="email">
+  
+            <label for="contraseña">Contraseña</label>
+              <input type="password" name="contraseña" value="" required min="8" placeholder="Contraseña" >
+          <br>
+        
+          <button type="submit" name="button" class="enviar" id="perfil"><a href="">Acceder</a></button>
+          </form>
+
+          <ul>
+              
+          </ul>
+
+
+
+      </div>
+    </div>
+  </main>
+ 
+  <footer>
+    <%- include('./partials/footer')%>
+  </footer>
+
+</body>
+
+
+<script src="https://kit.fontawesome.com/e32b1dc814.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+
+<!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit-icons.min.js"></script>
+<script type="text/javascript" src="/javascripts/generos.js"></script>
+<script type="text/javascript" src="/javascripts/dropdown.js"></script>
+<script type="text/javascript" src="/javascripts/Sesion.js"></script>
+</html>

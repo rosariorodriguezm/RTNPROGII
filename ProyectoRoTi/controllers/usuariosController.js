@@ -24,16 +24,16 @@ module.exports = {
     },
 
     buscarUsuarios: (req, res) => {
-        //muestra formulario para buscar usuarios
+        //muestra formulario para buscar usuarios y todos los usuarios
         db.Usuarios
         .findAll()
         .then(usuarios => {
             return res.render('buscar-usuarios', {
-                listaDeUsuarios: usuarios
+                listaUsuarios: usuarios
             });
         })
         .catch(error => {
-            return res.send(error);
+            res.send(error);
         })
     
     },

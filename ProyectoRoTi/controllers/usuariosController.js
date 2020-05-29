@@ -46,6 +46,7 @@ module.exports = {
     favoritos: function (req,res) {
         res.render('favoritos')
     },
+    
 //ESTO SE USA PARA LA CONTRA ENCRIPTADA CUANDO SE CREA UN USUARIO
 //  var salt = bcrypt.genSaltSync(10);
 //var hash = bcrypt.hashSync("B4c0/\/", salt);

@@ -73,9 +73,6 @@ module.exports = {
         res.render('series')
     },
 
-    resenasRecientes: function (req,res) {
-        res.render('resenasRecientes')
-    },
 }
 
 

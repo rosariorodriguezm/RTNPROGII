@@ -2,10 +2,10 @@
 module.exports = function (sequelize, DataTypes){
 const reseña = sequelize.define('Reseñas', 
 { //cols//
-    id_reseña: DataTypes.INTEGER,
-    id_serie: DataTypes.INTEGER,
-    id_usuario: DataTypes.STRING,
+    serie_id: DataTypes.INTEGER,
+    usuario_id: DataTypes.STRING,
     created_at: DataTypes.DATE,
+    texto_res: DataTypes.STRING, 
     updated_at: DataTypes.DATE,
     puntaje: DataTypes.INTEGER,
 });

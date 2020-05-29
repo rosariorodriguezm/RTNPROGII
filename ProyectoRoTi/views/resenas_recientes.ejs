@@ -23,9 +23,11 @@
     <div class="uk-section">
       <div class="uk-container">
       <h1>Últimas reseñas</h1>
-
-
-
+      <ul>
+        <% for (let i=0; i < ultimasResenas.length; i++) { %>
+           <li> <%= ultimasResenas[i].texto_res %></li>
+       <% } %> 
+    </ul> 
 
 
 

@@ -19,7 +19,20 @@ module.exports = {
         
       
     resenasRecientes: (req, res) => {
-        res.render('resenas_recientes')
+        DB.Resenas
+        .findAll({
+          order: [
+            ['created_at', 'DESC']
+          ]
+        })
+        .then(resenas => {
+          return res.render('resenas_recientes', {
+            ultimasResenas: resenas
+          })
+        })
+        .catch(error => {
+          res.send(error);
+        })
     },
 
 

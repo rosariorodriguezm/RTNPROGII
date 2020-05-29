@@ -6,7 +6,6 @@ const usuario = sequelize.define(
      { 
         nombre_usuario: DataTypes.STRING,
         email: DataTypes.STRING,
-        id_usuario: DataTypes.INTEGER,
         password: DataTypes.STRING,
         fecha_nac: DataTypes.DATE,
 }, {
@@ -14,9 +13,9 @@ const usuario = sequelize.define(
 }); 
 
 usuario.associate = function(models){
-    usuario.hasMany(models.Reseñas, {
-        as: 'resenia',
-        foreign_key: 'id_usuario'
+    usuario.hasMany(models.Resenas, {
+        as: 'Resenas',
+        foreignKey: 'usuario_id'
     });
 } 
 

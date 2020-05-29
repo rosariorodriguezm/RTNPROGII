@@ -1,6 +1,6 @@
 
 module.exports = function (sequelize, DataTypes){
-const reseña = sequelize.define('Reseñas', 
+const resena = sequelize.define('Resenas', 
 { //cols//
     serie_id: DataTypes.INTEGER,
     usuario_id: DataTypes.STRING,
@@ -8,16 +8,21 @@ const reseña = sequelize.define('Reseñas',
     texto_res: DataTypes.STRING, 
     updated_at: DataTypes.DATE,
     puntaje: DataTypes.INTEGER,
-});
+},
+{
+    timestamps: false,
+    tablename: "resenas"
+}
+);
 
-reseña.associate = function(models){
-    reseña.belongsTo(models.Usuarios, {
-        as: 'user',
-        foreign_key: 'id_usuario'
+resena.associate = function(models){
+    resena.belongsTo(models.Usuarios, {
+        as: 'Usuarios',
+        foreignKey: 'usuario_id'
     });
 }
 
-return reseña; 
+return resena; 
 
 } 
 

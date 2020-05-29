@@ -23,6 +23,11 @@
     <div class="uk-section">
       <div class="uk-container">
         <h1>Listado de reseñas</h1>
+        <ul>
+          <% for (let i=0; i < listaResenas.length; i++) { %>
+             <li> <%= listaResenas[i].texto_res %></li>
+         <% } %> 
+     </ul> 
         
     </div>
     </div>

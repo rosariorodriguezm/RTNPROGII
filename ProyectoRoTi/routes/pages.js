@@ -3,6 +3,7 @@ const router = express.Router();
 
 const controller = require('../controllers/pagesController')
 
+//localhost:3000/pages
 router.get('/', controller.home);
 
 router.get('/avanzado', controller.avanzado);

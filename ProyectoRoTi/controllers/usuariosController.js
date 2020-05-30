@@ -53,13 +53,16 @@ module.exports = {
     
     resUsuario: (req,res)=> {
         db.Usuarios
-                .create(req.body)
+                .findAll()
                 .then(usuario => {
-                    return res.send(usuario)
+                    return res.render('respuesta-usuarios',{
+                        respuesta: usuario 
+                    })
                 })
                 .catch(function(error){
                     return res.send(error)
                 })
+                
     }, 
 //ESTO SE USA PARA LA CONTRA ENCRIPTADA CUANDO SE CREA UN USUARIO
 //  var salt = bcrypt.genSaltSync(10);

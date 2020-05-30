@@ -56,8 +56,10 @@ module.exports = {
      //muestra las respuestas del buscador de usuarios
        let busquedaUsuario = req.body.mail //almaceno lo que busca el usuario 
 
+       var variableEmail = req.body.mail;
+        var variableNombre = req.body.name; 
        db.Usuarios
-            .findAll({     
+            .findAll({    
                 where: {
                     [OP.or]: [
                         { email: {[OP.like]: "%" + variableEmail + "%" } }, 

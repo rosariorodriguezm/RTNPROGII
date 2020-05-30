@@ -10,8 +10,23 @@ module.exports = {
         res.render('avanzado')
     },
 
-    detalle: function (req,res) {
+    detalle: (req,res) => {
         res.render('detalle')
+       // db.Resenas
+       // .findByPk(
+       //     req.params.id
+       // )
+       // .then(resena => {
+        //   return res.render('detalle', {
+        //       resenia_serie: resena
+        //   })
+       // })
+       // .catch(error => {
+       //     res.send(error)
+       // })
+            
+
+        
     },
 
     generos :function (req,res) {

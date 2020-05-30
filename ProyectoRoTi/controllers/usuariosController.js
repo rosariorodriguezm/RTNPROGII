@@ -53,17 +53,7 @@ module.exports = {
     },
     
     resUsuario: (req,res)=> {
-       // db.Usuarios
-       //         .findAll()
-       //         .then(usuario => {
-       //             return res.render('respuesta-usuarios',{
-       //                 respuesta: usuario 
-       //             })
-       //         })
-       //         .catch(function(error){
-       //             return res.send(error)
-       //         })
-
+     
        let busquedaUsuario = req.body.busqueda //almaceno lo que busca el usuario 
 
        bd.Usuarios
@@ -76,7 +66,7 @@ module.exports = {
             .then(usuarios => {
                 return res.render("respuesta-usuarios", {
                     listadoUsuarios:usuarios,
-                    tituloDePagina: "Resultados de la busuqeda"
+                   
                 });
             })
             .catch(error => {

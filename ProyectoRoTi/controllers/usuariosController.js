@@ -54,12 +54,12 @@ module.exports = {
     
     resUsuario: (req,res)=> {  // METODO DE LAS RTAS DEL BUSCADOR DE USUARIOS 
      
-       let busquedaUsuario = req.body.busqueda //almaceno lo que busca el usuario 
+       let busquedaUsuario = req.body.mail //almaceno lo que busca el usuario 
 
-       bd.Usuarios
+       db.Usuarios
             .findAll({    //NO ANDA 
                 where:{
-                    mail:{ [OP.like]: "%" + busquedaUsuario+ "%"}
+                    email:{ [OP.like]: "%" + busquedaUsuario+ "%"}
                 
         }
     })

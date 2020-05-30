@@ -6,7 +6,9 @@ const controller = require('../controllers/usuariosController')
 
 //localhost:3000/usuarios
 router.get('/', controller.buscarUsuarios);
-router.post('/respuesta-usuario', controller.resUsuario)
+router.post('/respuesta-usuarios', controller.resUsuario)
+
+
 
 router.get('/perfil', controller.perfil)
 

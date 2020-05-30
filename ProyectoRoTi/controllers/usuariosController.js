@@ -1,4 +1,5 @@
 const db = require('../database/models');
+const moduloLogin = require('../modulo-login')
 
 
 module.exports = {
@@ -20,8 +21,7 @@ module.exports = {
     },
     
     perfil: function(req, res){
-        res.render('perfil');
-        
+        res.send('perfil')
     },
 
     buscarUsuarios: (req, res) => {

@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Buscador Avanzado</title>
+    <title>Buscador de usuarios</title>
 
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css"/>
@@ -25,7 +25,7 @@
     <div class="uk-container">
   <h2 id="titulo-main">BUSQUEDA DE USUARIOS</h2>
 
-  <form class="perfil_usuarios">
+  <form class="perfil_usuarios" method="POST" action="/usuarios/respuesta-usuarios"> 
       <label>Por nombre:</label>
         <input type="text" name="name" id="nombre_buscado">
       <label>Por mail:</label>

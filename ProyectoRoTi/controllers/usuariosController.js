@@ -51,6 +51,9 @@ module.exports = {
         res.render('favoritos')
     },
     
+    resUsuario: function(req,res){
+        res.send('hola!')
+    }, 
 //ESTO SE USA PARA LA CONTRA ENCRIPTADA CUANDO SE CREA UN USUARIO
 //  var salt = bcrypt.genSaltSync(10);
 //var hash = bcrypt.hashSync("B4c0/\/", salt);

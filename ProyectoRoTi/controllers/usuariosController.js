@@ -1,5 +1,6 @@
 const db = require('../database/models');
 const moduloLogin = require('../modulo-login')
+const OP = db.Sequelize.Op
 
 
 module.exports = {
@@ -66,7 +67,7 @@ module.exports = {
        let busquedaUsuario = req.body.busqueda //almaceno lo que busca el usuario 
 
        bd.Usuarios
-            .findAll({
+            .findAll({    //NO ANDA 
                 where:{
                     mail:{ [OP.like]: "%" + busquedaUsuario+ "%"}
                 

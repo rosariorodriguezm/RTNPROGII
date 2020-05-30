@@ -1,10 +1,27 @@
-#Series{
-    display: flex;
-    flex-wrap: wrap;
-    max-width: auto;
-  }
+.series{
+  display: flex;
+  flex-wrap: wrap;
+  max-width: auto;
+  width: 20%;
+}
+  
   .secciones{
     color: #dc3545;
     font-size: 30px;
+   
   }
-  
+
+.poster {
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#dropdown-generos {
+  display:none;
+}
+#dropdown-generos:hover {
+  display:block;
+
+}
+

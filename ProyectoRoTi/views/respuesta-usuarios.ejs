@@ -30,8 +30,8 @@
             <ul>
               <% for (let i=0; i< listadoUsuarios.length; i++) { %>
                 <li>
-                  <%= listadoUsuarios[i].email%>
-                  <a href="usuario/perfil-usuario/<%= listadoUsuarios [i].id %>"> Ver Detalle</a>
+                  <p><%= listadoUsuarios[i].email%></p>
+                  <a href="usuario/perfil-usuario/<%= listadoUsuarios[i].id %>"> Ver Detalle</a>
                 </li>
               <% } %> 
             </ul> 

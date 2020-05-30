@@ -52,7 +52,7 @@ module.exports = {
         res.render('favoritos')
     },
     
-    resUsuario: (req,res)=> {
+    resUsuario: (req,res)=> {  // METODO DE LAS RTAS DEL BUSCADOR DE USUARIOS 
      
        let busquedaUsuario = req.body.busqueda //almaceno lo que busca el usuario 
 

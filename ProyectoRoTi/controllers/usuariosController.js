@@ -7,9 +7,13 @@ module.exports = {
         //muestra el perfil de un usuario
         db.Usuarios
             .findByPk(
-                req.params.id
+                req.params.id,
+                {
+                    include: ['usuarios']
+                }
             )
             .then(usuario => {
+                
                 return res.render('perfil-usuario', {
                     detalle: usuario, 
                 });
@@ -21,7 +25,7 @@ module.exports = {
     },
     
     perfil: function(req, res){
-        res.send('perfil')
+        res.render('perfil')
     },
 
     buscarUsuarios: (req, res) => {

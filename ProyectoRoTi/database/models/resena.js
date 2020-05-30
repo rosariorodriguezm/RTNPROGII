@@ -16,8 +16,9 @@ const resena = sequelize.define('Resenas',
 );
 
 resena.associate = function(models){
+    //una reseña pertence a un usuario
     resena.belongsTo(models.Usuarios, {
-        as: 'Usuarios',
+        as: 'usuarios',
         foreignKey: 'usuario_id'
     });
 }

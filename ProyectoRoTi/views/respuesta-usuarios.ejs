@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="/stylesheets/footer.css">
     <link rel="stylesheet" href="/stylesheets/general.css">
     <link rel="stylesheet" href="/stylesheets/resenias.css">
+    <link rel="stylesheet" href="/stylesheets/respuestaUsuarios.css">
+
 
 
     <meta name="viewport" content="width=device-width, user-scalable=no">
@@ -30,8 +32,10 @@
             <ul>
               <% for (let i=0; i< listadoUsuarios.length; i++) { %>
                 <li>
-                  <p><%= listadoUsuarios[i].email%></p>
-                  <a href="usuario/perfil-usuario/<%= listadoUsuarios[i].id %>"> Ver Detalle</a>
+                  <p class="respuesta"><%= listadoUsuarios[i].email%></p>
+                  <p class="respuesta"><%= listadoUsuarios[i].nombre_usuario%></p>
+
+                  <a href="/usuario/perfil-usuario/<%= listadoUsuarios[i].id %>" class="link"> Ver usuario</a>
                 </li>
               <% } %> 
             </ul> 

@@ -52,16 +52,18 @@ module.exports = {
         res.render('favoritos')
     },
     
-    resUsuario: (req,res)=> {  // METODO DE LAS RTAS DEL BUSCADOR DE USUARIOS 
-     
+    resUsuario: (req,res)=> {  
+     //muestra las respuestas del buscador de usuarios
        let busquedaUsuario = req.body.mail //almaceno lo que busca el usuario 
 
        db.Usuarios
-            .findAll({    //NO ANDA 
-                where:{
-                    email:{ [OP.like]: "%" + busquedaUsuario+ "%"}
-                
-        }
+            .findAll({     
+                where: {
+                    [OP.or]: [
+                        { email: {[OP.like]: "%" + variableEmail + "%" } }, 
+                        { nombre_usuario: {[OP.like]: "%" + variableNombre + "%" } }
+                    ]
+                }
     })
             .then(usuarios => {
                 return res.render("respuesta-usuarios", {

@@ -1,0 +1,14 @@
+.respuesta {
+    color: white;
+}
+
+.link{
+    color:#dc3545;
+}
+
+.link:hover{
+    color:#dc3545;
+    border: 2px solid ;
+    text-decoration: none;
+    padding: 2px;
+}

@@ -9,7 +9,7 @@ module.exports = {
             .findByPk(
                 req.params.id,
                 {
-                    include: ['usuarios']
+                    include: ['usuario']
                 }
             )
             .then(usuario => {

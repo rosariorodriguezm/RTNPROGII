@@ -11,14 +11,13 @@ const resena = sequelize.define('Resenas',
 },
 {
     timestamps: false,
-    tablename: "resenas"
 }
 );
 
 resena.associate = function(models){
     //una reseña pertence a un usuario
     resena.belongsTo(models.Usuarios, {
-        as: 'usuarios',
+        as: 'usuario',
         foreignKey: 'usuario_id'
     });
 }

@@ -40,8 +40,8 @@
   .lista:hover {
     color: white;
     text-decoration: none;
-    border: 1px solid #dc3545;
-
+    border: 2px solid #dc3545;
+    padding: 2px
   }
 
   

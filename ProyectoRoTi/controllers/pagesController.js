@@ -14,11 +14,11 @@ module.exports = {
 
     detalle: (req,res) => {
         //res.render('detalle')
-
+        
        db.Resenas
        .findAll ({
            where: [
-          { serie_id: {[OP.like]: "%" + req.params.id + "%"}}
+          { serie_id: {[OP.like]: "%" + req.query.id + "%"}}
             ]
         })
             .then(resenas => {

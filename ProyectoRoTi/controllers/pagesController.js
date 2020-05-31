@@ -1,4 +1,6 @@
 const db = require('../database/models');
+const OP = db.Sequelize.Op //requiero operadores de sequelize
+
 
 
 module.exports = {
@@ -11,21 +13,23 @@ module.exports = {
     },
 
     detalle: (req,res) => {
-        res.render('detalle')
-       // db.Resenas
-       // .findByPk(
-       //     req.params.id
-       // )
-       // .then(resena => {
-        //   return res.render('detalle', {
-        //       resenia_serie: resena
-        //   })
-       // })
-       // .catch(error => {
-       //     res.send(error)
-       // })
-            
+        //res.render('detalle')
 
+       db.Resenas
+       .findAll ({
+           where: [
+          { serie_id: {[OP.like]: "%" + req.params.id + "%"}}
+            ]
+        })
+            .then(resenas => {
+            return res.render('detalle', {
+                reseniaSerie: resenas
+               
+         }) ; 
+        })
+        .catch(error => {
+            res.send(error)
+        })
         
     },
 
@@ -48,5 +52,7 @@ module.exports = {
 
 }
 
+
+//console.log(idSerie);
 
 

@@ -26,6 +26,9 @@
         <ul>
           <p><% for (let i=0; i < listaResenas.length; i++) { %>
              <li> <%= listaResenas[i].texto_res %></li>
+             <li> Autor: <%= listaResenas[i].usuario.nombre_usuario %></li>
+             <li> Fecha de creación: <%= listaResenas[i].created_at %></li>
+             <li> Ultima actualización: <%= listaResenas[i].updated_at %></li>
          <% } %> 
           </p>
      </ul> 

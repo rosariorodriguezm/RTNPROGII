@@ -21,7 +21,7 @@ window.addEventListener('load',function(){
        var fechaEstreno = information.first_air_date
        var genero= information.genres
        var listaGenero = ""
-  
+ 
        for (var i = 0; i < genero.length; i++) {
          listaGenero+= ' <a href="/pages/series-por-genero?genero='+ genero[i].id + '&name=' + genero[i].name + ' " >' + genero[i].name + '</a> ,'
        }

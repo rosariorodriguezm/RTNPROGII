@@ -14,7 +14,7 @@ module.exports = {
                 }
             )
             .then(usuario => {
-                
+
                 return res.render('perfil-usuario', {
                     detalle: usuario, 
                 });
@@ -89,3 +89,5 @@ module.exports = {
 // Store hash in your password DB.
 
 }
+
+

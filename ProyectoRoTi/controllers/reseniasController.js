@@ -20,15 +20,16 @@ module.exports = {
         },
 
     
-        
+    
       
     resenasRecientes: (req, res) => {
         DB.Resenas
-        .findAll({
-          order: [
-            ['created_at', 'DESC']
-          ]
-        })
+        .findAll(
+          {
+          include: ['usuario'], order: [['created_at', 'DESC']]
+          //aplico la relacion de los modelos y ordeno ultimas reseñas segun su fecha de creacion en forma descendente 
+          }
+        )
         .then(resenas => {
           return res.render('resenas_recientes', {
             ultimasResenas: resenas

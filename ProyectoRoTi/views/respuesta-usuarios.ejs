@@ -32,11 +32,8 @@
             <ul>
               <% for (let i=0; i< listadoUsuarios.length; i++) { %>
                 <li>
-                  <p class="respuesta"><%= listadoUsuarios[i].nombre_usuario%></p>
+                  <a href="/usuarios/perfil-usuario/<%= listadoUsuarios[i].id %>" class="link"><p><%= listadoUsuarios[i].nombre_usuario%></p></a>
                   <p class="respuesta"><%= listadoUsuarios[i].email%></p>
-                  
-
-                  <a href="/usuarios/perfil-usuario/<%= listadoUsuarios[i].id %>" class="link"> Ver usuario</a>
                 </li>
               <% } %> 
             </ul> 

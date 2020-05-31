@@ -10,11 +10,10 @@ module.exports = {
             .findByPk(
                 req.params.id,
                 {
-                    include: ['usuario']
+                    include: ['resenia']
                 }
             )
             .then(usuario => {
-
                 return res.render('perfil-usuario', {
                     detalle: usuario, 
                 });

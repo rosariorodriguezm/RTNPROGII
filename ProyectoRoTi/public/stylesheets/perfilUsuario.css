@@ -1,0 +1,31 @@
+h3 {
+    color: #dc3545;
+    font-family: 'Fjalla One';
+    font-size: 40px;
+}
+
+h2 {
+    color:#dc3545;
+    font-family: 'Fjalla One';
+    font-size: 30px;
+}
+p {
+    color: white;
+    font-family: 'Fjalla One';
+    font-size: 40px;
+}
+.res {
+    color: white;
+    font-family: 'Fjalla One';
+    font-size: 15px;
+}
+
+.back {
+    color:white;
+    font-family: 'Fjalla One';
+    font-size: 20px;
+    background-color: black;  
+}
+
+
+

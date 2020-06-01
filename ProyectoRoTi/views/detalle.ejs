@@ -84,11 +84,25 @@
 
           <div>
             <h1 class="tit">Reseñas de otros usuarios</h1>
-            <ul>
+         <!---  <ul>
               <% for (let i=0; i < reseniaSerie.length; i++) { %>
               <li ><p><%= reseniaSerie[i].texto_res %></p></li>
               <% } %>
-            <ul>
+            <ul>--> 
+
+            <% if (reseniaSerie.length != 0) { %>
+              <ul>
+                <% for (let i=0; i< reseniaSerie.length; i++) { %>
+                  <li>
+                    <p><%= reseniaSerie[i].texto_res%> </p>
+                  </li>
+                  <% } %> 
+                </ul>
+                <% } else { %>
+                  <p class="noHayRta"> Todavía no hay reseñas, ¡Se el primero en escribir una!</p>
+                <% } %>
+              
+              
               
 
           </ul>

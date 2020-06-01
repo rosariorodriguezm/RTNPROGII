@@ -30,6 +30,11 @@ module.exports = {
         
     },
 
+    miPerfil: function(req, res){
+        res.render('miPerfil')
+        
+    },
+
     buscarUsuarios: (req, res) => {
         //muestra formulario para buscar usuarios y todos los usuarios
         db.Usuarios

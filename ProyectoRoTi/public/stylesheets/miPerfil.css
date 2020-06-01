@@ -1,0 +1,17 @@
+h2{
+    color: white;
+    font-family: 'Fjalla One';
+    font-size: 30px;
+}
+
+.enlace {
+    color: white;
+    font-family: 'Fjalla One';
+    font-size: 18px; 
+}
+.enlace:hover {
+    color: white;
+    font-family: 'Fjalla One';
+    font-size: 18px; 
+    text-decoration:underline;
+}

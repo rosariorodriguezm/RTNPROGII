@@ -2,6 +2,11 @@
 module.exports = function (sequelize, DataTypes){
 const resena = sequelize.define('Resenas', 
 { //cols//
+    id: {
+        type: DataTypes.INTEGER, 
+        primaryKey: true,
+        autoIncrement: true,
+    },
     serie_id: DataTypes.INTEGER,
     usuario_id: DataTypes.STRING,
     created_at: DataTypes.DATE,

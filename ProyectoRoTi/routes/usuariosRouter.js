@@ -13,8 +13,9 @@ router.get('/perfil', controller.perfil)
 
 router.get('/perfil-usuario/:id', controller.perfilUsuario);
 
+router.get('/registrarse', controller.registrarse);
 
-router.get('/registrarse', controller.registrarse)
+router.post('/registrarse', controller.guardarUsuario);
 
 router.get('/favoritos', controller.favoritos);
 

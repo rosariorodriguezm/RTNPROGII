@@ -1,6 +1,7 @@
 const db = require('../database/models');
 const moduloLogin = require('../modulo-login')
 const OP = db.Sequelize.Op
+const bcrypt = require('bcryptjs')
 
 
 module.exports = {
@@ -57,6 +58,20 @@ module.exports = {
 
     registrarse: function (req,res) {
         res.render('registrarse')
+    },
+
+    guardarUsuario: (req, res) => {
+        res.send(req.body);
+
+       let passEncriptada = bcrypt.hashSync(req.body.constrasenia, 10)
+
+        db.Usuarios.create({
+            nombre_usuario: req.body.nombre,
+            email: req.body.email,
+            password: passEncriptada
+        })
+        res.redirect("/usuarios")
+        
     },
     
     favoritos: function (req,res) {

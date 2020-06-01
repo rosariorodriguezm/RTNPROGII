@@ -9,14 +9,11 @@ const resena = sequelize.define('Resenas',
     },
     serie_id: DataTypes.INTEGER,
     usuario_id: DataTypes.STRING,
-    created_at: DataTypes.DATE,
+    createdAt: DataTypes.DATE,
     texto_res: DataTypes.STRING, 
-    updated_at: DataTypes.DATE,
+    updatedAt: DataTypes.DATE,
     puntaje: DataTypes.INTEGER,
 },
-{
-    timestamps: false,
-}
 );
 
 resena.associate = function(models){

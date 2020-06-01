@@ -23,23 +23,28 @@
     <div class="uk-section">
       <div class="uk-container">
         <h1>Mis reseñas</h1>
-        <form  method="post" class="iniciar_sesion" action="/resenias/mis-resenas">
-           
-            <label for="email">Email</label>
-              <input type="text" name="email" value="" required placeholder="E-mail" id="email">
-  
-            <label for="contraseña">Contraseña</label>
-              <input type="password" name="contrasenia" value="" required min="8" placeholder="Contraseña" >
-          <br>
-        
-          <button type="submit" name="button" class="enviar" id="perfil"><a href="">Acceder</a></button>
-          </form>
+       
+        <% if (resenias.length == 0) { %>
+          <p>Todavía no realizaste ninguna reseña</p>
 
-          <ul>
-              
-          </ul>
+          <% } else { %>
+
+            
+           <% for (let i = 0; i < resenias.length; i++) { %>
+           <div> 
+          <li><%= resenias[i].texto_res %></li>
+          <li>Puntaje: <%= resenias[i].puntaje %></li>
+          <li>Fecha de creación: <%= resenias[i].createdAt %></li>
+          <li>Última actualización: <%= resenias[i].updatedAt %></li>
+          <p><a href="/usuarios/resenias/editar/<%resenias[i].id %>">Editar reseña</a></p>
+          <p><a href="/usuarios/resenias/borrar/<%resenias[i].id %>">Borrar reseña</a></p>
+          <p><a href="/pages/detalle?id=<%= resenias[i].serie_id %>">Ver serie</a></p>
+          </div> 
+
+            <% } %>
 
 
+        <% } %>  
 
       </div>
     </div>

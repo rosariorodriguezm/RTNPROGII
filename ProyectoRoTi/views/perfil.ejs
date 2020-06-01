@@ -22,19 +22,50 @@
   <main>
     <div class="uk-section">
       <div class="uk-container">
-        <form  method="post" class="iniciar_sesion" action="/pages/home">
-          <label for="nombre">Nombre</label>
-            <input type="text" name="usuario" value="" required placeholder="Nombre" id="Nom">
 
-          <label for="email">Email o Usuario</label>
-            <input type="text" name="" value="" required placeholder="E-mail o Usuario" id="email">
+        <% if (tipo == 'borrar') { %>
+          <form  method="POST" class="iniciar_sesion" action="/usuarios/resenias/borrar/<%= borrarId %>">
+          
+            <h1>Borrar reseña</h1>
 
-          <label for="contraseña">Contraseña</label>
-            <input type="password" name="contraseña" value="" required min="8" placeholder="Contraseña" >
+            <p>Ingrese sus datos para borrar la reseña</p>
+              
+              <label for="nombre">Nombre</label>
+              <input type="text" name="nombre" value="" required placeholder="Nombre" id="Nom">
         <br>
-      
-        <button type="submit" name="button" class="enviar" id="perfil"><a href="/usuarios/perfil">Acceder</a></button>
-        </form>
+              <label for="email">Email o Usuario</label>
+              <input type="text" name="email" value="" required placeholder="E-mail" id="email">
+        <br>
+              <label for="contraseña">Contraseña</label>
+              <input type="password" name="contrasenia" value="" required min="8" placeholder="Contraseña" >
+        <br>
+
+            <button type="submit" name="button">Listo!</button>
+
+          </form>
+        
+        <% } else { %>
+
+          <form method="POST" action="/usuarios/perfil"> 
+
+            <h1>Iniciar sesión</h1>
+
+              <label for="nombre">Nombre</label>
+              <input type="text" name="nombre" value="" required placeholder="Nombre" id="Nom">
+        <br>
+              <label for="email">Email o Usuario</label>
+              <input type="text" name="email" value="" required placeholder="E-mail" id="email">
+        <br>
+              <label for="contraseña">Contraseña</label>
+              <input type="password" name="contrasenia" value="" required min="8" placeholder="Contraseña" >
+        
+        <br>
+
+            <a href="/usuarios/miPerfil"><button type="submit" name="button">Ingresar</button></a>
+            
+          </form>
+
+          <% } %>
       </div>
     </div>
   </main>

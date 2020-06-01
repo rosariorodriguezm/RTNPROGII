@@ -26,7 +26,9 @@ module.exports = {
     },
     
     perfil: function(req, res){
-        res.render('perfil')
+        res.render('perfil', {
+            tipo: 'ingresar'
+        })
         
     },
 
@@ -122,7 +124,7 @@ module.exports = {
                     {usuario_id: req.params.id}
                 ], //de la DB Resenias, me trae todas las resenias en las que la columna del id de usuario coincida con el id q viene como parametro
                 include:[
-                    "usuario" //utilizo la relacion entre modelos
+                    "usuario" //utilizo la relacion de modelos
                 ]
             })
             .then(resenias => {
@@ -166,16 +168,16 @@ module.exports = {
                 db.Resenas
                 .findByPk(req.params.id)
                 .then(resultado => {
-                    res.redirect('/usuarios/resenias'+ resultado.usuario_id)
+                    res.redirect('/usuarios/resenias/'+ resultado.usuario_id)
                 }) //muestro lista de resenias del usuario actualizado
             })
         },
 
         borrarResenia: function(req, res) {
             res.render('perfil', { 
-                tipo: 'borrar',
-                borrarId: req.params.id
-            }) //uso formulario del tipo borrar de la vista perfil
+                tipo: 'borrar', 
+                borrarId: req.params.id}) 
+            //uso formulario del tipo borrar de la vista perfil
         },
 
         reseniaBorrada: function(req, res) {
@@ -183,7 +185,7 @@ module.exports = {
             //tomo datos del form
 
             .then(resultado => {
-                if (resultado != undefined){
+                if (resultado != null){
                    //si el resultado es distinto a undefined, es decir, coincide, elimino la resenia
                     db.Resenas.destroy({
                         where: { //que coincide con el id que viene como parametro

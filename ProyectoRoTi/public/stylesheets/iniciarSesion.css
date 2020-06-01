@@ -1,0 +1,14 @@
+.label {
+    font-family: 'Fjalla One', sans-serif;
+     color: #dc3545;
+}
+input {
+    border-radius: 10px;
+    width: 30%;
+    margin-bottom: 20px;
+  } 
+  .boton{
+    border-radius: 10px;
+    
+    margin-bottom: 20px;
+  }

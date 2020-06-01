@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="/stylesheets/footer.css">
     <link rel="stylesheet" href="/stylesheets/general.css">
     <link rel="stylesheet" href="/stylesheets/perfil.css">
+    <link rel="stylesheet" href="/stylesheets/iniciarSesion.css">
+
     <meta name="viewport" content="width=device-width, user-scalable=no">
   </head>
 
@@ -50,18 +52,21 @@
 
             <h1>Iniciar sesión</h1>
 
-              <label for="nombre">Nombre</label>
-              <input type="text" name="nombre" value="" required placeholder="Nombre" id="Nom">
+              <label for="nombre" class="label">Nombre</label>
+              <br>
+              <input type="text" name="nombre" value="" required placeholder="Nombre" id="Nom" class="input">
         <br>
-              <label for="email">Email o Usuario</label>
-              <input type="text" name="email" value="" required placeholder="E-mail" id="email">
+              <label for="email"class="label">Email o Usuario</label>
+              <br>
+              <input type="text" name="email" value="" required placeholder="E-mail" id="email"class="input">
         <br>
-              <label for="contraseña">Contraseña</label>
-              <input type="password" name="contrasenia" value="" required min="8" placeholder="Contraseña" >
+              <label for="contraseña"class="label">Contraseña</label>
+              <br>
+              <input type="password" name="contrasenia" value="" required min="8" placeholder="Contraseña" class="input">
         
         <br>
 
-            <a href="/usuarios/miPerfil"><button type="submit" name="button">Ingresar</button></a>
+            <a href="/usuarios/miPerfil"><button type="submit" name="button" class="boton">Ingresar</button></a>
             
           </form>
 

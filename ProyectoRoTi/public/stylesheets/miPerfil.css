@@ -5,13 +5,19 @@ h2{
 }
 
 .enlace {
-    color: white;
+    color: #dc3545;
     font-family: 'Fjalla One';
     font-size: 18px; 
 }
 .enlace:hover {
-    color: white;
+    color: #dc3545;
     font-family: 'Fjalla One';
     font-size: 18px; 
-    text-decoration:underline;
+    text-decoration: underline;
+}
+
+p {
+    color: white;
+    font-family: 'Fjalla One';
+    font-size: 18px;
 }

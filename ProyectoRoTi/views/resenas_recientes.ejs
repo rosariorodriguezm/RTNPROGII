@@ -29,7 +29,7 @@
         <div class="ult_resenias">
         <% for (let i=0; i < ultimasResenas.length; i++) { %>
            <li> <p><%= ultimasResenas[i].texto_res %></p>
-                <p>Fecha de creación: <%=ultimasResenas[i].created_at %></p>
+                <p>Fecha de creación: <%=ultimasResenas[i].createdAt %></p>
                 <p>Autor: <%=ultimasResenas[i].usuario.nombre_usuario %></p> 
           </li>
        <% } %> 

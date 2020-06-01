@@ -1,8 +1,9 @@
 .ult_resenias li {
 color: white;
 text-align: center;
-background-color: rgb(29.6%, 29.6%, 29.6%);
-margin-top: 30px;
+/*border: 5px solid #dc3545;*/
+background-color: #dc3545;
+margin-top: 50px;
 margin-left: 50px;
 margin-right: 50px;
 }
@@ -10,4 +11,11 @@ margin-right: 50px;
 h1 {
     text-align: center;
 }
+p {
+    color: black;
+    font-family: 'Fjalla One';
+    font-size: 18px;
+    
+}
+
 

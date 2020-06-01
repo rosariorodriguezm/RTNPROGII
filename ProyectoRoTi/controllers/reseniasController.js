@@ -25,7 +25,7 @@ module.exports = {
         DB.Resenas
         .findAll(
           {
-          include: ['usuario'], order: [['created_at', 'DESC']]
+          include: ['usuario'], order: [['createdAt', 'DESC']]
           //aplico la relacion de los modelos y ordeno ultimas reseñas segun su fecha de creacion en forma descendente 
           }
         )

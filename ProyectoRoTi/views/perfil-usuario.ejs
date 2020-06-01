@@ -27,13 +27,14 @@
       <div class="uk-container">
         <div class="perfil_usuarios">
           <h3>Perfil de:<p><%= detalle.nombre_usuario %></p> </h3>
+          <h3 class="nac">Fecha de nacimiento:<p class="nac"><%= detalle.fecha_nac %></p> </h3>
+         
           <h2>Reseñas: </h2>
           <% for (let i = 0; i < detalle.resenia.length; i++) { %>
            <li> <p class="res"><%= detalle.resenia[i].texto_res %>  </p></li>
-          
-           
+    
             <% } %>
-        
+            
           <br>
           <br>
           

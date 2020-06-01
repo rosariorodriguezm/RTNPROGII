@@ -4,14 +4,42 @@ const router = express.Router();
 const controller = require('../controllers/usuariosController')
 
 
-//localhost:3000/usuarios   BUSCADOR DE USUARIOS
+//localhost:3000/usuarios   
+
+//BUSCADOR DE USUARIOS y todos los usuarios
 router.get('/', controller.buscarUsuarios);
 
 // RESULTADOS DEL BUSCADOR DE USUARIOS
 router.post('/respuesta-usuarios', controller.resUsuario)
 
+
+
 //INICIAR SESION
-router.get('/perfil', controller.perfil)
+router.get('/perfil', controller.perfil);
+
+//PROCESA EL INICIO DE SESION Y REDIRECCIONA A PAG MIS RESENIAS
+router.post('/perfil', controller.confirmarUsuario);
+
+//LISTADO DE MIS RESENIAS
+router.get('/resenias/:id', controller.listaMisResenias)
+
+
+
+//MUESTRA EL FORMULARIO PARA EDITAR UNA RESENIA
+router.get('/resenias/editar/:id', controller.editarResenia)
+
+//PROCESA Y CONFIRMA LA EDICION DE LA RESENIA
+router.post('/resenias/editar/:id', controller.reseniaEditada)
+
+
+
+//MUESTRA EL FORMULARIO PARA BORRAR UNA RESENIA
+router.get('/resenias/borrar/:id', controller.borrarResenia)
+
+//PROCESA Y CONFIRMA LA ELIMINACION DE LA RESENIA
+router.post('/resenias/borrar/:id', controller.reseniaBorrada)
+
+
 
 //UNA VEZ INICIADA SESION TE MUESTRA TU PERFIL PRIVADO
 router.get('/miPerfil', controller.miPerfil)
@@ -24,7 +52,6 @@ router.get('/registrarse', controller.registrarse);
 
 // UNA VEZ REGISTRADO TE LLEVA A X 
 router.post('/registrarse', controller.guardarUsuario);
-
 
 router.get('/favoritos', controller.favoritos);
 

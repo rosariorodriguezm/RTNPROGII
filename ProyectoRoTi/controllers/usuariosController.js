@@ -55,7 +55,6 @@ module.exports = {
     },
 
     guardarUsuario: (req, res) => {
-   //     res.send(req.body);
 
        let passEncriptada = bcrypt.hashSync(req.body.contrasenia, 10)
 
@@ -76,9 +75,8 @@ module.exports = {
     
     resUsuario: (req,res)=> {  
      //muestra las respuestas del buscador de usuarios
-       let busquedaUsuario = req.body.mail //almaceno lo que busca el usuario 
 
-       var variableEmail = req.body.mail;
+       var variableEmail = req.body.mail;//almaceno lo que busca el usuario 
         var variableNombre = req.body.name; 
        db.Usuarios
             .findAll({    
@@ -88,7 +86,7 @@ module.exports = {
                         { nombre_usuario: {[OP.like]: "%" + variableNombre + "%" } }
                     ]
                 }
-    })
+            })
             .then(usuarios => {
                 return res.render("respuesta-usuarios", {
                     listadoUsuarios:usuarios,
@@ -101,14 +99,107 @@ module.exports = {
                 
     }, 
 
+        confirmarUsuario: function(req, res) {
+            moduloLogin.validar(req.body.email, req.body.contrasenia)
+            //tomo del formulario el mail y la contrasenia, el metodo validar del moduloLogin chequea que esten bien
+
+            .then(usuario => {
+                if(usuario == undefined) {
+                    res.redirect('/usuarios/perfil');
+                //si el usuario esta undefined, es decir, no coincide, me devuelve al form de inicio de sesion    
+                
+                } else {
+                    res.redirect('/usuarios/resenias/'+ usuario.id)
+                //si el usuario existe, me redirige al listado de resenias de ese usuario --> '/usuarios/resenias/:id'
+                }
+            })
+        },
+
+        listaMisResenias: function(req,res) {
+            db.Resenas
+            .findAll({
+                where:[
+                    {usuario_id: req.params.id}
+                ], //de la DB Resenias, me trae todas las resenias en las que la columna del id de usuario coincida con el id q viene como parametro
+                include:[
+                    "usuario" //utilizo la relacion entre modelos
+                ]
+            })
+            .then(resenias => {
+                res.render('misResenas', {
+                    resenias: resenias
+                })
+            })
+        },
+
+        editarResenia: function(req, res) {
+            db.Resenas
+            .findOne({ //tomo la resenia que coincida con el id (de una resenia) que viene como parametro
+                where: [
+                    {id: req.params.id}
+                ]
+            })
+            .then(result => {
+                res.render('editarResenia', {
+                    result: result
+                })
+            })
+        },
+
+        reseniaEditada: function(req, res){
+            let actualizarRes = {
+                texto_res: req.body.texto,
+                puntaje: req.body.puntaje,
+                id: req.params.id
+            } //me traigo los cambios del form junto con el id que viene como parametro
+
+            db.Resenas.update({
+                texto_res: actualizarRes.texto_res,
+                puntaje: actualizarRes.puntaje
+                //actualizo columnas de la db con los nuevos datos
+            },{ 
+                where: { //en las que el id de la resenia coincide con el id que me traje antes
+                    id: actualizarRes.id
+                }
+            })
+            .then(()=> {
+                db.Resenas
+                .findByPk(req.params.id)
+                .then(resultado => {
+                    res.redirect('/usuarios/resenias'+ resultado.usuario_id)
+                }) //muestro lista de resenias del usuario actualizado
+            })
+        },
+
+        borrarResenia: function(req, res) {
+            res.render('perfil', { 
+                tipo: 'borrar',
+                borrarId: req.params.id
+            }) //uso formulario del tipo borrar de la vista perfil
+        },
+
+        reseniaBorrada: function(req, res) {
+            moduloLogin.validar(req.body.email, req.body.contrasenia)
+            //tomo datos del form
+
+            .then(resultado => {
+                if (resultado != undefined){
+                   //si el resultado es distinto a undefined, es decir, coincide, elimino la resenia
+                    db.Resenas.destroy({
+                        where: { //que coincide con el id que viene como parametro
+                            id: req.params.id,
+                        }
+                    })
+                    res.redirect('/usuarios/perfil/') //redirige al inicio de sesion
+                    
+                } else {
+                    res.redirect('/usuarios/resenias/borrar/'+ req.params.id)
+                } //si no coincide, redirige al form para borrar resenia
+            })
+
+        },
 
 
-
-
-//ESTO SE USA PARA LA CONTRA ENCRIPTADA CUANDO SE CREA UN USUARIO
-//  var salt = bcrypt.genSaltSync(10);
-//var hash = bcrypt.hashSync("B4c0/\/", salt);
-// Store hash in your password DB.
 
 }
 

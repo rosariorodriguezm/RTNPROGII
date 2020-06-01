@@ -27,8 +27,9 @@
           <h3>Perfil</h3>
           <h2>Nombre: <%= detalle.nombre_usuario %></h1>
           <h2>Reseñas: </h2>
-           <%= detalle.resenia%>
-            
+          <% for (let i = 0; i < detalle.resenia.length; i++) { %>
+           <li> <%= detalle.resenia[i].texto_res %> </li>
+            <% } %>
         
           <br>
           <br>

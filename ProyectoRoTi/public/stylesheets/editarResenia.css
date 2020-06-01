@@ -1,0 +1,29 @@
+p, label{
+    color: white;
+    font-family: 'Fjalla One';
+    font-size: 18px;
+}
+
+input {
+    border-radius: 18px;
+    width: 180px;
+    padding: 5px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.boton {
+    color: white;
+    font-family: 'Fjalla One';
+    font-size: 18px;
+    border: 2px solid #dc3545;   
+}
+
+textarea {
+    border-radius: 18px;
+    width: 600px;
+    height: 120px;
+    padding: 5px;
+    font-size: 12px;
+    
+}

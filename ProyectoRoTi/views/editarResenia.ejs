@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="/stylesheets/footer.css">
     <link rel="stylesheet" href="/stylesheets/general.css">
     <link rel="stylesheet" href="/stylesheets/perfil.css">
+    <link rel="stylesheet" href="/stylesheets/editarResenia.css">
+
     <meta name="viewport" content="width=device-width, user-scalable=no">
   </head>
 
@@ -30,13 +32,16 @@
             <p>Ingrese su nueva reseña</p>
               
               <label for="comentario">Comentario</label>
+              <br>
               <textarea type="text" name="texto" value="" required> </textarea>
-        <br>
+              <br>
+              <br>
               <label for="puntaje">Puntaje</label>
+              <br>
               <input type="number" min="0" max="10" name="puntaje" value="" required placeholder="Puntaje del 0 al 10">
-        <br>
-
-            <button type="submit" name="button">Listo!</button>
+              <br>
+              <br>
+            <button type="submit" name="button" class="boton">¡Listo!</button>
 
           </form>
         

@@ -29,14 +29,20 @@
       <h1>Resultados de la Busqueda</h1>
       
         <div >
-            <ul>
-              <% for (let i=0; i< listadoUsuarios.length; i++) { %>
-                <li>
-                  <a href="/usuarios/perfil-usuario/<%= listadoUsuarios[i].id %>" class="link"><p><%= listadoUsuarios[i].nombre_usuario%></p></a>
-                  <p class="respuesta"><%= listadoUsuarios[i].email%></p>
-                </li>
-              <% } %> 
-            </ul> 
+          
+            <% if (listadoUsuarios.length != 0) { %>
+              <ul>
+                <% for (let i=0; i< listadoUsuarios.length; i++) { %>
+                  <li>
+                    <a href="/usuarios/perfil-usuario/<%= listadoUsuarios[i].id %>" class="link"><p><%= listadoUsuarios[i].nombre_usuario%></p></a>
+                    <p class="respuesta"><%= listadoUsuarios[i].email%></p>
+                  </li>
+                <% } %> 
+              </ul>
+              <% } else { %>
+                <p class="noHayRta"> No se encontraron resultados para su busqueda</p>
+              <% } %>
+              <a href="/usuarios"> <p class="atras">Volver atrás</p></a>
       </div>
     
 

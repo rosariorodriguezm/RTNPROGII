@@ -57,7 +57,9 @@ module.exports = {
         db.Usuarios.create({
             nombre_usuario: req.body.nombre,
             email: req.body.email,
-            password: passEncriptada
+            //fecha_nac: req.body.nacimiento,
+            password: passEncriptada,
+            
         })
         res.redirect("/usuarios")
         

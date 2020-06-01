@@ -4,9 +4,9 @@ const router = express.Router();
 const controller = require('../controllers/usuariosController')
 
 
-//localhost:3000/usuarios
+//localhost:3000/usuarios   BUSCADOR DE USUARIOS
 router.get('/', controller.buscarUsuarios);
-
+// RESULTADOS DEL BUSCADOR DE USUARIOS
 router.post('/respuesta-usuarios', controller.resUsuario)
 
 router.get('/perfil', controller.perfil)

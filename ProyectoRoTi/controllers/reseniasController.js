@@ -19,8 +19,6 @@ module.exports = {
           })
         },
 
-    
-    
       
     resenasRecientes: (req, res) => {
         DB.Resenas
@@ -43,8 +41,18 @@ module.exports = {
     resenasUsuario: function(req,res){
       res.render('misResenas') 
   },
+
+    nuevaResenia: (req, res) => {
+      res.send(req.body);
+
+    DB.Resenas.create({
+          texto_res: req.body.nombre,
+          puntaje: req.body.puntaje,
+      })
+
+      res.redirect("")
     
-
-
+  },
+    
 }
 

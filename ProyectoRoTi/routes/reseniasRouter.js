@@ -10,6 +10,8 @@ router.get('/resenias-recientes', controller.resenasRecientes)
 
 router.get('/mis-resenas', controller.resenasUsuario);
 
+router.post('/detalle', controller.nuevaResenia)
+
 
 
 module.exports = router;

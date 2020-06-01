@@ -18,7 +18,7 @@ module.exports = {
        db.Resenas
        .findAll ({
            where: [
-          { serie_id: {[OP.like]: "%" + req.query.id + "%"}}
+          { serie_id: req.query.id }
             ]
         })
             .then(resenas => {

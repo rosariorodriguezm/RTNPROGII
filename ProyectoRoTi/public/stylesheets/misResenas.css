@@ -3,3 +3,24 @@ p {
     font-family: 'Fjalla One';
     font-size: 18px;
 }
+
+a {
+    color: #dc3545;
+    font-family: 'Fjalla One';
+    font-size: 18px;   
+}
+a:hover {
+    color:#dc3545;
+    font-family: 'Fjalla One';
+    font-size: 18px;   
+}
+.contenedor {
+    border: 3px solid #dc3545;
+    padding: 5px;
+    margin-top: 30px;
+}
+li {
+    color: white;
+    font-family: 'Fjalla One';
+    font-size: 18px;
+}

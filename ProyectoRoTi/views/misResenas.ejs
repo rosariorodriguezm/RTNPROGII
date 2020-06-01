@@ -33,14 +33,18 @@
 
             
            <% for (let i = 0; i < resenias.length; i++) { %>
-           <div> 
+           <div class="contenedor"> 
           <li><%= resenias[i].texto_res %></li>
-          <li>Puntaje: <%= resenias[i].puntaje %></li>
+          <br>
+          <li>Puntaje: <%= resenias[i].puntaje %> </li>
+          <br>
           <li>Fecha de creación: <%= resenias[i].createdAt %></li>
+          <br>
           <li>Última actualización: <%= resenias[i].updatedAt %></li>
-          <p><a href="/usuarios/resenias/editar/<%= resenias[i].id %>">Editar reseña</a></p>
-          <p><a href="/usuarios/resenias/borrar/<%= resenias[i].id %>">Borrar reseña</a></p>
-          <p><a href="/pages/detalle?id=<%= resenias[i].serie_id %>">Ver serie</a></p>
+          <br>
+          <p><a href="/usuarios/resenias/editar/<%= resenias[i].id %>">Editar reseña <i class="fas fa-edit"></i></a></p>
+          <p><a href="/usuarios/resenias/borrar/<%= resenias[i].id %>">Borrar reseña <i class="fas fa-trash-alt"></i></a></p>
+          <p><a href="/pages/detalle?id=<%= resenias[i].serie_id %>">Ver serie <i class="far fa-eye"></i></a></p>
           </div> 
 
             <% } %>

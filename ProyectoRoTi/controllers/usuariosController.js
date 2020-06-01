@@ -87,7 +87,7 @@ module.exports = {
             .then(usuarios => {
                 return res.render("respuesta-usuarios", {
                     listadoUsuarios:usuarios,
-                   
+
                 });
             })
             .catch(error => {

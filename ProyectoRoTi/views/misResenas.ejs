@@ -36,8 +36,8 @@
           <li>Puntaje: <%= resenias[i].puntaje %></li>
           <li>Fecha de creación: <%= resenias[i].createdAt %></li>
           <li>Última actualización: <%= resenias[i].updatedAt %></li>
-          <p><a href="/usuarios/resenias/editar/<%resenias[i].id %>">Editar reseña</a></p>
-          <p><a href="/usuarios/resenias/borrar/<%resenias[i].id %>">Borrar reseña</a></p>
+          <p><a href="/usuarios/resenias/editar/<%= resenias[i].id %>">Editar reseña</a></p>
+          <p><a href="/usuarios/resenias/borrar/<%= resenias[i].id %>">Borrar reseña</a></p>
           <p><a href="/pages/detalle?id=<%= resenias[i].serie_id %>">Ver serie</a></p>
           </div> 
 

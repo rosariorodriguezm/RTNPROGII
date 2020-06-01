@@ -192,7 +192,7 @@ module.exports = {
                             id: req.params.id,
                         }
                     })
-                    res.redirect('/usuarios/perfil/') //redirige al inicio de sesion
+                    res.redirect('/usuarios/resenias/') //redirige al inicio de sesion
                     
                 } else {
                     res.redirect('/usuarios/resenias/borrar/'+ req.params.id)

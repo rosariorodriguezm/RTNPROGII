@@ -26,6 +26,18 @@ module.exports = {
     
     perfil: function(req, res){
         res.render('perfil')
+       // var variableEmail = req.body.mail;
+       // var variableNombre = req.body.name; 
+
+      //  moduloLogin.chequearUsuario(variableEmail)
+      //  .then(usuario => {
+      //      return res.render('perfil', {
+      //          usuarioRegistrado: usuario
+      //      });
+      //  })
+      //  .catch(error =>
+      //      res.send(error))
+        
     },
 
     buscarUsuarios: (req, res) => {

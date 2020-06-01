@@ -1,4 +1,5 @@
 const DB = require('../database/models')
+const moduloLogin = require('../modulo-login')
 
 module.exports = {
     index: (req, res) => {
@@ -43,14 +44,30 @@ module.exports = {
   },
 
     nuevaResenia: (req, res) => {
-      res.send(req.body);
+    
+    moduloLogin.validar(req.body.email, req.body.contrasenia) // para validar que el usuario exista 
+//   .then (function (usuario){
+//     if (usuario) {
+//       const resena = {
+//                      serie_id: req.body.serie_id,
+//                      usuario_id: usuario_id,
+//                      texto_res: req.body.texto_res,
+//                      puntaje: req.body.puntaje,
+//        }
+//        DB.Resenas.create (resena)
+//        .then (function (resultado) {
+//          res.send("¡Gracias por tu reseña!")
+//        })
+//      } else {
+//          res.send("El mail o la contraseña no es correcta, intentelo nuevamente")
+//      }
+//      res.redirect("/pages/detalle")  
 
-    DB.Resenas.create({
-          texto_res: req.body.nombre,
-          puntaje: req.body.puntaje,
-      })
+//    })
+     
 
-      res.redirect("")
+
+
     
   },
     

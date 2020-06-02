@@ -44,7 +44,7 @@ module.exports = {
       DB.Resenas
       .findAll(
         {
-        include: ['usuario'], order: [['puntaje', 'DESC']]
+        include: ['usuario'], order: [['puntaje', 'DESC']], limit: [10]
         //aplico la relacion de los modelos y ordeno ultimas reseñas segun su puntaje en forma descendente 
         }
       )
@@ -65,8 +65,7 @@ module.exports = {
       DB.Resenas
       .findAll(
         {
-        include: ['usuario'],
-        order: [['puntaje', 'ASC']]
+        include: ['usuario'], order: [['puntaje', 'ASC']], limit: [10]
         //aplico la relacion de los modelos y ordeno ultimas reseñas segun su puntaje en forma ascendiente 
         }
       )
@@ -83,9 +82,6 @@ module.exports = {
 
     },
 
-    resenasUsuario: function(req,res){
-      res.render('misResenas') 
-  },
 
     nuevaResenia: (req, res) => {
     

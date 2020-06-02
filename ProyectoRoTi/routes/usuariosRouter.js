@@ -42,7 +42,7 @@ router.post('/resenias/borrar/:id', controller.reseniaBorrada)
 
 
 //UNA VEZ INICIADA SESION TE MUESTRA TU PERFIL PRIVADO
-router.get('/miPerfil', controller.miPerfil)
+router.get('/miPerfil/:id', controller.miPerfil)
 
 // PERFIL PUBLICO DE TODOS LOS USUARIOS
 router.get('/perfil-usuario/:id', controller.perfilUsuario);

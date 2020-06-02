@@ -23,18 +23,20 @@
   <main>
     <div class="uk-section">
       <div class="uk-container">
+        <h1>¡Hola, <%= detalle.nombre_usuario %>!</h1>
+        
         <h2>Mi Perfil <i class="fas fa-user"></i></h2>
 
-        <p>Nombre:</p>
-        <p>Email:</p>
-        <p>Fecha de nacimiento:</p>
+        <p>Email: <%= detalle.email %></p>
+        <p>Fecha de nacimiento: <%= detalle.fecha_nac %></p>
+      
 
 
 <br>
 
         <a href="/usuarios"> <p class="enlace"> Explorar otros usuarios <i class="fas fa-user"></i></p></a>
-        <a href="/resenias/resenias-recientes"> <p class="enlace"> Explorar reseñas más recientes <i class="fas fa-book-open"></i></p></a>
-        <a href="/usuarios/resenias/:id"> <p class="enlace"> Editar mis reseñas <i class="fas fa-edit"></i></p></a>
+        <a href="/resenias/resenias-recientes"> <p class="enlace"> Explorar reseñas <i class="fas fa-book-open"></i></p></a>
+        <a href="/usuarios/resenias/<%= detalle.id %>"> <p class="enlace"> Editar mis reseñas <i class="fas fa-edit"></i></p></a>
      
 
 

@@ -12,7 +12,7 @@ router.get('/mejorPuntuadas', controller.resenasMejorPuntuadas)
 
 router.get('/peorPuntuadas', controller.resenasPeorPuntuadas)
 
-router.post('/detalle', controller.nuevaResenia)
+
 
 
 

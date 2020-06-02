@@ -77,7 +77,7 @@ module.exports = {
                        [OP.or]: [
                            { email: {[OP.like]: "%" + variableEmail + "%" } }, 
                            
-                           { nombre_usuario: {[OP.like]: "%" + variableNombre + "%" } },
+                           { nombre_usuario: {[OP.like]: "%" + variableNombre + "%" } }
                        ]
                    }
                })

@@ -65,6 +65,32 @@ module.exports = {
         })
     
     },
+    
+    resUsuario: (req,res)=> {  
+        //muestra las respuestas del buscador de usuarios
+   
+          var variableEmail = req.body.mail;//almaceno lo que busca el usuario 
+           var variableNombre = req.body.name; 
+          db.Usuarios
+               .findAll({    
+                   where: {
+                       [OP.or]: [
+                           { email: {[OP.like]: "%" + variableEmail + "%" } }, 
+                           { nombre_usuario: {[OP.like]: "%" + variableNombre + "%" } }
+                       ]
+                   }
+               })
+               .then(usuarios => {
+                   return res.render("respuesta-usuarios", {
+                       listadoUsuarios:usuarios,
+   
+                   });
+               })
+               .catch(error => {
+                   return res.send("error"+error)
+               })
+                   
+       }, 
 
     registrarse: function (req,res) {
         res.render('registrarse')
@@ -89,31 +115,6 @@ module.exports = {
         res.render('favoritos')
     },
     
-    resUsuario: (req,res)=> {  
-     //muestra las respuestas del buscador de usuarios
-
-       var variableEmail = req.body.mail;//almaceno lo que busca el usuario 
-        var variableNombre = req.body.name; 
-       db.Usuarios
-            .findAll({    
-                where: {
-                    [OP.or]: [
-                        { email: {[OP.like]: "%" + variableEmail + "%" } }, 
-                        { nombre_usuario: {[OP.like]: "%" + variableNombre + "%" } }
-                    ]
-                }
-            })
-            .then(usuarios => {
-                return res.render("respuesta-usuarios", {
-                    listadoUsuarios:usuarios,
-
-                });
-            })
-            .catch(error => {
-                return res.send("error"+error)
-            })
-                
-    }, 
 
         confirmarUsuario: function(req, res) {
             moduloLogin.validar(req.body.email, req.body.contrasenia)

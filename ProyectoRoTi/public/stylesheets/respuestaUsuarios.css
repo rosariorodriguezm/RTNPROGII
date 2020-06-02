@@ -26,3 +26,9 @@
 .atras:hover {
 text-decoration: underline;
 }
+
+.usuario{
+    border: 2px solid #dc3545;
+    padding: 5px;
+    margin: 20px;
+}

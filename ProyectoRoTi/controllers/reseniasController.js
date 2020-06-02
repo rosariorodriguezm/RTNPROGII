@@ -11,7 +11,7 @@ module.exports = {
         ) //me traigo todas las reseñas
         .then(resenas => { //cuando este listo, quiero q me devuelva todas las reseñas y ahi la vista de esa pag
           return res.render('todas_resenas', {
-            listaResenas: resenas
+            listaResenas: resenas,
             //la vista entiende a todas las reseñas como listaReseñas
           })
         })
@@ -31,13 +31,56 @@ module.exports = {
         )
         .then(resenas => {
           return res.render('resenas_recientes', {
-            ultimasResenas: resenas
+            ultimasResenas: resenas,
+            tipo: 'recientes'
           })
         })
         .catch(error => {
           res.send(error);
         })
     }, 
+
+    resenasMejorPuntuadas: (req, res) => {
+      DB.Resenas
+      .findAll(
+        {
+        include: ['usuario'], order: [['puntaje', 'DESC']]
+        //aplico la relacion de los modelos y ordeno ultimas reseñas segun su puntaje en forma descendente 
+        }
+      )
+      .then(resenas => {
+        return res.render('resenas_recientes', {
+          ultimasResenas: resenas,
+          tipo: 'mejorPuntaje'
+        })
+      })
+      .catch(error => {
+        res.send(error);
+      })
+
+
+    },
+
+    resenasPeorPuntuadas: (req, res) => {
+      DB.Resenas
+      .findAll(
+        {
+        include: ['usuario'], order: [['puntaje', 'ASC']]
+        //aplico la relacion de los modelos y ordeno ultimas reseñas segun su puntaje en forma ascendiente 
+        }
+      )
+      .then(resenas => {
+        return res.render('resenas_recientes', {
+          ultimasResenas: resenas,
+          tipo: 'peorPuntaje'
+        })
+      })
+      .catch(error => {
+        res.send(error);
+      })
+
+
+    },
 
     resenasUsuario: function(req,res){
       res.render('misResenas') 

@@ -26,11 +26,11 @@
       <div class="uk-container">
   
 
-        <% if (tipo =='recientes') { %>
-      <h1>Últimas reseñas</h1>
+      <h1><%=titulo %></h1>
               <div class="ult_resenias">
                 <% for (let i=0; i < ultimasResenas.length; i++) { %>
                   <li> <p><%= ultimasResenas[i].texto_res %></p>
+                        <p>Puntaje: <%=ultimasResenas[i].puntaje %></p>
                         <p>Fecha de creación: <%=ultimasResenas[i].createdAt %></p>
                         <p>Autor: <%=ultimasResenas[i].usuario.nombre_usuario %></p> 
                   </li>
@@ -38,32 +38,7 @@
                 </div> 
 
 
-       <% } else if ( tipo = 'mejorPuntaje') { %>
-        <h1>Reseñas mejor puntuadas</h1>
-        <div class="ult_resenias">
-          <% for (let i=0; i < ultimasResenas.length; i++) { %>
-             <li> <p><%= ultimasResenas[i].texto_res %></p>
-                  <p>Fecha de creación: <%=ultimasResenas[i].createdAt %></p>
-                  <p>Autor: <%=ultimasResenas[i].usuario.nombre_usuario %></p>
-                  <p>Puntaje: <%=ultimasResenas[i].puntaje %></p> 
-            </li>
-
-          <% } %>  
-          </div>
-
-        <% } else { %>
-          <h1>Reseñas con peor puntaje</h1>
-            <div class="ult_resenias">
-            <% for (let i=0; i < ultimasResenas.length; i++) { %>
-               <li> <p><%= ultimasResenas[i].texto_res %></p>
-                    <p>Fecha de creación: <%=ultimasResenas[i].createdAt %></p>
-                    <p>Autor: <%=ultimasResenas[i].usuario.nombre_usuario %></p> 
-              </li>
-           <% } %> 
-            </div>
-
-       <% } %>
-
+       
 
 
        

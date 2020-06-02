@@ -32,7 +32,7 @@ module.exports = {
         .then(resenas => {
           return res.render('resenas_recientes', {
             ultimasResenas: resenas,
-            tipo: 'recientes'
+            titulo: 'Últimas reseñas'
           })
         })
         .catch(error => {
@@ -51,7 +51,7 @@ module.exports = {
       .then(resenas => {
         return res.render('resenas_recientes', {
           ultimasResenas: resenas,
-          tipo: 'mejorPuntaje'
+          titulo: 'Reseñas mejor puntuadas'
         })
       })
       .catch(error => {
@@ -72,7 +72,7 @@ module.exports = {
       .then(resenas => {
         return res.render('resenas_recientes', {
           ultimasResenas: resenas,
-          tipo: 'peorPuntaje'
+          titulo: 'Reseñas peor puntuadas'
         })
       })
       .catch(error => {

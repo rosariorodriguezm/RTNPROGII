@@ -3,14 +3,14 @@
 }
 
 .link{
-    color:#dc3545;
+    color: #dc3545;
+  }
+  .link:hover {
+    color: white;
+    text-decoration: none;
     
-}
-
-.link:hover{
-    color:#dc3545;
-
-}
+   
+  }
 
 .noHayRta {
     color: white;

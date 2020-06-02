@@ -65,7 +65,8 @@ module.exports = {
       DB.Resenas
       .findAll(
         {
-        include: ['usuario'], order: [['puntaje', 'ASC']]
+        include: ['usuario'],
+        order: [['puntaje', 'ASC']]
         //aplico la relacion de los modelos y ordeno ultimas reseñas segun su puntaje en forma ascendiente 
         }
       )

@@ -81,7 +81,7 @@ module.exports = {
             password: passEncriptada,
             
         })
-        res.redirect("/usuarios/miPerfil")
+        res.redirect("/pages")
         
     },
     

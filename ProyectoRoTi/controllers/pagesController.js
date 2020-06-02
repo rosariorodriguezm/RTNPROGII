@@ -13,13 +13,13 @@ module.exports = {
     },
 
     detalle: (req,res) => {
-        //res.render('detalle')
         
        db.Resenas
        .findAll ({
            where: [
           { serie_id: req.query.id }
-            ]
+            ],
+            include: ['usuario']
         })
             .then(resenas => {
             return res.render('detalle', {

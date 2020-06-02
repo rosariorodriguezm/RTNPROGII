@@ -94,12 +94,15 @@
               <ul>
                 <% for (let i=0; i< reseniaSerie.length; i++) { %>
                   <li>
-                    <p><%= reseniaSerie[i].texto_res%> </p>
+                    <p><%= reseniaSerie[i].texto_res %> </p>
+                    <p> Autor: <a href="/usuarios/perfil-usuario/<%=reseniaSerie[i].usuario.id %>"><%= reseniaSerie[i].usuario.nombre_usuario %></a></p>
+                    <p> Última actualización: <%= reseniaSerie[i].updatedAt %></p>
+                    <p> Puntaje: <%= reseniaSerie[i].puntaje %></p>
                   </li>
                   <% } %> 
                 </ul>
                 <% } else { %>
-                  <p class="noHayRta"> Todavía no hay reseñas, ¡Se el primero en escribir una!</p>
+                  <p class="noHayRta"> Todavía no hay reseñas, ¡Sé el primero en escribir una!</p>
                 <% } %>
               
               

@@ -139,7 +139,8 @@ module.exports = {
                 ], //de la DB Resenias, me trae todas las resenias en las que la columna del id de usuario coincida con el id q viene como parametro
                 include:[
                     "usuario" //utilizo la relacion de modelos
-                ]
+                ],
+                order: [['updatedAt', 'DESC']]
             })
             .then(resenias => {
                 res.render('misResenas', {

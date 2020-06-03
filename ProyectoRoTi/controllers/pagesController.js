@@ -23,7 +23,8 @@ module.exports = {
         })
             .then(resenas => {
             return res.render('detalle', {
-                reseniaSerie: resenas
+                reseniaSerie: resenas,
+                id: req.query.id
                
          }) ; 
         })

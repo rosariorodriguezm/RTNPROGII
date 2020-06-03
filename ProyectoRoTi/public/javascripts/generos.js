@@ -11,7 +11,7 @@ window.addEventListener('load',function(){
        var generos = informacion.genres;
        for (var i = 0; i <= generos.length; i++) {
          listaGeneros.innerHTML += `
-            <li><a href="series-por-genero.html?genero=${generos[i].id}&name=${generos[i].name}">${generos[i].name}</a></li>
+            <li><a href="/pages/series-por-genero?genero=${generos[i].id}&name=${generos[i].name}">${generos[i].name}</a></li>
         `
         }
       })

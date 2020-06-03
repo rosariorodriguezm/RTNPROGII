@@ -4,6 +4,7 @@ window.addEventListener('load',function(){
     var id = urlParams.get('id');
   
     console.log(id);
+
   // FUNCION DE INFORMACION
     var api_key = "60be6317b0012697cb25d6ce427de920"
     fetch("https://api.themoviedb.org/3/tv/" + id + "?api_key="+api_key+"&language=en-US")
@@ -196,15 +197,17 @@ window.addEventListener('load',function(){
          console.log(information);
          var opciones= ""
          var reco = document.querySelector('#recomendaciones')
+         
          for (var i = 10; i < information.results.length; i++) {
            var id =  information.results[i].id
            opciones= "https://image.tmdb.org/t/p/original" + information.results[i].poster_path
-           console.log(opciones)
+           
+          
            reco.innerHTML +=
            `<a href="/pages/detalle?id=${id}">
            <img class= "recomm" src="${opciones}" width="250">
            </a>`
-  
+          
           var sectionReco = document.querySelector("#contenedor-carrusel")
           var abracadabra = document.querySelector("#abracadabra")
   
@@ -212,6 +215,7 @@ window.addEventListener('load',function(){
               if (sectionReco.style.display == "none") {
   
                 sectionReco.style.display = "block";
+
               }else {
                 sectionReco.style.display = "none";
   

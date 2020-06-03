@@ -9,6 +9,7 @@ router.get('/', controller.home);
 router.get('/avanzado', controller.avanzado);
 
 router.get('/detalle', controller.detalle);
+
 router.post('/detalle', controller.nuevaResenia)
 
 router.get('/generos', controller.generos);

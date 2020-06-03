@@ -51,21 +51,24 @@ module.exports = {
     }, 
 
     nuevaResenia: (req, res) => {
+
+        moduloLogin.validar(req.body.email, req.body.contrasenia) 
+        // para validar que el usuario exista 
         
-        moduloLogin.validar(req.body.email, req.body.contrasenia) // para validar que el usuario exista 
-        
-        .then (function (usuario){
-         if (usuario == undefined) { res.send("Hola!")
+        .then (usuario => {
+         if (usuario != null) { 
+             db.Resenas.create ({
+                serie_id: req.query.id,
+                usuario_id: usuario.id,
+                texto_res: req.body.texto_res,
+                puntaje: req.body.puntaje,
+
+            })
+        res.redirect("/pages/detalle?id="+req.query.id)
+
         } else {
-            db.Resenas.create ({
-                email: req.body.email,
-                texto_res: req.body.texto,
-                puntaje: req.body.puntaje, })
-
-             res.redirect("/pages")
+            res.redirect('/pages/registrarse')
         } 
-
-         
     
         
           }) 
@@ -75,6 +78,6 @@ module.exports = {
 }
 
 
-//console.log(idSerie);
+
 
 

@@ -47,11 +47,13 @@ router.get('/miPerfil/:id', controller.miPerfil)
 // PERFIL PUBLICO DE TODOS LOS USUARIOS
 router.get('/perfil-usuario/:id', controller.perfilUsuario);
 
+
 // FORM PARA REGISTRATE
 router.get('/registrarse', controller.registrarse);
 
 // UNA VEZ REGISTRADO TE LLEVA A X 
 router.post('/registrarse', controller.guardarUsuario);
+
 
 router.get('/favoritos', controller.favoritos);
 

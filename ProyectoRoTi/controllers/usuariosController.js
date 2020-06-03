@@ -69,18 +69,17 @@ module.exports = {
     resUsuario: (req,res)=> {  
         //muestra las respuestas del buscador de usuarios
    
-          var variableEmail = req.body.mail;//almaceno lo que busca el usuario 
-           var variableNombre = req.body.name; 
+           var usuarioBuscado = req.body.usariobuscado; 
           db.Usuarios
                .findAll({    
                    where: {
                        [OP.or]: [
-                           { email: {[OP.like]: "%" + variableEmail + "%" } }, 
+                          { email: {[OP.like]: "%" + usuarioBuscado + "%" } }, 
                            
-                           { nombre_usuario: {[OP.like]: "%" + variableNombre + "%" } }
-                       ]
+                           { nombre_usuario: {[OP.like]: "%" + usuarioBuscado + "%" } }
+                     ]
                    }
-               })
+              })
                .then(usuarios => {
                    return res.render("respuesta-usuarios", {
                        listadoUsuarios:usuarios,

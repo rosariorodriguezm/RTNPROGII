@@ -68,7 +68,7 @@ module.exports = {
         res.redirect("/pages/detalle?id="+req.query.id)
 
         } else {
-            res.redirect('/pages/registrarse')
+            res.redirect('/usuarios/registrarse')
         } 
     
         

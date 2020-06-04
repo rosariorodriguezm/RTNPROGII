@@ -184,7 +184,7 @@ module.exports = {
                 db.Resenas
                 .findByPk(req.params.id)
                 .then(resultado => {
-                    res.redirect('/usuarios/resenias/'+ resultado.usuario_id)
+                    res.redirect('/usuarios/resenias/'+ resultado.serie_id)
                 }) //muestro lista de resenias del usuario actualizado
             })
         },
@@ -217,17 +217,18 @@ module.exports = {
 
         },
 
-        listo: function (req, res) {
-        
+        listoBorrar: function (req, res) {
             res.render('listo', {
                 titulo: '¡La reseña se borró exitosamente!',
                 volver: 'resenias',
-                
             }) 
-        
-        }
-
-
+        },
+        listoEditar: function (req, res) {
+            res.render('listo', {
+                titulo: '¡La reseña se editó correctamente!',
+                volver: 'resenias',
+            })
+        },
 
 }
 

@@ -30,11 +30,15 @@
           <h3 class="nac">Fecha de nacimiento:<p class="nac"><%= detalle.fecha_nac %></p> </h3>
          
           <h2>Reseñas: </h2>
+          <% if (detalle.resenia.length != 0) { %>
+            <ul>
           <% for (let i = 0; i < detalle.resenia.length; i++) { %>
            <li> <p class="res"><%= detalle.resenia[i].texto_res %>  </p></li>
-    
             <% } %>
-            
+          </ul>
+          <% } else { %>
+            <p class="sinResena"><%= detalle.nombre_usuario %> no ha escrito ninguna reseña aún </p>
+          <% } %>
           <br>
           <br>
           

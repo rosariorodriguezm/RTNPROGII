@@ -25,29 +25,23 @@ let moduloLogin = {
     },
 
     validar: function (email, pass) {
-
         return db.Usuarios.findOne({
             where:{
                 email:email,
             //  password: pass
             },
         })
-        .then(results=>{
-            var compare = bcrypt.compareSync(pass,password)
-            if ( compare = true)
-          //bcrypt.compare(pass, passEncriptada)
-           // .then(function(result) {
-               //  result == true   
-               return results;
-           // });
-       // bcrypt.compare(someOtherPlaintextPassword, hash)
-          //  .then(function(result) {
-                // result == false
-            //    res.send("La contraseña es incorrecta")
-           // });
-
-         
-
+        .then(results => {
+            if (results != null){
+                let chequear = bcrypt.compareSync(pass, results.password)
+                if (chequear) {
+                return results;
+            } else {
+                return undefined
+            }
+        } else {
+            return undefined
+        } 
         })
     }
 }

@@ -174,28 +174,37 @@ module.exports = {
         },
 
         reseniaEditada: function(req, res){
-            let actualizarRes = {
-                texto_res: req.body.texto,
-                puntaje: req.body.puntaje,
-                id: req.params.id
-            } //me traigo los cambios del form junto con el id que viene como parametro
-
-            db.Resenas.update({
+            moduloLogin.validar(req.body.email, req.body.contrasenia)
+            
+            .then(usuario => {
+                if(usuario != null){
+                let actualizarRes = {
+                    texto_res: req.body.texto,
+                    puntaje: req.body.puntaje,
+                    id: req.params.id
+                } //me traigo los cambios del form junto con el id que viene como parametro
+                
+                db.Resenas.update({
                 texto_res: actualizarRes.texto_res,
                 puntaje: actualizarRes.puntaje
                 //actualizo columnas de la db con los nuevos datos
-            },{ 
-                where: { //en las que el id de la resenia coincide con el id que me traje antes
-                    id: actualizarRes.id
+                    },{ 
+                    where: { //en las que el id de la resenia coincide con el id que me traje antes
+                        id: actualizarRes.id
+                        }
+                    })
+                .then(()=> {
+                    db.Resenas
+                    .findByPk(req.params.id)
+                    .then(resultado => {
+                        res.redirect('/usuarios/resenias/'+ resultado.usuario_id)
+                        }) //muestro lista de resenias del usuario actualizado
+                    })
+                } else {
+                    res.send("Contraseña incorrecta")
                 }
-            })
-            .then(()=> {
-                db.Resenas
-                .findByPk(req.params.id)
-                .then(resultado => {
-                    res.redirect('/usuarios/resenias/'+ resultado.usuario_id)
-                }) //muestro lista de resenias del usuario actualizado
-            })
+            })     
+            
         },
 
         borrarResenia: function(req, res) {

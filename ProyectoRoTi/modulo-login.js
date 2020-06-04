@@ -29,10 +29,12 @@ let moduloLogin = {
         return db.Usuarios.findOne({
             where:{
                 email:email,
-                password: pass
+            //  password: pass
             },
         })
         .then(results=>{
+            var compare = bcrypt.compareSync(pass,password)
+            if ( compare = true)
           //bcrypt.compare(pass, passEncriptada)
            // .then(function(result) {
                //  result == true   

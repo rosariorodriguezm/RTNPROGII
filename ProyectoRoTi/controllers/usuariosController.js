@@ -93,7 +93,7 @@ module.exports = {
        }, 
 
     registrarse: function (req,res) {
-        res.render('registrarse')
+        res.render('registrarse', {error : false})
     },
 
     guardarUsuario: (req, res) => {
@@ -112,7 +112,8 @@ module.exports = {
             })
             res.redirect("/pages")
             } else {
-            res.send("Ya existe una cuenta registrada con ese email")
+            //res.send("Ya existe una cuenta registrada con ese email")
+            res.render('registrarse', {error:  true })
             
         }
     })

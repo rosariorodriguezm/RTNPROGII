@@ -1,4 +1,5 @@
 let db = require('./database/models')
+const bcrypt = require ('bcryptjs')
 
 let moduloLogin = {
     chequearUsuario: function (email) {
@@ -24,6 +25,7 @@ let moduloLogin = {
     },
 
     validar: function (email, pass) {
+
         return db.Usuarios.findOne({
             where:{
                 email:email,
@@ -31,8 +33,18 @@ let moduloLogin = {
             },
         })
         .then(results=>{
-            
-            return results;
+          //bcrypt.compare(pass, passEncriptada)
+           // .then(function(result) {
+               //  result == true   
+               return results;
+           // });
+       // bcrypt.compare(someOtherPlaintextPassword, hash)
+          //  .then(function(result) {
+                // result == false
+            //    res.send("La contraseña es incorrecta")
+           // });
+
+         
 
         })
     }

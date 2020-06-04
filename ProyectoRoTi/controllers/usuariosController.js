@@ -98,7 +98,7 @@ module.exports = {
 
     guardarUsuario: (req, res) => {
 
-       let passEncriptada = bcrypt.hashSync(req.body.contrasenia, 10)
+       const passEncriptada = bcrypt.hashSync(req.body.contrasenia, 10)
 
         db.Usuarios.create({
             nombre_usuario: req.body.nombre,

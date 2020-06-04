@@ -12,10 +12,10 @@ h2{
     
 }
 .enlace:hover {
-    color: #dc3545;
+    color: white;
     font-family: 'Fjalla One';
     font-size: 18px; 
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 p {

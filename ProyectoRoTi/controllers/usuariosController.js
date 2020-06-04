@@ -97,18 +97,25 @@ module.exports = {
     },
 
     guardarUsuario: (req, res) => {
+        moduloLogin.buscarPorEmail(req.body.email)
 
-       const passEncriptada = bcrypt.hashSync(req.body.contrasenia, 10)
+        .then(resultado => {
+            if(resultado == undefined){
+            const passEncriptada = bcrypt.hashSync(req.body.contrasenia, 10)
 
-        db.Usuarios.create({
-            nombre_usuario: req.body.nombre,
-            email: req.body.email,
-            fecha_nac: req.body.nacimiento,
-            password: passEncriptada,
-            
-        })
-        res.redirect("/pages")
-        
+            db.Usuarios.create({
+                nombre_usuario: req.body.nombre,
+                email: req.body.email,
+                fecha_nac: req.body.nacimiento,
+                password: passEncriptada,
+                
+            })
+            res.redirect("/pages")
+            } else {
+            res.send("Ya existe una cuenta registrada con ese email")
+        }
+    })
+       
     },
     
     favoritos: function (req,res) {

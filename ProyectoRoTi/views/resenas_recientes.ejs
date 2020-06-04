@@ -27,15 +27,18 @@
   
       <a href="/resenias" id="volver">← Volver atrás</a>
 
-      <h1><%=titulo %></h1>
+      <h1 class="listado"><%=titulo %></h1>
               <div class="ult_resenias">
+                <ul class="listado">
                 <% for (let i=0; i < ultimasResenas.length; i++) { %>
-                  <li> <p><%= ultimasResenas[i].texto_res %></p>
-                        <p>Puntaje: <%=ultimasResenas[i].puntaje %></p>
-                        <p>Fecha de creación: <%=ultimasResenas[i].createdAt %></p>
-                        <p>Autor: <%=ultimasResenas[i].usuario.nombre_usuario %></p> 
+                  <li> <p id="texto"><%= ultimasResenas[i].texto_res %></p>
+                        <p><i class="far fa-star"></i> Puntaje: <%=ultimasResenas[i].puntaje %></p>
+                        <p><i class="far fa-calendar"></i> Fecha de creación: <%=ultimasResenas[i].createdAt %></p>
+                        <p><i class="far fa-calendar"></i>  Última actualización: <%=ultimasResenas[i].updatedAt %></p>
+                        <p><i class="far fa-user"></i> Autor: <%=ultimasResenas[i].usuario.nombre_usuario %></p> 
                   </li>
               <% } %>
+              </ul>
                 </div> 
 
 

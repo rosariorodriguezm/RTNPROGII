@@ -1,6 +1,6 @@
 .ult_resenias li {
 color: white;
-text-align: center;
+text-align: left;
 border: 2px solid #dc3545;
 padding: 10px;
 margin-top: 50px;
@@ -8,13 +8,17 @@ margin-left: 50px;
 margin-right: 50px;
 }
 
-h1 {
+#texto {
+  font-size: 19px;
+}
+
+.listado  {
     text-align: center;
 }
-p {
+.listado p {
     color: white;
     font-family: 'Fjalla One';
-    font-size: 18px;
+    font-size: 17px;
     
 }
 
@@ -57,4 +61,3 @@ p {
   }
 
  
-

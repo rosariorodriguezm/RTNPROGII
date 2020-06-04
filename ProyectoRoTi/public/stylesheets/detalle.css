@@ -45,6 +45,7 @@ main {
   .recomm img{
     cursor: pointer;
   }
+  
   .uk-container button {
     color:#dc3545 ;
     background-color: black;
@@ -99,13 +100,17 @@ main {
   #reviews {
     flex-wrap: wrap;
   }
+  
   #reviews {
     margin: 20px 0;
     width: 40%;
     margin-left: 40px;
-  
   }
   
+  #reviews  h1 {
+    margin-right: 50px;
+  }
+
   #reviews p {
     text-align: justify;
     font-size: 16px;
@@ -125,19 +130,7 @@ main {
     margin-top:10px;
     
   }
-  
-  #primer_comentario {
-    width: 100%;
-    padding: 5px;
-    border: 2px solid #dc3545;
-    font-size: 15px;
-    margin-top: 10px;
-  }
-  
-  #comentario_1 {
-    color: #dc3545;
-    font-size: 20px;
-  }
+
   
   #videoTrailer {
     width: 100%;
@@ -158,15 +151,21 @@ main {
     padding: 5px;
   }
   
-  
-  .nombreTemp {
+  .uk-accordion .temporadas a {
     font-size: 20px;
-    background-color: #dc3545;
+    background-color: black;
     padding: 3px;
   }
   
-  .nombreTemp:hover {
-    background-color: black;
+
+  .uk-accordion .temporadas a:hover {
+    color: white;
+    background-color: #dc3545;
+  }
+
+  .uk-accordion-content section{
+    border: solid 1px #dc3545;
+    padding: 5px;
   }
   
   #sin_trailer {
@@ -210,5 +209,7 @@ textarea {
   border: 2px solid #dc3545 ;
   padding: 10px;
   margin: 10px;
+ 
 }
+
 

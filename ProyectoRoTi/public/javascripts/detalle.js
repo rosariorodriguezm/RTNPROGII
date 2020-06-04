@@ -58,8 +58,10 @@ window.addEventListener('load',function(){
   
       temporadasSerie.innerHTML += `<li><a class="uk-accordion-title nombreTemp" href="#"> ${listaTemporadas}</a>
       <div class="uk-accordion-content">
+      <section>
       <p class="infoTemp">Fecha de estreno: ${fechaEstrenoTemp}</p>
       <p class="infoTemp">Cantidad de episodios: ${cantEpisodios}</p>
+      </section>
       </div>
       </li>
       `

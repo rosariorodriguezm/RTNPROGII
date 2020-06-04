@@ -39,6 +39,9 @@ router.get('/resenias/borrar/:id', controller.borrarResenia)
 //PROCESA Y CONFIRMA LA ELIMINACION DE LA RESENIA
 router.post('/resenias/borrar/:id', controller.reseniaBorrada)
 
+//PAG INTERMEDIA
+router.get('/resenias/borrar/:id/listo', controller.listo)
+
 
 
 //UNA VEZ INICIADA SESION TE MUESTRA TU PERFIL PRIVADO

@@ -208,7 +208,7 @@ module.exports = {
                             id: req.params.id,
                         }
                     })
-                    res.redirect('/usuarios/resenias/'+ resultado.usuario_id) //redirige al inicio de sesion
+                    res.redirect('/usuarios/resenias/borrar/'+ req.params.id +'/listo') //redirige a pag intermedia
                     
                 } else {
                     res.redirect('/usuarios/resenias/borrar/'+ req.params.id)
@@ -216,6 +216,13 @@ module.exports = {
             })
 
         },
+
+        listo: function (req, res) {
+            res.render('listo', {
+                titulo: '¡La reseña se borró exitosamente!',
+                volver: 'series'
+            })
+        }
 
 
 

@@ -12,6 +12,7 @@
   border: outset 2px rgba(139, 137, 90, 0);
   font-size: 20px;
   text-transform: uppercase;
+  
   }
 
 .enviar:hover {
@@ -30,9 +31,7 @@
 #registrarse select {
   font-size: 15px;
 }
-main{
-  text-align: center;
-}
+
 
 label {
   display: block;
@@ -47,7 +46,29 @@ label {
 
 input {
   border-radius: 10px;
-  width: 30%;
+  width: 70%;
   margin-bottom: 20px;
 }
+.beneficio{
+  color: #dc3545;
+  font-size: 30px;
+}
+.ben {
+  color: white;
+ 
+}
+.seccion {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  list-style: none;
+}
+
+.divF{
+  width: 50%;
+}
+
+
+
+
 

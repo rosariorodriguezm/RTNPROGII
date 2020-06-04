@@ -19,6 +19,7 @@ footer {
    h1 {
      font-family: 'Fjalla One', sans-serif;
      color: #dc3545;
+     font-size: 35px;
    }
   
   .footer-hipervinculo {
@@ -49,4 +50,7 @@ footer {
   footer .section {
     text-align: center;
   }
-  
+  .nombres{
+    font-size: 25px;
+    color: white;
+  }

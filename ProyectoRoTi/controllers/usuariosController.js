@@ -113,6 +113,7 @@ module.exports = {
             res.redirect("/pages")
             } else {
             res.send("Ya existe una cuenta registrada con ese email")
+            
         }
     })
        

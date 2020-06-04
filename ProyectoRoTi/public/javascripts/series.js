@@ -23,7 +23,7 @@ window.addEventListener('load',function(){
       serie = '<li>'
       serie += '<a href="/pages/detalle?id=' + id + '">'
       serie +=   '<img src="'+posterURL+'" alt="" class="poster">'
-      //serie +=   '<div class="uk-position-center uk-panel"><h2 class="">'+'</h2></div>'
+      serie +=   '<div><h2 class="">'+'</h2></div>'
       serie += '</a>'
       serie += '</li>'
   

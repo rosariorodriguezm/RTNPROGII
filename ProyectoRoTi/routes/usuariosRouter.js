@@ -40,7 +40,7 @@ router.get('/resenias/borrar/:id', controller.borrarResenia)
 router.post('/resenias/borrar/:id', controller.reseniaBorrada)
 
 //PAG INTERMEDIA
-router.get('/resenias/borrar/:id/listo', controller.listo)
+router.get('/resenias/borrar/:id/listo', controller.listoBorrar)
 
 
 

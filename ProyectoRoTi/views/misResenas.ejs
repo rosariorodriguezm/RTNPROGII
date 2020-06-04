@@ -36,11 +36,11 @@
            <div class="contenedor"> 
           <li><%= resenias[i].texto_res %></li>
           <br>
-          <li>Puntaje: <%= resenias[i].puntaje %> </li>
+          <li><i class="far fa-star"></i> Puntaje: <%= resenias[i].puntaje %> </li>
           <br>
-          <li>Fecha de creación: <%= resenias[i].createdAt %></li>
+          <li><i class="far fa-calendar"></i> Fecha de creación: <%= resenias[i].createdAt %></li>
           <br>
-          <li>Última actualización: <%= resenias[i].updatedAt %></li>
+          <li><i class="far fa-calendar"></i> Última actualización: <%= resenias[i].updatedAt %></li>
           <br>
           <p><a href="/usuarios/resenias/editar/<%= resenias[i].id %>">Editar reseña <i class="fas fa-edit"></i></a></p>
           <p><a href="/usuarios/resenias/borrar/<%= resenias[i].id %>">Borrar reseña <i class="fas fa-trash-alt"></i></a></p>

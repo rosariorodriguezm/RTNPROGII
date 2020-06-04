@@ -221,7 +221,7 @@ module.exports = {
         
             res.render('listo', {
                 titulo: '¡La reseña se borró exitosamente!',
-                volver: "resenias",
+                volver: 'resenias',
                 
             }) 
         

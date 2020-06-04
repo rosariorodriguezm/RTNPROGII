@@ -218,10 +218,13 @@ module.exports = {
         },
 
         listo: function (req, res) {
+        
             res.render('listo', {
                 titulo: '¡La reseña se borró exitosamente!',
-                volver: 'series'
-            })
+                volver: "resenias",
+                
+            }) 
+        
         }
 
 

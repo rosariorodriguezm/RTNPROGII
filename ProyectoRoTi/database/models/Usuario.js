@@ -8,6 +8,7 @@ const usuario = sequelize.define(
         email: DataTypes.STRING,
         password: DataTypes.STRING,
         fecha_nac: DataTypes.DATE,
+        genero_fav: DataTypes.STRING,
 }, {
     timestamps: false,
 }); 
@@ -25,5 +26,4 @@ usuario.associate = function(models){
 return usuario; 
 
 }  
-
 

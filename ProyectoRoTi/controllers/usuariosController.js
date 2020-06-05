@@ -108,6 +108,7 @@ module.exports = {
                 email: req.body.email,
                 fecha_nac: req.body.nacimiento,
                 password: passEncriptada,
+                genero_fav: req.body.genero, 
                 
             })
             res.redirect("/pages")

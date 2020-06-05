@@ -37,6 +37,7 @@ p {
 
 .nac {
     font-size: 25px;
+    text-transform: capitalize;
 }
 
 .sinResena{

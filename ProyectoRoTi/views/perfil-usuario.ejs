@@ -36,7 +36,7 @@
           <% if (detalle.resenia.length != 0) { %>
             <ul>
           <% for (let i = 0; i < detalle.resenia.length; i++) { %>
-           <li> <p class="res"><%= detalle.resenia[i].texto_res %>  </p></li>
+           <li> <p class="res">"<%= detalle.resenia[i].texto_res %>"</p></li>
             <% } %>
           </ul>
           <% } else { %>

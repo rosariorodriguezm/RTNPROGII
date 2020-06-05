@@ -91,7 +91,7 @@
               <ul >
                 <% for (let i=0; i< reseniaSerie.length; i++) { %>
                   <li class="resenia">
-                    <p><%= reseniaSerie[i].texto_res %> </p>
+                    <p>"<%= reseniaSerie[i].texto_res %>" </p>
                     <p> <i class="far fa-star"></i> Puntaje: <%= reseniaSerie[i].puntaje %></p>
                     <p> <i class="far fa-calendar"></i> Última actualización: <%= reseniaSerie[i].updatedAt %></p>
                     <p> <i class="far fa-user"></i> Autor: <a href="/usuarios/perfil-usuario/<%=reseniaSerie[i].usuario.id %>"><%= reseniaSerie[i].usuario.nombre_usuario %> </a></p>

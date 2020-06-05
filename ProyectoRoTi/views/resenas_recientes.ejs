@@ -31,7 +31,7 @@
               <div class="ult_resenias">
                 <ul class="listado">
                 <% for (let i=0; i < ultimasResenas.length; i++) { %>
-                  <li> <p id="texto"><%= ultimasResenas[i].texto_res %></p>
+                  <li> <p id="texto">"<%= ultimasResenas[i].texto_res %>"</p>
                         <p><i class="far fa-star"></i> Puntaje: <%=ultimasResenas[i].puntaje %></p>
                         <p><i class="far fa-calendar"></i> Fecha de creación: <%=ultimasResenas[i].createdAt %></p>
                         <p><i class="far fa-calendar"></i>  Última actualización: <%=ultimasResenas[i].updatedAt %></p>

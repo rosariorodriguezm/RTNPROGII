@@ -22,6 +22,15 @@ margin-right: 50px;
     
 }
 
+.listado a {
+  text-decoration: none;
+  color:white;
+}
+
+.listado a:hover {
+  color:#dc3545;
+}
+
 #volver {
   text-decoration: none;
   color: white;

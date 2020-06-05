@@ -114,7 +114,9 @@ module.exports = {
             res.redirect("/pages")
             } else {
             //res.send("Ya existe una cuenta registrada con ese email")
-            res.render('registrarse', {error:  "true" })
+            res.render('registrarse', {
+                error:  "true", 
+                tuError: "Ya existe una cuenta registrada con el e-mail que ingresaste"} )
             
        }
     })

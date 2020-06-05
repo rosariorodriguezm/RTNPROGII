@@ -87,9 +87,10 @@ input, select {
   width: 70%;
 }
 
-.fas {
+.alerta {
   color: yellow;
 }
+
 .aviso{
   text-align: center;
   width: 70%;

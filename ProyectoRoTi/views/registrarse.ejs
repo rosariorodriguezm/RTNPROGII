@@ -68,12 +68,11 @@
    
                       </select>
 
-
-
+                      <br>
                             <button type="submit" class="enviar" id="regis">Enviar</button>
                     </form>
-                    <p class="aviso"><i class="fas fa-exclamation-triangle"></i></p>    
-                    <p id="errorEmail"> Ya existe una cuenta registrada con el e-mail que ingresaste </p>
+                    <p class="aviso"><i class="fas fa-exclamation-triangle alerta"></i></p>    
+                    <p id="errorEmail"> <%= tuError %> </p>
                     </div>
 
                     <% } else { %>

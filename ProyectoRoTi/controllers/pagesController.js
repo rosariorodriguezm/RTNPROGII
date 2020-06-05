@@ -72,9 +72,7 @@ module.exports = {
                 error: "true",
                 tuError: "¡Los datos ingresados son incorrectos! Creá una cuenta o volvé a intentarlo"
             })
-        } 
-    
-        
+            } 
           }) 
         
         },

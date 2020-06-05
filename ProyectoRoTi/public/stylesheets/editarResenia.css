@@ -27,3 +27,7 @@ textarea {
     font-size: 12px;
     
 }
+
+.alerta {
+    color: yellow;
+}

@@ -171,7 +171,8 @@ module.exports = {
             })
             .then(result => {
                 res.render('editarResenia', {
-                    result: result
+                    result: result,
+                    error: 'false'
                 })
             })
         },
@@ -204,7 +205,10 @@ module.exports = {
                         }) //muestro lista de resenias del usuario actualizado
                     })
                 } else {
-                    res.send("Contraseña incorrecta")
+                    res.render('editarResenia', {
+                        id: req.params.id,
+                        error: 'true'
+                    })
                 }
             })     
             

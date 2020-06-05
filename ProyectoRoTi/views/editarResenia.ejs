@@ -24,22 +24,31 @@
   <main>
     <div class="uk-section">
       <div class="uk-container">
+          <% if (error === "true") { %>
+         
+            <form  method="POST" action="/usuarios/resenias/editar/<%= id %>">
 
-          <form  method="POST" action="/usuarios/resenias/editar/<%= result.id %>">
-          
+            <p class="aviso"><i class="fas fa-exclamation-triangle alerta"></i></p>    
+            <p id="errorEmail"> Los datos ingresados no coinciden </p> 
+            
             <h1>Editar reseña</h1>
 
             <p>Ingrese sus datos para editar su reseña</p>
             <label for="email">Email</label>
+            <br>
             <input type="email" name="email" id="">
               <br>
+              <br>
             <label for="contrasenia">Contraseña</label>
+            <br>
             <input type="password" name="contrasenia">
-
+            
+            <br><br><br> 
 
             <p>Ingrese su nueva reseña</p>
               
               <label for="comentario">Comentario</label>
+              <br>
               <textarea type="text" name="texto" value="" required> </textarea>
               <br>
               <br>
@@ -51,6 +60,40 @@
             <button type="submit" name="button" class="boton">¡Listo!</button>
 
           </form>
+
+          <% } else { %>
+            <form  method="POST" action="/usuarios/resenias/editar/<%= result.id %>">
+              <h1>Editar reseña</h1>
+  
+              <p>Ingrese sus datos para editar su reseña</p>
+              <label for="email">Email</label>
+              <br>
+              <input type="email" name="email" id="">
+                <br>
+                <br>
+              <label for="contrasenia">Contraseña</label>
+              <br>
+              <input type="password" name="contrasenia">
+              
+              <br><br><br> 
+  
+              <p>Ingrese su nueva reseña</p>
+                
+                <label for="comentario">Comentario</label>
+                <br>
+                <textarea type="text" name="texto" value="" required> </textarea>
+                <br>
+                <br>
+                <label for="puntaje">Puntaje</label>
+                <br>
+                <input type="number" min="0" max="10" name="puntaje" value="" required placeholder="Puntaje del 0 al 10">
+                <br>
+                <br>
+              <button type="submit" name="button" class="boton">¡Listo!</button>
+  
+            </form>
+
+            <% } %>
         
       </div>
     </div>

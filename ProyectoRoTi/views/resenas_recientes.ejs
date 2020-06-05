@@ -35,7 +35,8 @@
                         <p><i class="far fa-star"></i> Puntaje: <%=ultimasResenas[i].puntaje %></p>
                         <p><i class="far fa-calendar"></i> Fecha de creación: <%=ultimasResenas[i].createdAt %></p>
                         <p><i class="far fa-calendar"></i>  Última actualización: <%=ultimasResenas[i].updatedAt %></p>
-                        <p><i class="far fa-user"></i> Autor: <%=ultimasResenas[i].usuario.nombre_usuario %></p> 
+                        <p><i class="far fa-user"></i> Autor: <a href="/usuarios/perfil-usuario/<%=ultimasResenas[i].usuario.id%>"><%=ultimasResenas[i].usuario.nombre_usuario %></a></p>
+                        <p><a href="/pages/detalle?id=<%=ultimasResenas[i].serie_id%>"><i class="far fa-eye"></i> Ver serie</a></p> 
                   </li>
               <% } %>
               </ul>

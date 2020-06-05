@@ -27,7 +27,8 @@ module.exports = {
     
     perfil: function(req, res){
         res.render('perfil', {
-            tipo: 'ingresar'
+            tipo: 'ingresar',
+            error: 'false'
         })
         
     },
@@ -51,6 +52,77 @@ module.exports = {
         
     },
 
+
+    registrarse: function (req,res) {
+        res.render('registrarse', {error : "false"})
+    },
+
+    guardarUsuario: (req, res) => {
+        moduloLogin.buscarPorEmail(req.body.email)
+
+        .then(resultado => {
+            if(resultado == undefined){
+            const passEncriptada = bcrypt.hashSync(req.body.contrasenia, 10)
+
+            db.Usuarios.create({
+                nombre_usuario: req.body.nombre,
+                email: req.body.email,
+                fecha_nac: req.body.nacimiento,
+                password: passEncriptada,
+                genero_fav: req.body.genero, 
+                
+            })
+            res.redirect("/pages")
+            } else {
+            //res.send("Ya existe una cuenta registrada con ese email")
+            res.render('registrarse', {
+                error:  "true", 
+                tuError: "Ya existe una cuenta registrada con el e-mail que ingresaste"} )
+            
+       }
+    })
+       
+    },
+
+    eliminarUsuario: (req, res) => {
+        res.render('perfil', { 
+            tipo: 'borrar', 
+            ruta: 'miPerfil/borrar/'+ req.params.id,
+            para: 'para eliminar su cuenta',
+            titulo: 'Eliminar cuenta',
+            error: 'false'
+        }) 
+            //uso formulario del tipo borrar de la vista perfil
+    }, 
+
+    usuarioEliminado: (req, res) => {
+        moduloLogin.validar(req.body.email, req.body.contrasenia)
+        //tomo datos del form
+
+        .then(resultado => {
+            if (resultado != null){
+                //si el resultado es distinto a undefined, es decir, coincide, elimino la cuenta
+                db.Usuarios.destroy({
+                    where: { //que coincide con el id que viene como parametro
+                        id: req.params.id,
+                        }
+                    })
+                    res.redirect('/usuarios/registrarse') 
+                    
+            } else {
+                res.render('perfil', {
+                    error: 'true',
+                    tipo: 'borrar',
+                    ruta: 'miPerfil/borrar/'+req.params.id,
+                    para: 'para eliminar su cuenta',
+                    titulo: 'Eliminar cuenta'
+                })
+                } //si no coincide, redirige a registrarse
+            })
+
+    },
+
+    
     buscarUsuarios: (req, res) => {
         //muestra formulario para buscar usuarios y todos los usuarios
         db.Usuarios
@@ -91,110 +163,79 @@ module.exports = {
                })
                    
        }, 
-
-    registrarse: function (req,res) {
-        res.render('registrarse', {error : "false"})
-    },
-
-    guardarUsuario: (req, res) => {
-        moduloLogin.buscarPorEmail(req.body.email)
-
-        .then(resultado => {
-            if(resultado == undefined){
-            const passEncriptada = bcrypt.hashSync(req.body.contrasenia, 10)
-
-            db.Usuarios.create({
-                nombre_usuario: req.body.nombre,
-                email: req.body.email,
-                fecha_nac: req.body.nacimiento,
-                password: passEncriptada,
-                genero_fav: req.body.genero, 
-                
-            })
-            res.redirect("/pages")
-            } else {
-            //res.send("Ya existe una cuenta registrada con ese email")
-            res.render('registrarse', {
-                error:  "true", 
-                tuError: "Ya existe una cuenta registrada con el e-mail que ingresaste"} )
-            
-       }
-    })
-       
-    },
     
     favoritos: function (req,res) {
         res.render('favoritos')
     },
     
 
-        confirmarUsuario: function(req, res) {
-            moduloLogin.validar(req.body.email, req.body.contrasenia)
-            //tomo del formulario el mail y la contrasenia, el metodo validar del moduloLogin chequea que esten bien
+    confirmarUsuario: function(req, res) {
+        moduloLogin.validar(req.body.email, req.body.contrasenia)
+        //tomo del formulario el mail y la contrasenia, el metodo validar del moduloLogin chequea que esten bien
 
-            .then(usuario => {
-                if(usuario == undefined) {
-                    res.redirect('/usuarios/perfil');
+        .then(usuario => {
+            if(usuario == undefined) {
+                res.redirect('/usuarios/perfil');
                 //si el usuario esta undefined, es decir, no coincide, me devuelve al form de inicio de sesion    
                 
-                } else {
-                    res.redirect('/usuarios/miPerfil/'+ usuario.id)
-                //si el usuario existe, me redirige al listado de resenias de ese usuario --> '/usuarios/resenias/:id'
-                }
-            })
-        },
+            } else {
+                res.redirect('/usuarios/miPerfil/'+ usuario.id)
+            //si el usuario existe, me redirige al listado de resenias de ese usuario --> '/usuarios/resenias/:id'
+              }
+         })
+     },
 
-        listaMisResenias: function(req,res) {
-            db.Resenas
-            .findAll({
-                where:[
-                    {usuario_id: req.params.id}
+    listaMisResenias: function(req,res) {
+        db.Resenas
+        .findAll({
+            where:[
+                 {usuario_id: req.params.id}
                 ], //de la DB Resenias, me trae todas las resenias en las que la columna del id de usuario coincida con el id q viene como parametro
-                include:[
+            include:[
                     "usuario" //utilizo la relacion de modelos
                 ],
-                order: [['updatedAt', 'DESC']]
+            order: [['updatedAt', 'DESC']]
             })
-            .then(resenias => {
-                res.render('misResenas', {
-                    resenias: resenias
+        .then(resenias => {
+            res.render('misResenas', {
+                resenias: resenias
                 })
             })
-        },
+    },
 
-        editarResenia: function(req, res) {
-            db.Resenas
-            .findOne({ //tomo la resenia que coincida con el id (de una resenia) que viene como parametro
-                where: [
-                    {id: req.params.id}
+    editarResenia: function(req, res) {
+        db.Resenas
+        .findOne({ //tomo la resenia que coincida con el id (de una resenia) que viene como parametro
+            where: [
+                {id: req.params.id}
                 ]
             })
-            .then(result => {
-                res.render('editarResenia', {
-                    result: result,
-                    error: 'false'
+        .then(result => {
+            res.render('editarResenia', {
+                result: result,
+                error: 'false'
                 })
             })
-        },
+    },
 
-        reseniaEditada: function(req, res){
-            moduloLogin.validar(req.body.email, req.body.contrasenia)
+    reseniaEditada: function(req, res){
+        moduloLogin.validar(req.body.email, req.body.contrasenia)
             
-            .then(usuario => {
-                if(usuario != null){
-                let actualizarRes = {
-                    texto_res: req.body.texto,
-                    puntaje: req.body.puntaje,
-                    id: req.params.id
-                } //me traigo los cambios del form junto con el id que viene como parametro
+        .then(usuario => {
+            if(usuario != null){
+            let actualizarRes = {
+                texto_res: req.body.texto,
+                puntaje: req.body.puntaje,
+                id: req.params.id
+            } //me traigo los cambios del form junto con el id que viene como parametro
                 
-                db.Resenas.update({
-                texto_res: actualizarRes.texto_res,
-                puntaje: actualizarRes.puntaje
-                //actualizo columnas de la db con los nuevos datos
-                    },{ 
-                    where: { //en las que el id de la resenia coincide con el id que me traje antes
-                        id: actualizarRes.id
+            db.Resenas.update({
+            texto_res: actualizarRes.texto_res,
+            puntaje: actualizarRes.puntaje
+            //actualizo columnas de la db con los nuevos datos
+                },{ 
+                 where: { //en las que el id de la resenia coincide con el id que me traje antes
+                    id: actualizarRes.id
                         }
                     })
                 .then(()=> {
@@ -212,35 +253,45 @@ module.exports = {
                 }
             })     
             
-        },
+    },
 
-        borrarResenia: function(req, res) {
-            res.render('perfil', { 
-                tipo: 'borrar', 
-                borrarId: req.params.id}) 
+    borrarResenia: function(req, res) {
+        res.render('perfil', { 
+            tipo: 'borrar', 
+            para: 'borrar la reseña',
+            titulo: 'Borrar reseña',
+            error: 'false',
+            ruta: 'resenias/borrar/'+req.params.id,
+        }) 
             //uso formulario del tipo borrar de la vista perfil
         },
 
-        reseniaBorrada: function(req, res) {
-            moduloLogin.validar(req.body.email, req.body.contrasenia)
-            //tomo datos del form
+    reseniaBorrada: function(req, res) {
+        moduloLogin.validar(req.body.email, req.body.contrasenia)
+        //tomo datos del form
 
-            .then(resultado => {
-                if (resultado != null){
-                   //si el resultado es distinto a undefined, es decir, coincide, elimino la resenia
-                    db.Resenas.destroy({
-                        where: { //que coincide con el id que viene como parametro
-                            id: req.params.id,
+        .then(resultado => {
+            if (resultado != null){
+                //si el resultado es distinto a undefined, es decir, coincide, elimino la resenia
+                db.Resenas.destroy({
+                    where: { //que coincide con el id que viene como parametro
+                        id: req.params.id,
                         }
                     })
                     res.redirect('/usuarios/resenias/borrar/'+ req.params.id +'/listo') //redirige a pag intermedia
                     
-                } else {
-                    res.redirect('/usuarios/resenias/borrar/'+ req.params.id)
-                } //si no coincide, redirige al form para borrar resenia
+            } else {
+                res.render('perfil', {
+                    error: 'true',
+                    tipo: 'borrar',
+                    para: 'borrar la reseña',
+                    titulo: 'Borrar reseña',
+                    ruta: 'resenias/borrar/'+req.params.id,
+                })
+                } //si no coincide, sale una alerta
             })
 
-        },
+    },
 
 
         listoBorrar: function (req, res) {

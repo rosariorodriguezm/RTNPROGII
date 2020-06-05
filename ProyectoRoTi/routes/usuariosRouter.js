@@ -57,6 +57,12 @@ router.get('/registrarse', controller.registrarse);
 // UNA VEZ REGISTRADO TE LLEVA A X 
 router.post('/registrarse', controller.guardarUsuario);
 
+// FORM PARA ELIMINAR CUENTA
+router.get('/miPerfil/borrar/:id', controller.eliminarUsuario);
+
+// PROCESA Y CONFIRMA LA ELIMINACION DEL USUARIO
+router.post('/miPerfil/borrar/:id', controller.usuarioEliminado);
+
 
 router.get('/favoritos', controller.favoritos);
 

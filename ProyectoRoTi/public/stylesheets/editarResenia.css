@@ -6,7 +6,7 @@ p, label{
 
 input {
     border-radius: 18px;
-    width: 180px;
+    width: 300px;
     padding: 5px;
     font-size: 12px;
     text-transform: uppercase;
@@ -30,4 +30,8 @@ textarea {
 
 .alerta {
     color: yellow;
+}
+
+.editar{
+    color: #dc3545;;
 }

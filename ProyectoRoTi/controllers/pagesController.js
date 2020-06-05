@@ -68,7 +68,10 @@ module.exports = {
         res.redirect("/pages/detalle?id="+req.query.id)
 
         } else {
-            res.redirect('/usuarios/registrarse')
+            res.redirect('/usuarios/registrarse', {
+                error: "false",
+                tuError: "¡Los datos ingresados son incorrectos! Creá una cuenta o volvé a intentarlo"
+            })
         } 
     
         

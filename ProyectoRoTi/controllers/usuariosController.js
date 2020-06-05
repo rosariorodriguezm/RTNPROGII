@@ -115,7 +115,7 @@ module.exports = {
             //res.send("Ya existe una cuenta registrada con ese email")
             res.render('registrarse', {error:  true })
             
-        }
+       }
     })
        
     },

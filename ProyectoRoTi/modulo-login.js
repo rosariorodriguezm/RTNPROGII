@@ -34,7 +34,7 @@ let moduloLogin = {
         .then(results => {
             if (results != null){
                 let chequear = bcrypt.compareSync(pass, results.password)
-                if (chequear) {
+                if (chequear) { //bcrypt == true
                 return results;
             } else {
                 return undefined

@@ -23,29 +23,55 @@
         <div class="uk-section">
           <div class="uk-container">
             <section class="seccion">
-              <div class="divF">
-                  <p class="beneficio">Crea una cuenta</p>
-                <form action="/usuarios/registrarse" method="POST">
-
-                        <label for="nombre">Nombre</label>
-                        <input type="text" name="nombre" id="" required>
-
-                        <label for="email">E-mail</label>
-                        <input type="emial" name="email" required>
-
-                        <label for="fecha">Fecha de nacimiento</label>
-                        <input type="date" name="nacimiento" required>
-
-                        <label for="contraseña">Contraseña</label>
-                        <input type="password" name="contrasenia" required>
-                       <br>
-                        <button type="submit" class="enviar" id="regis">Enviar</button>
-                </form>
 
 
-              <p id="cuenta_existente">¿Ya tenes una cuenta?<a href="/usuarios/perfil">Inicia sesión</a></p>
-              
-            </div>
+                <% if (error == "true") { %>
+                  
+                  <div class="divF">
+                    <p class="beneficio">Ya existe una cuenta registrada con el e-mail que ingresaste</p>
+                    <p class="beneficio">Crea una cuenta</p>
+                    <form action="/usuarios/registrarse" method="POST">
+    
+                            <label for="nombre">Nombre</label>
+                            <input type="text" name="nombre" id="" required>
+    
+                            <label for="email">E-mail</label>
+                            <input type="emial" name="email" required>
+    
+                            <label for="fecha">Fecha de nacimiento</label>
+                            <input type="date" name="nacimiento" required>
+    
+                            <label for="contraseña">Contraseña</label>
+                            <input type="password" name="contrasenia" required>
+                           <br>
+                            <button type="submit" class="enviar" id="regis">Enviar</button>
+                    </form>
+                  
+                    </div>
+
+                    <% } else { %>
+                      <div class="divF">
+                        <p class="beneficio">Crea una cuenta</p>
+                        <form action="/usuarios/registrarse" method="POST">
+        
+                                <label for="nombre">Nombre</label>
+                                <input type="text" name="nombre" id="" required>
+        
+                                <label for="email">E-mail</label>
+                                <input type="emial" name="email" required>
+        
+                                <label for="fecha">Fecha de nacimiento</label>
+                                <input type="date" name="nacimiento" required>
+        
+                                <label for="contraseña">Contraseña</label>
+                                <input type="password" name="contrasenia" required>
+                               <br>
+                                <button type="submit" class="enviar" id="regis">Enviar</button>
+                        </form>
+                        <p id="cuenta_existente">¿Ya tenes una cuenta?<a href="/usuarios/perfil">Inicia sesión</a></p>
+                       </div>
+                      <% } %>
+           
             <div class="divB">
               <p class="beneficio">Conocé los beneficios de RTN SERIES:</p>
               <ol>

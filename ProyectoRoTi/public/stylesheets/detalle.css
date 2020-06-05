@@ -66,6 +66,7 @@ main {
   
   #videoTrailer {
     margin: 10px 0;
+  
   }
   
   .uk-slider {
@@ -92,8 +93,9 @@ main {
   
   #masinfo {
     display: flex;
-    justify-content: space-between;
     height: auto;
+    align-items: center;
+    justify-content: space-around;
   }
   
   #trailer,
@@ -102,7 +104,6 @@ main {
   }
   
   #reviews {
-    margin: 20px 0;
     width: 40%;
     margin-left: 40px;
   }
@@ -141,6 +142,7 @@ main {
     text-align:center;
     width: 50%;
     height: 100%;
+    margin-bottom: 50px;
   }
   
   .temp {

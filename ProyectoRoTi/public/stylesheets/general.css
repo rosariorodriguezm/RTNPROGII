@@ -57,6 +57,10 @@
       margin: 4px;
   
   }
+
+  main {
+    min-height: unset;
+  }
   
   header {
       background-color: black
@@ -68,6 +72,8 @@
     }
   footer {
       background-color:black;
+      padding-top: 20px;
+      padding-right: 15px;
   }
   .footer-details:hover {
     color: #dc3545
@@ -107,9 +113,29 @@
     color:#dc3545
   }
   
-  #videoTrailer{
+ /* #videoTrailer{
     display: none;
+  }*/
+
+  #masinfo {
+    display: inline-block;
+    margin: auto;
+    
   }
+
+#trailer{
+  margin-left: 230px;
+  }
+
+  
+
+ #masinfo form {
+  width: 400px;
+  margin-left: 150px;
+  margin-top: 40px;
+ }
+  
+
   .buscar {
       position: absolute;
       left: 63%;
@@ -117,12 +143,23 @@
 
   header #opciones_usuario {
     display: flex;
-    margin-right: 10px;
+    margin-right: 25px;
+    
   }
 
   header #opciones_usuario a{
     padding: 15px;
+    font-size: 18px;
   }
+
+.main-nav > ul {
+  justify-content: unset;
+  margin-right: 15px;
+}
+
+#reviews h1 {
+  margin-right: 40px;
+}
   
   }
   /* MOBILE */

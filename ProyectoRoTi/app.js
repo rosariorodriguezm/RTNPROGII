@@ -6,6 +6,8 @@ var logger = require('morgan');
 var session = require('express-session');
 
 
+
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var pagesRouter = require('./routes/pages');
@@ -24,6 +26,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({secret: "Top secret"}));
+
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

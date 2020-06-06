@@ -25,7 +25,8 @@
     <div class="uk-section">
       <div class="uk-container">
 
-        <% if (tipo == 'borrar') { %>
+
+   <% if (tipo == 'borrar') { %>
           <% if (error == 'false') { %>
           <form  method="POST" class="iniciar_sesion" action="/usuarios/resenias/borrar/<%=id%>">
           
@@ -89,6 +90,7 @@
           </form>
 
           <% } %>
+        
       </div>
     </div>
   </main>
@@ -112,3 +114,30 @@
 <script type="text/javascript" src="/javascripts/dropdown.js"></script>
 <script type="text/javascript" src="/javascripts/Sesion.js"></script>
 </html>
+
+
+<!--  INTENTO DE SSESION 
+          <% if (typeof errors != 'undefined') { %>
+            <p>ERROR</p>
+            <ul>
+                  <% for (let i=0; i < errors.length; i++) { %>
+                    <li>
+                        <%=errors[i].msg%>
+                    </li>
+                    <% }%>
+            </ul>
+            <% }%>
+
+            <form action="/usuarios/perfil" method="POST">
+            
+              <label for="email"class="label">Email</label>
+              <br>
+              <input type="text" name="email" value="" required placeholder="E-mail" id="email"class="input">
+              <br>
+              <label for="contraseña"class="label">Contraseña</label>
+              <br>
+              <input type="password" name="contrasenia" value="" required min="8" placeholder="Contraseña" class="input">
+               <br>
+             <a href="/usuarios/miPerfil"><button type="submit" name="button" class="boton">Ingresar</button></a>
+            </form>
+            -->

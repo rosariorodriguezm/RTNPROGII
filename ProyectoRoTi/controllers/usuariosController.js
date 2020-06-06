@@ -2,6 +2,7 @@ const db = require('../database/models');
 const moduloLogin = require('../modulo-login')
 const OP = db.Sequelize.Op
 const bcrypt = require('bcryptjs')
+const fs = require('fs')
 
 
 module.exports = {
@@ -34,7 +35,8 @@ module.exports = {
     },
 
     confirmarUsuario: function(req, res) {
-        moduloLogin.validar(req.body.email, req.body.contrasenia)
+ 
+       moduloLogin.validar(req.body.email, req.body.contrasenia)
         //tomo del formulario el mail y la contrasenia, el metodo validar del moduloLogin chequea que esten bien
 
         .then(usuario => {
@@ -301,3 +303,37 @@ module.exports = {
 }
 
 
+// INTENTO DE SESSION        
+ //       let errors = validationResult(req);
+
+//        if (errors.isEmpty()) {
+//                let usersJSON = fs.readFileSync('users.json', {ACA FALTA ALGO})
+//                let users;
+//                if (usersJSON == ""){
+//                    useres = [];
+//                } else {
+//                    users = JSON.parse(usersJSON);
+//                }
+
+//                for (let i=0; i< users.length; i++){
+//                    if (users[i].email == req.body.email) {
+//                        if (bcrypt.compareSync(req.body.contrasenia, users[i].contrasenia)) {
+//                           let usuarioALoguearse = users[i];  
+//                           break;
+
+//                        }
+//                    }
+//                }
+//                    if (usuarioALoguearse == undefined) {
+//                        return res.render ('perfil', {errors: [
+//                            {msg: 'Datos incorrectos' }
+//                        ]}); 
+
+//                    }
+
+//                    req.session.usuarioALoguearse = usuarioALoguearse;
+
+//        } else {
+//           return res.render ('perfil', {errors: errors.errors}); 
+//        }
+ 

@@ -44,6 +44,7 @@ module.exports = {
         .then(usuario => {
             return res.render('miPerfil', {
                 detalle: usuario, 
+                tipo: 'miPerfil',
             });
         })
         .catch(error => {
@@ -85,12 +86,10 @@ module.exports = {
     },
 
     eliminarUsuario: (req, res) => {
-        res.render('perfil', { 
+        res.render('miPerfil', { 
             tipo: 'borrar', 
-            ruta: 'miPerfil/borrar/'+ req.params.id,
-            para: 'para eliminar su cuenta',
-            titulo: 'Eliminar cuenta',
-            error: 'false'
+            error: 'false',
+            id: req.params.id,
         }) 
             //uso formulario del tipo borrar de la vista perfil
     }, 
@@ -107,15 +106,15 @@ module.exports = {
                         id: req.params.id,
                         }
                     })
-                    res.redirect('/usuarios/registrarse') 
+                    res.render('miPerfil', {
+                        error: 'false'
+                    }) 
                     
             } else {
-                res.render('perfil', {
+                res.render('miPerfil', {
                     error: 'true',
                     tipo: 'borrar',
-                    ruta: 'miPerfil/borrar/'+req.params.id,
-                    para: 'para eliminar su cuenta',
-                    titulo: 'Eliminar cuenta'
+                    id: req.params.id,
                 })
                 } //si no coincide, redirige a registrarse
             })
@@ -258,10 +257,8 @@ module.exports = {
     borrarResenia: function(req, res) {
         res.render('perfil', { 
             tipo: 'borrar', 
-            para: 'borrar la reseña',
-            titulo: 'Borrar reseña',
             error: 'false',
-            ruta: 'resenias/borrar/'+req.params.id,
+            id:id,
         }) 
             //uso formulario del tipo borrar de la vista perfil
         },
@@ -283,10 +280,7 @@ module.exports = {
             } else {
                 res.render('perfil', {
                     error: 'true',
-                    tipo: 'borrar',
-                    para: 'borrar la reseña',
-                    titulo: 'Borrar reseña',
-                    ruta: 'resenias/borrar/'+req.params.id,
+                    id: req.params.id,
                 })
                 } //si no coincide, sale una alerta
             })

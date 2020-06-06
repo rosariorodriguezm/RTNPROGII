@@ -21,6 +21,60 @@
   </header>
 
   <main>
+
+    <% if (tipo == 'borrar') { %>
+      <% if (error == 'false') { %>
+      <div class="uk-section">
+        <div class="uk-container">
+      <form  method="POST" class="iniciar_sesion" action="/usuarios/miPerfil/borrar/<%=id %>">
+          
+        <h1> Eliminar cuenta </h1>
+
+        <p class="borrar">Ingrese sus datos para eliminar su cuenta</p>
+          
+          <label for="email">Email</label>
+
+          <input type="text" name="email" value="" required placeholder="E-mail" id="email">
+      <br>
+          <label for="contraseña">Contraseña</label>
+
+          <input type="password" name="contrasenia" value="" required min="8" placeholder="Contraseña" >
+      <br>
+
+        <button id="bu" type="submit" name="button">¡Listo!</button>
+
+      </form>
+      </div>
+    </div>
+        <% } else { %>
+          <div class="uk-section">
+            <div class="uk-container">
+          <form  method="POST" class="iniciar_sesion" action="/usuarios/miPerfil/borrar/<%=id %>">
+
+            <p class="aviso"><i class="fas fa-exclamation-triangle alerta"></i></p>    
+            <p id="errorEmail"> Los datos ingresados no son válidos </p> 
+              
+            <h1> Eliminar cuenta </h1>
+    
+            <p class="borrar">Ingrese sus datos para eliminar su cuenta</p>
+              
+              <label for="email">Email</label>
+    
+              <input type="text" name="email" value="" required placeholder="E-mail" id="email">
+          <br>
+              <label for="contraseña">Contraseña</label>
+    
+              <input type="password" name="contrasenia" value="" required min="8" placeholder="Contraseña" >
+          <br>
+    
+            <button id="bu" type="submit" name="button">¡Listo!</button>
+    
+          </form>
+          </div>
+        </div>
+          <% } %>
+      <% } else { %>
+
     <div class="uk-section">
       <div class="uk-container">
         <h1>¡Hola, <%= detalle.nombre_usuario %>!</h1>
@@ -30,8 +84,6 @@
         <p>Email: <%= detalle.email %></p>
         <p>Fecha de nacimiento: <%= detalle.fecha_nac %></p>
         <p>Género favorito: <%= detalle.genero_fav %> </p>
-      
-
 
 <br>
 
@@ -48,8 +100,11 @@
       
 
 
+       </div>
       </div>
-    </div>
+
+      <% } %>
+
   </main>
  
  <section>

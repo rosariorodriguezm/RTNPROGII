@@ -27,11 +27,11 @@
 
         <% if (tipo == 'borrar') { %>
           <% if (error == 'false') { %>
-          <form  method="POST" class="iniciar_sesion" action="/usuarios/<%= ruta %>">
+          <form  method="POST" class="iniciar_sesion" action="/usuarios/resenias/borrar/<%=id%>">
           
-            <h1> <%= titulo %> </h1>
+            <h1> Borrar reseña </h1>
 
-            <p class="borrar">Ingrese sus datos <%= para %></p>
+            <p class="borrar">Ingrese sus datos para borrar la reseña</p>
               
               <label for="email">Email</label>
               <input type="text" name="email" value="" required placeholder="E-mail" id="email">
@@ -44,14 +44,15 @@
 
           </form>
           <% } else { %>
-            <form  method="POST" class="iniciar_sesion" action="/usuarios/<%= ruta %>">
+
+            <form  method="POST" class="iniciar_sesion" action="/usuarios/resenias/borrar/<%= id %>">
           
               <p class="aviso"><i class="fas fa-exclamation-triangle alerta"></i></p>    
                     <p id="errorEmail"> Los datos ingresados no son válidos </p> 
 
-              <h1> <%= titulo %> </h1>
+              <h1> Borrar reseña </h1>
   
-              <p class="borrar">Ingrese sus datos <%=para %> </p>
+              <p class="borrar">Ingrese sus datos para borrar la reseña </p>
                 
                 <label for="email">Email</label>
                 <input type="text" name="email" value="" required placeholder="E-mail" id="email">

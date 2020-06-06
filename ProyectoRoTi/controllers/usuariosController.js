@@ -46,6 +46,7 @@ module.exports = {
                 //si el usuario esta undefined, es decir, no coincide, me devuelve al form de inicio de sesion    
                 
             } else {
+                req.session.usuario = usuario;
                 res.redirect('/usuarios/miPerfil/'+ usuario.id)
             //si el usuario existe, me redirige al listado de resenias de ese usuario --> '/usuarios/resenias/:id'
               }

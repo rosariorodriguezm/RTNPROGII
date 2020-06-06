@@ -46,7 +46,6 @@ module.exports = {
                 //si el usuario esta undefined, es decir, no coincide, me devuelve al form de inicio de sesion    
                 
             } else {
-                req.session.usuario = usuario
                 res.redirect('/usuarios/miPerfil/'+ usuario.id)
             //si el usuario existe, me redirige al listado de resenias de ese usuario --> '/usuarios/resenias/:id'
               }
@@ -267,7 +266,7 @@ module.exports = {
         res.render('perfil', { 
             tipo: 'borrar', 
             error: 'false',
-            id:id,
+            id: req.params.id,
         }) 
             //uso formulario del tipo borrar de la vista perfil
         },
@@ -284,7 +283,7 @@ module.exports = {
                         id: req.params.id,
                         }
                     })
-                    res.redirect('/usuarios/resenias/borrar/'+ req.params.id +'/listo') //redirige a pag intermedia
+                    res.redirect('/') 
                     
             } else {
                 res.render('perfil', {

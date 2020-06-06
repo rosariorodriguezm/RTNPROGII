@@ -45,6 +45,7 @@ module.exports = {
 
     seriesPorGenero: function (req,res) {
         res.render('series-por-genero')
+    
     },
 
     series: function (req,res) {

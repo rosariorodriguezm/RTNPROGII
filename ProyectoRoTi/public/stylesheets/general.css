@@ -171,18 +171,17 @@
       top: 30px;
       display: none;
     }
+
     .logo{
       width: 144px;
+      margin-top: 15px;
     }
-    .main-nav {
-      margin-top: -100px;
-    }
+   
     .opciones {
       font-size: 20px
     }
+
     .main-nav > ul {
-      display: flex;
-      justify-content: space-around;
       width: 30%;
       list-style: none; }
   

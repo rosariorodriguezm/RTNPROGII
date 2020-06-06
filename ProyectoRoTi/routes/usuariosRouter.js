@@ -63,6 +63,9 @@ router.get('/miPerfil/borrar/:id', controller.eliminarUsuario);
 // PROCESA Y CONFIRMA LA ELIMINACION DEL USUARIO
 router.post('/miPerfil/borrar/:id', controller.usuarioEliminado);
 
+// CERRAR SESION
+router.post('/cerrarSesion', controller.cerrarSesion);
+
 
 router.get('/favoritos', controller.favoritos);
 

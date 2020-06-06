@@ -30,12 +30,12 @@
           
         <h1> Eliminar cuenta </h1>
 
-        <p class="borrar">Ingrese sus datos para eliminar su cuenta</p>
+        <p class="borrar">Por cuestiones de seguridad, confirme sus datos para eliminar su cuenta</p>
           
           <label for="email">Email</label>
 
           <input type="text" name="email" value="" required placeholder="E-mail" id="email">
-      <br>
+          
           <label for="contraseña">Contraseña</label>
 
           <input type="password" name="contrasenia" value="" required min="8" placeholder="Contraseña" >
@@ -97,7 +97,11 @@
         <br>
         <br>
         <a href="/usuarios/miPerfil/borrar/<%= detalle.id %>" class="enlace"> Eliminar mi cuenta <i class="fas fa-trash-alt"></i></a>
-      
+        <br>
+        <br>
+        <form method="POST" action="/usuarios/cerrarSesion">
+        <input type="submit" name="cerrarSesion" value="cerrarSesion">
+        </form>
 
 
        </div>

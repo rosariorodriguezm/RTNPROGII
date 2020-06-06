@@ -27,11 +27,16 @@ module.exports = {
     },
     
     perfil: function(req, res){
+        let usuario = req.session.usuario 
+
+        if (usuario) {
+            res.redirect('/usuarios/miPerfil/'+ usuario.id)
+        } else {
         res.render('perfil', {
             tipo: 'ingresar',
             error: 'false'
         })
-        
+        }
     },
 
     // METODO DE LA RUTA POST DEL LOG IN 
@@ -76,6 +81,11 @@ module.exports = {
         
     },
 
+    cerrarSesion: function (req, res){
+        req.session.destroy()
+        res.redirect('/usuarios/perfil')
+    },
+
 
     registrarse: function (req,res) {
         res.render('registrarse', {error : "false"})
@@ -109,11 +119,13 @@ module.exports = {
     },
 
     eliminarUsuario: (req, res) => {
+       
         res.render('miPerfil', { 
             tipo: 'borrar', 
             error: 'false',
             id: req.params.id,
         }) 
+     
             //uso formulario del tipo borrar de la vista perfil
     }, 
 
@@ -163,7 +175,7 @@ module.exports = {
     resUsuario: (req,res)=> {  
         //muestra las respuestas del buscador de usuarios
    
-           var usuarioBuscado = req.body.usariobuscado; 
+        var usuarioBuscado = req.body.usariobuscado; 
           db.Usuarios
                .findAll({    
                    where: {
@@ -227,10 +239,10 @@ module.exports = {
     },
 
     reseniaEditada: function(req, res){
-        moduloLogin.validar(req.body.email, req.body.contrasenia)
-            
-        .then(usuario => {
-            if(usuario != null){
+        
+       let usuario = req.session.usuario
+       if (usuario) {
+        
             let actualizarRes = {
                 texto_res: req.body.texto,
                 puntaje: req.body.puntaje,
@@ -253,15 +265,9 @@ module.exports = {
                         res.redirect('/usuarios/resenias/'+ resultado.usuario_id)
                         }) //muestro lista de resenias del usuario actualizado
                     })
-                } else {
-                    res.render('editarResenia', {
-                        id: req.params.id,
-                        error: 'true'
-                    })
-                }
-            })     
+                } 
             
-    },
+        },
 
     borrarResenia: function(req, res) {
         res.render('perfil', { 

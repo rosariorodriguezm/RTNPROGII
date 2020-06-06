@@ -33,6 +33,22 @@ module.exports = {
         
     },
 
+    confirmarUsuario: function(req, res) {
+        moduloLogin.validar(req.body.email, req.body.contrasenia)
+        //tomo del formulario el mail y la contrasenia, el metodo validar del moduloLogin chequea que esten bien
+
+        .then(usuario => {
+            if(usuario == undefined) {
+                res.redirect('/usuarios/perfil');
+                //si el usuario esta undefined, es decir, no coincide, me devuelve al form de inicio de sesion    
+                
+            } else {
+                res.redirect('/usuarios/miPerfil/'+ usuario.id)
+            //si el usuario existe, me redirige al listado de resenias de ese usuario --> '/usuarios/resenias/:id'
+              }
+         })
+     },
+
     miPerfil: function(req, res){
         db.Usuarios
         .findByPk(
@@ -168,21 +184,7 @@ module.exports = {
     },
     
 
-    confirmarUsuario: function(req, res) {
-        moduloLogin.validar(req.body.email, req.body.contrasenia)
-        //tomo del formulario el mail y la contrasenia, el metodo validar del moduloLogin chequea que esten bien
-
-        .then(usuario => {
-            if(usuario == undefined) {
-                res.redirect('/usuarios/perfil');
-                //si el usuario esta undefined, es decir, no coincide, me devuelve al form de inicio de sesion    
-                
-            } else {
-                res.redirect('/usuarios/miPerfil/'+ usuario.id)
-            //si el usuario existe, me redirige al listado de resenias de ese usuario --> '/usuarios/resenias/:id'
-              }
-         })
-     },
+    
 
     listaMisResenias: function(req,res) {
         db.Resenas

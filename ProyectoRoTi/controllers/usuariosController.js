@@ -106,7 +106,7 @@ module.exports = {
                         id: req.params.id,
                         }
                     })
-                    res.render('miPerfil', {
+                    res.render('registrarse', {
                         error: 'false'
                     }) 
                     

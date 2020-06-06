@@ -8,8 +8,6 @@ var session = require('express-session');
 
 
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var pagesRouter = require('./routes/pages');
 var reseniasRouter = require('./routes/reseniasRouter')
 var usuariosRouter = require('./routes/usuariosRouter')
@@ -29,9 +27,7 @@ app.use(session({secret: "Top secret"}));
 
 
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/pages', pagesRouter);
+app.use('/', pagesRouter);
 app.use('/resenias', reseniasRouter)
 app.use('/usuarios', usuariosRouter)
 

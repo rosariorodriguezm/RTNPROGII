@@ -28,7 +28,7 @@ window.onload= function () {
               <h2>${titulo}</h2>
               <div id="foto_info">
               <section class="info_serie">
-                <a href="/pages/detalle?id=${id}">
+                <a href="/detalle?id=${id}">
                 <img src="${urlImg}" width="250">
               </section>
               <section class="info_serie">

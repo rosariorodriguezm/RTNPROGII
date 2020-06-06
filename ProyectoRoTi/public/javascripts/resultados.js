@@ -26,7 +26,7 @@ fetch("https://api.themoviedb.org/3/search/tv?api_key=" + api_key + "&language=e
           titulo = resultados[i].name
 
       serie = '<li>'
-      serie = '<a href="/pages/detalle?id=' + id + '">'
+      serie = '<a href="/detalle?id=' + id + '">'
       if (resultados[i].poster_path === null) {
         serie+="<h2>"+titulo+"</h2>"+ "<img src='/images/no-disponible.png' >"
       } else {

@@ -24,7 +24,7 @@ window.addEventListener('load',function(){
        var listaGenero = ""
  
        for (var i = 0; i < genero.length; i++) {
-         listaGenero+= ' <a href="/pages/series-por-genero?genero='+ genero[i].id + '&name=' + genero[i].name + ' " >' + genero[i].name + '</a> ,'
+         listaGenero+= ' <a href="/series-por-genero?genero='+ genero[i].id + '&name=' + genero[i].name + ' " >' + genero[i].name + '</a> ,'
        }
        detalleSerie.innerHTML = `
           <h2>${titulo}</h2>
@@ -206,7 +206,7 @@ window.addEventListener('load',function(){
            
           
            reco.innerHTML +=
-           `<a href="/pages/detalle?id=${id}">
+           `<a href="/detalle?id=${id}">
            <img class= "recomm" src="${opciones}" width="250">
            </a>`
           

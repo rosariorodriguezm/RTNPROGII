@@ -41,7 +41,7 @@
             <p><i class="far fa-calendar"></i> Fecha de creación: <%= listaResenas[i].createdAt %></p>
             <p><i class="far fa-calendar"></i> Ultima actualización: <%= listaResenas[i].updatedAt %></p>
             <p><i class="far fa-user"></i> Autor: <a href="/usuarios/perfil-usuario/<%=listaResenas[i].usuario.id%>" id="usuario"><%= listaResenas[i].usuario.nombre_usuario %></a></p>
-            <p><a href="/pages/detalle?id=<%=listaResenas[i].serie_id%>"><i class="far fa-eye"></i> Ver serie</a></p>
+            <p><a href="/detalle?id=<%=listaResenas[i].serie_id%>"><i class="far fa-eye"></i> Ver serie</a></p>
 
          
              <% } %> 

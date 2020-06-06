@@ -65,7 +65,7 @@ module.exports = {
                 puntaje: req.body.puntaje,
 
             })
-        res.redirect("/pages/detalle?id="+req.query.id)
+        res.redirect("/detalle?id="+req.query.id)
 
         } else {
             res.render('registrarse', {

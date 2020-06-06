@@ -91,7 +91,7 @@ module.exports = {
                 genero_fav: req.body.genero, 
                 
             })
-            res.redirect("/pages")
+            res.redirect("/")
             } else {
             //res.send("Ya existe una cuenta registrada con ese email")
             res.render('registrarse', {

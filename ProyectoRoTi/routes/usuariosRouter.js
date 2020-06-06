@@ -66,6 +66,12 @@ router.post('/miPerfil/borrar/:id', controller.usuarioEliminado);
 
 router.get('/favoritos', controller.favoritos);
 
-
+router.get('/pruebaSession', function(req, res){
+    if  (req.session.numeroVisitas == undefined){
+        req.session.numeroVisitas = 0;
+    }
+    req.session.numeroVisitas++;
+    res.send('session tiene el nro' + req.session.numeroVisitas)
+})
 
 module.exports = router;

@@ -39,10 +39,6 @@ router.get('/resenias/borrar/:id', controller.borrarResenia)
 //PROCESA Y CONFIRMA LA ELIMINACION DE LA RESENIA
 router.post('/resenias/borrar/:id', controller.reseniaBorrada)
 
-//PAG INTERMEDIA
-router.get('/resenias/borrar/:id/listo', controller.listoBorrar)
-
-
 
 //UNA VEZ INICIADA SESION TE MUESTRA TU PERFIL PRIVADO
 router.get('/miPerfil/:id', controller.miPerfil)
@@ -70,13 +66,5 @@ router.post('/cerrarSesion', controller.cerrarSesion);
 router.get('/favoritos', controller.favoritos);
 
 
-//PRUEBA DE SESSION
-//router.get('/pruebaSession', function(req, res){
-//    if  (req.session.numeroVisitas == undefined){
-//        req.session.numeroVisitas = 0;
-//    }
-//    req.session.numeroVisitas++;
-//    res.send('session tiene el nro' + req.session.numeroVisitas)
-//})
 
 module.exports = router;

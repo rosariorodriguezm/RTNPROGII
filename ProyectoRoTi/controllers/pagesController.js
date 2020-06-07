@@ -54,11 +54,9 @@ module.exports = {
 
     nuevaResenia: (req, res) => {
 
-        moduloLogin.validar(req.body.email, req.body.contrasenia) 
-        // para validar que el usuario exista 
-        
-        .then (usuario => {
-         if (usuario != null) { 
+    let usuario = req.session.usuario 
+
+    if (usuario) {
              db.Resenas.create ({
                 serie_id: req.query.id,
                 usuario_id: usuario.id,
@@ -71,10 +69,10 @@ module.exports = {
         } else {
             res.render('registrarse', {
                 error: "true",
-                tuError: "¡Los datos ingresados son incorrectos! Creá una cuenta o volvé a intentarlo"
+                tuError: "Para escribir una reseña primero crea una cuenta"
             })
             } 
-          }) 
+          
         
         },
 

@@ -294,13 +294,6 @@ module.exports = {
     },
 
 
-        listoBorrar: function (req, res) {
-            return res.render('listo', {
-            titulo: '¡La reseña se borró correctamente!',
-            volver: 'resenias'
-
-        })
-    },
 
 }
 

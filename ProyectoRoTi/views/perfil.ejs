@@ -27,12 +27,13 @@
 
 
      <% if (tipo == 'borrar') { %>
-        <p>¿Estás seguro que querés eliminar esta reseña?</p>
+        <p id="pregunta">¿Estás seguro que querés eliminar esta reseña?</p>
         
         <form action="/usuarios/resenias/borrar/<%=id%>" method="POST">
-        <button name="si" type="submit">Si</button>
+        <button name="si" type="submit" class='op'>Si</button>
         </form>
-       <a href="/usuarios/perfil"> <button name="no" type="submit">No</button></a>
+        <br>
+       <a href="/usuarios/perfil"> <button name="no" type="submit" class='op'>No</button></a>
         
         
         <% } else { %>

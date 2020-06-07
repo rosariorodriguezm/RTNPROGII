@@ -64,3 +64,7 @@ input {
 form {
   text-align: center;
 }
+
+#cerrarSesion{
+  background-color: white;
+}

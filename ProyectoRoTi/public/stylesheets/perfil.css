@@ -108,3 +108,23 @@ h3{
   border: 2px solid white;
   padding: 3px;
 }
+.op{
+  color: white;
+  font-size: 30px;
+  background-color: black;
+  border: 2px solid #dc3545;
+  padding: 3px;
+  width: 40px;
+}
+.op:hover{
+  color: white;
+  font-size: 30px;
+  background-color: #dc3545;
+  border: 2px solid #dc3545;
+  padding: 3px;
+}
+#pregunta {
+  color: white;
+  font-family: 'Fjalla One';
+  font-size: 30px;
+}

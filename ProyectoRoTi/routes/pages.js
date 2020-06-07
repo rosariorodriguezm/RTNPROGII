@@ -18,7 +18,6 @@ router.get('/resultadosBusq', controller.resultadosBusq);
 
 router.get('/series-por-genero', controller.seriesPorGenero);
 
-router.get('/series', controller.series);
 
 
 module.exports = router;

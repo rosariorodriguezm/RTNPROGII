@@ -60,10 +60,6 @@ module.exports = {
     
     },
 
-    series: function (req,res) {
-        res.render('series')
-    }, 
-
     nuevaResenia: (req, res) => {
 
     let usuario = req.session.usuario 

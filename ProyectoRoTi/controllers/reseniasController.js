@@ -3,7 +3,7 @@ const moduloLogin = require('../modulo-login')
 
 module.exports = {
     index: (req, res) => {
-      DB.Resenas //Reseñas es el primer parametro que pase en mi modelo
+      DB.Resenas 
         .findAll(
           { 
             include: ['usuario']
@@ -12,7 +12,7 @@ module.exports = {
         .then(resenas => { //cuando este listo, quiero q me devuelva todas las reseñas y ahi la vista de esa pag
           return res.render('todas_resenas', {
             listaResenas: resenas,
-            //la vista entiende a todas las reseñas como listaReseñas
+            //la vista entiende a lo que me traigo como <%=listaReseñas%>
           })
         })
           .catch(error => {
@@ -25,7 +25,8 @@ module.exports = {
         DB.Resenas
         .findAll(
           {
-          include: ['usuario'], order: [['createdAt', 'DESC']]
+          include: ['usuario'], 
+          order: [['createdAt', 'DESC']]
           //aplico la relacion de los modelos y ordeno ultimas reseñas segun su fecha de creacion en forma descendente 
           }
         )
@@ -44,7 +45,8 @@ module.exports = {
       DB.Resenas
       .findAll(
         {
-        include: ['usuario'], order: [['puntaje', 'DESC']], limit: [10]
+        include: ['usuario'], 
+        order: [['puntaje', 'DESC']], limit: [10]
         //aplico la relacion de los modelos y ordeno ultimas reseñas segun su puntaje en forma descendente 
         }
       )
@@ -65,7 +67,8 @@ module.exports = {
       DB.Resenas
       .findAll(
         {
-        include: ['usuario'], order: [['puntaje', 'ASC']], limit: [5]
+        include: ['usuario'], 
+        order: [['puntaje', 'ASC']], limit: [5]
         //aplico la relacion de los modelos y ordeno ultimas reseñas segun su puntaje en forma ascendiente 
         }
       )

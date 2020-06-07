@@ -42,7 +42,6 @@ module.exports = {
                .catch(error => {
                    return res.send("error"+error)
                })
-                   
        }, 
 
     registrarse: function (req,res) {
@@ -74,11 +73,9 @@ module.exports = {
             // si ya hay un usuario con ese mail
             res.render('registrarse', {
                 error:  "true", 
-                tuError: "Ya existe una cuenta registrada con el e-mail que ingresaste"} )
-            
+                tuError: "Ya existe una cuenta registrada con el e-mail que ingresaste"} )    
        }
     })
-       
     },
 
     //  INICIO DE SESION Y PERFIL SI YA ESTA LOGUEADO
@@ -103,7 +100,8 @@ module.exports = {
     confirmarUsuario: function(req, res) {
  
         moduloLogin.validar(req.body.email, req.body.contrasenia)
-         //tomo del formulario el mail y la contrasenia, el metodo validar del moduloLogin chequea que esten bien
+         //tomo del formulario el mail y la contrasenia,
+         // el metodo validar del moduloLogin chequea que esten bien
  
          .then(usuario => {
              if(usuario == undefined) {
@@ -111,7 +109,8 @@ module.exports = {
                    error: 'true', 
                    tipo: 'ingresar'
                  });
-                 //si el usuario esta undefined, es decir, no coincide, me devuelve al form de inicio de sesion    
+                 //si el usuario esta undefined, es decir, no coincide,
+                 // me devuelve al form de inicio de sesion    
                  
              } else {
                  req.session.usuario = usuario; //SESSION
@@ -251,7 +250,8 @@ module.exports = {
 
     editarResenia: function(req, res) {
         db.Resenas
-        .findOne({ //tomo la resenia que coincida con el id (de una resenia) que viene como parametro
+        .findOne({ //tomo la resenia que coincida 
+                    //con el id (de una resenia) que viene como parametro
             where: [
                 {id: req.params.id}
                 ]
@@ -273,14 +273,16 @@ module.exports = {
                 texto_res: req.body.texto,
                 puntaje: req.body.puntaje,
                 id: req.params.id
-            } //me traigo los cambios del form junto con el id que viene como parametro
+            } //me traigo los cambios del form junto 
+              //con el id que viene como parametro
                 
             db.Resenas.update({
             texto_res: actualizarRes.texto_res,
             puntaje: actualizarRes.puntaje
             //actualizo columnas de la db con los nuevos datos
                 },{ 
-                 where: { //en las que el id de la resenia coincide con el id que me traje antes
+                 where: { //en las que el id de la resenia coincide 
+                        //con el id que me traje antes
                     id: actualizarRes.id
                         }
                     })

@@ -118,6 +118,51 @@ module.exports = {
        
     },
 
+    cambiarContrasena: (req, res) => {
+        db.Usuarios
+        .findOne({ //tomo la resenia que coincida con el id (de una resenia) que viene como parametro
+            where: [
+                {id: req.params.id}
+                ]
+            })
+        .then(result => {
+            res.render('editarResenia', {
+                result: result,
+                tipo: 'editarContra'
+                })
+            })
+    },
+
+    contrasenaCambiada: (req, res) => {
+        let usuario = req.session.usuario
+       if (usuario) {
+
+        const passEncriptada = bcrypt.hashSync(req.body.contrasenia, 10) 
+            
+            let actualizarContra = { 
+                password: passEncriptada,
+                nombre_usuario: usuario.nombre_usuario,
+                id: req.params.id,
+            } //me traigo los cambios del form junto con el id que viene como parametro
+               
+            db.Usuarios.update({
+            password: actualizarContra.password,
+            //actualizo columnas de la db con los nuevos datos
+                },{ 
+                 where: { //en las que el id del usuario coincide con el id que me traje antes
+                    id: actualizarContra.id
+                        }
+                    })
+                .then(()=> {
+                    db.Usuarios
+                    .findByPk(req.params.id)
+                    .then(resultado => {
+                        res.redirect('/usuarios/miPerfil/'+ resultado.id)
+                        }) //muestro perfil del usuario 
+                    })
+                } 
+    },
+
     eliminarUsuario: (req, res) => {
        
         res.render('miPerfil', { 
@@ -203,8 +248,6 @@ module.exports = {
     },
     
 
-    
-
     listaMisResenias: function(req,res) {
         db.Resenas
         .findAll({
@@ -233,7 +276,7 @@ module.exports = {
         .then(result => {
             res.render('editarResenia', {
                 result: result,
-                error: 'false'
+                tipo: 'editarResena'
                 })
             })
     },

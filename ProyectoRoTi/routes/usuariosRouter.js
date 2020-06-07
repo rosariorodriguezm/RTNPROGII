@@ -33,11 +33,12 @@ router.post('/resenias/editar/:id', controller.reseniaEditada)
 
 
 
-//MUESTRA EL FORMULARIO PARA BORRAR UNA RESENIA
+//MUESTRA OPCIONES ANTES DE BORRAR UNA RESENIA
 router.get('/resenias/borrar/:id', controller.borrarResenia)
 
 //PROCESA Y CONFIRMA LA ELIMINACION DE LA RESENIA
 router.post('/resenias/borrar/:id', controller.reseniaBorrada)
+
 
 
 //UNA VEZ INICIADA SESION TE MUESTRA TU PERFIL PRIVADO
@@ -47,11 +48,14 @@ router.get('/miPerfil/:id', controller.miPerfil)
 router.get('/perfil-usuario/:id', controller.perfilUsuario);
 
 
+
 // FORM PARA REGISTRATE
 router.get('/registrarse', controller.registrarse);
 
 // UNA VEZ REGISTRADO TE LLEVA A X 
 router.post('/registrarse', controller.guardarUsuario);
+
+
 
 // FORM PARA ELIMINAR CUENTA
 router.get('/miPerfil/borrar/:id', controller.eliminarUsuario);
@@ -59,8 +63,15 @@ router.get('/miPerfil/borrar/:id', controller.eliminarUsuario);
 // PROCESA Y CONFIRMA LA ELIMINACION DEL USUARIO
 router.post('/miPerfil/borrar/:id', controller.usuarioEliminado);
 
+
 // CERRAR SESION
 router.post('/cerrarSesion', controller.cerrarSesion);
+
+// CAMBIAR CONTRASEÑA
+router.get('/miPerfil/cambiarContrasena/:id', controller.cambiarContrasena)
+
+//PROCESA Y CONFIRMA EL CAMBIO DE CONTRASEÑA
+router.post('/miPerfil/cambiarContrasena/:id', controller.contrasenaCambiada)
 
 
 router.get('/favoritos', controller.favoritos);

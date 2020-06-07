@@ -84,6 +84,7 @@
         <p>Email: <%= detalle.email %></p>
         <p>Fecha de nacimiento: <%= detalle.fecha_nac %></p>
         <p>Género favorito: <%= detalle.genero_fav %> </p>
+    
 
 <br>
 
@@ -96,8 +97,12 @@
         <a href="/usuarios/resenias/<%= detalle.id %>" class="enlace"> Editar mis reseñas <i class="fas fa-edit"></i></a>
         <br>
         <br>
+        <br>
+        <br>
         <a href="/usuarios/miPerfil/borrar/<%= detalle.id %>" class="enlace"> Eliminar mi cuenta <i class="fas fa-trash-alt"></i></a>
         <br>
+        <br>
+        <a href="/usuarios/miPerfil/cambiarContrasena/<%= detalle.id%>" class="enlace"> Cambiar contraseña</a>
         <br>
         <form method="POST" action="/usuarios/cerrarSesion">
         <input type="submit" name="cerrarSesion" value="Cerrar sesión" id="cerrarSesion">

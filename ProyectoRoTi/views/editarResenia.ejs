@@ -26,7 +26,7 @@
       <div class="uk-container">
               
               <br><br><br> 
-            
+            <% if (tipo == 'editarResena') { %>
               <form  method="POST" action="/usuarios/resenias/editar/<%= result.id %>">
               <p class="editar">Ingrese su nueva reseña</p>
                 
@@ -43,6 +43,18 @@
               <button type="submit" name="button" class="boton">¡Listo!</button>
   
             </form>
+
+            <% } else { %>
+              <form  method="POST" action="/usuarios/miPerfil/cambiarContrasena/<%= result.id %>">
+                <p class="editar">Ingrese su nueva contraseña</p>
+                  
+                  <label for="comentario">Contraseña</label>
+                  <input name="contrasenia" type="password">
+                  <br>
+                  <br>
+                  <button type="submit" name="button" class="boton">¡Listo!</button>
+
+              <% } %>
 
     
         

@@ -12,7 +12,6 @@ router.get('/detalle', controller.detalle);
 
 router.post('/detalle', controller.nuevaResenia)
 
-router.get('/generos', controller.generos);
 
 router.get('/resultadosBusq', controller.resultadosBusq);
 

@@ -46,10 +46,6 @@ module.exports = {
         
     },
 
-    generos :function (req,res) {
-        res.render('generos')
-    },
-
 
     resultadosBusq: function (req,res) {
         res.render('resultadosbusq')

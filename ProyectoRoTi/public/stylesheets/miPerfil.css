@@ -68,3 +68,13 @@ form {
 #cerrarSesion{
   background-color: white;
 }
+
+.chau {
+  color: white;
+  font-style: italic;
+}
+
+.chau:hover {
+  text-decoration: underline;
+  color: white;
+}

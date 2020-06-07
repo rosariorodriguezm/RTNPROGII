@@ -12,11 +12,13 @@ input {
     text-transform: uppercase;
 }
 
-.boton {
+.botonR {
     color: white;
     font-family: 'Fjalla One';
     font-size: 18px;
-    border: 2px solid #dc3545;   
+    border: 2px solid #dc3545; 
+    background-color: black; 
+    padding: 5px; 
 }
 
 textarea {

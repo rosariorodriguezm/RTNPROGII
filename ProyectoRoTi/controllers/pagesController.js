@@ -69,7 +69,7 @@ module.exports = {
         } else {
             res.render('registrarse', {
                 error: "true",
-                tuError: "Para escribir una reseña primero crea una cuenta"
+                tuError: "Para escribir una reseña debes crear una cuenta"
             })
             } 
           

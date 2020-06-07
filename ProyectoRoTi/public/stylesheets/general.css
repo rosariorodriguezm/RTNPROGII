@@ -172,7 +172,7 @@
     }
 
     header #opciones_usuario a {
-      padding: 10px;
+      padding: 7px;
     }
 
     .logo{
@@ -223,6 +223,11 @@
     align-items: stretch;
   }
 
+  #sectionReco #contenedor-carrusel {
+    width: 100%;
+    text-align: center;
+  }
+
   #detalle-serie #foto_info {
     display: unset;
   }
@@ -238,11 +243,20 @@
   .info_serie p {
     margin-top: 10px;
     margin-left: 0px ;
+    text-align: justify;
   }
-  #videoTrailer{
+ #trailer{
     display: none;
   }
   
+ #masinfo #reviews{
+   width: 100%;
+ }
+
+ #reviews h1 {
+   margin-right: 40px;
+ }
+
   header {
       background-color: black
   }
@@ -256,7 +270,7 @@
   footer {
       background-color: black;
       min-height: 350px;
-      
+      margin-top: 10px;
   }
   .footer-details:hover {
     color: black
@@ -270,7 +284,7 @@
         background-color: #dc3545 ;
         color:  white;
         padding: 5px;
-        margin-left: 220px;
+        margin-left: 200px;
         border-radius: 5px;
         font-size: 30px
           }
@@ -287,21 +301,29 @@
   
           #seguinos, #nosotros{
             display: none;
-        
+          }
+
+          #footerExtra {
+            padding-left: unset;
           }
 
           .registrarse .seccion {
             display: unset;
-            text-align: center;
+           text-align: center;
           }
 
           .registrarse .divF {
-            margin-left: 100px;
+            width: 100%;
+            margin-left: unset;
+          }
+
+          .registrarse #cuenta_existente {
+            font-size: 17px;
           }
 
           .registrarse .divB {
-            margin-left: 50px;
             margin-top: 30px;
+            margin-right: unset;
           }
 
           .divB .beneficio {
@@ -309,9 +331,26 @@
           }
 
           .divB ol {
-            padding-left: 0px;
+            padding-left: unset;
           }
 
+          .ult_resenias #texto {
+            margin: 25px 20px;
+          }
+
+          .ult_resenias li {
+            margin: 25px 20px;
+          }
+
+          .res ul{
+            padding-left: unset;
+          }
+
+          .perfil_usuarios input, .ingresar input, .iniciar_sesion input {
+            width: 60%;
+          }
+
+        
          
   }
   /* FIN MEDIA QUERIES CEL - TABLET - SMARTPHONE */

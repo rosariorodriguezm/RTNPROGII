@@ -99,10 +99,11 @@
         <br>
         <br>
         <br>
-        <a href="/usuarios/miPerfil/borrar/<%= detalle.id %>" class="enlace"> Eliminar mi cuenta <i class="fas fa-trash-alt"></i></a>
+        <a class="chau" href="/usuarios/miPerfil/borrar/<%= detalle.id %>" class="enlace"> Eliminar mi cuenta <i class="fas fa-trash-alt"></i></a>
         <br>
         <br>
-        <a href="/usuarios/miPerfil/cambiarContrasena/<%= detalle.id%>" class="enlace"> Cambiar contraseña</a>
+        <a class="chau" href="/usuarios/miPerfil/cambiarContrasena/<%= detalle.id%>" class="enlace"> Cambiar contraseña <i class="fas fa-lock"></i></a>
+        <br>
         <br>
         <form method="POST" action="/usuarios/cerrarSesion">
         <input type="submit" name="cerrarSesion" value="Cerrar sesión" id="cerrarSesion">

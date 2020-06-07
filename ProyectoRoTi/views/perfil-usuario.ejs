@@ -26,7 +26,7 @@
 
   <main>
     <div class="uk-section">
-      <div class="uk-container">
+      <div class="uk-container res">
         <div class="perfil_usuarios">
           <h3>Perfil de:<p><%= detalle.nombre_usuario %></p> </h3>
           <h3 class="nac">Fecha de nacimiento:<p class="nac"><%= detalle.fecha_nac %></p> </h3>
@@ -38,7 +38,7 @@
             <div class="ult_resenias">
             <ul class="listado">
           <% for (let i = 0; i < detalle.resenia.length; i++) { %>
-           <li ><p id="texto">"<%= detalle.resenia[i].texto_res %>"</p>
+           <li id="texto"><p id="words">"<%= detalle.resenia[i].texto_res %>"</p>
           <p><i class="fas fa-star"></i> Puntaje: <%= detalle.resenia[i].puntaje %></p>
           <p><i class="fas fa-calendar"></i> Fecha de creación: <%=detalle.resenia[i].createdAt %></p>
           <p><a href="/detalle?id=<%= detalle.resenia[i].serie_id %>"> <i class="fas fa-eye"></i> Ver serie</a></p>

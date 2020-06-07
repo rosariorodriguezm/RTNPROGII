@@ -2,35 +2,94 @@ const db = require('../database/models');
 const moduloLogin = require('../modulo-login')
 const OP = db.Sequelize.Op
 const bcrypt = require('bcryptjs')
-const fs = require('fs')
 
 
 module.exports = {
-    perfilUsuario: function(req, res) {
-        //muestra el perfil de un usuario
+    //Muestra formulario para buscar usuarios y todos los usuarios
+    buscarUsuarios: (req, res) => {
         db.Usuarios
-            .findByPk(
-                req.params.id,
-                {
-                    include: ['resenia']
-                }
-            )
-            .then(usuario => {
-                return res.render('perfil-usuario', {
-                    detalle: usuario, 
-                });
-            })
-            .catch(error => {
-                return res.send(error)
+        .findAll()
+        .then(usuarios => {
+            return res.render('buscar-usuarios', {
+                listaUsuarios: usuarios
             });
-        
-    },
+        })
+        .catch(error => {
+            res.send(error);
+        })
     
+    },
+
+    //Muestra las respuestas del buscador de usuarios
+    resUsuario: (req,res)=> {  
+        var usuarioBuscado = req.body.usariobuscado; 
+          db.Usuarios
+               .findAll({    
+                   where: {
+                       [OP.or]: [
+                          { email: {[OP.like]: "%" + usuarioBuscado + "%" } }, 
+                           
+                            { nombre_usuario: {[OP.like]: "%" + usuarioBuscado + "%" } }
+                     ]
+                   }
+              })
+               .then(usuarios => {
+                   return res.render("respuesta-usuarios", {
+                       listadoUsuarios:usuarios,
+   
+                   });
+               })
+               .catch(error => {
+                   return res.send("error"+error)
+               })
+                   
+       }, 
+
+    registrarse: function (req,res) {
+        res.render('registrarse', {
+            error : "false"
+        })
+    },
+
+    //CREA USUARIO
+    guardarUsuario: (req, res) => {
+        moduloLogin.buscarPorEmail(req.body.email)
+
+        .then(resultado => {
+            //si no hay un usuario que tenga ese mail
+            if(resultado == undefined){
+            const passEncriptada = bcrypt.hashSync(req.body.contrasenia, 10)
+
+            db.Usuarios.create({
+                nombre_usuario: req.body.nombre,
+                email: req.body.email,
+                fecha_nac: req.body.nacimiento,
+                password: passEncriptada,
+                genero_fav: req.body.genero, 
+                
+            })
+            res.redirect("/")
+
+            } else {
+            // si ya hay un usuario con ese mail
+            res.render('registrarse', {
+                error:  "true", 
+                tuError: "Ya existe una cuenta registrada con el e-mail que ingresaste"} )
+            
+       }
+    })
+       
+    },
+
+    //  INICIO DE SESION Y PERFIL SI YA ESTA LOGUEADO
     perfil: function(req, res){
         let usuario = req.session.usuario 
 
+        //si ya esta logueado
         if (usuario) {
             res.redirect('/usuarios/miPerfil/'+ usuario.id)
+
+        //si no esta logueado
         } else {
         res.render('perfil', {
             tipo: 'ingresar',
@@ -39,33 +98,31 @@ module.exports = {
         }
     },
 
+
     // METODO DE LA RUTA POST DEL LOG IN 
     confirmarUsuario: function(req, res) {
  
-       moduloLogin.validar(req.body.email, req.body.contrasenia)
-        //tomo del formulario el mail y la contrasenia, el metodo validar del moduloLogin chequea que esten bien
+        moduloLogin.validar(req.body.email, req.body.contrasenia)
+         //tomo del formulario el mail y la contrasenia, el metodo validar del moduloLogin chequea que esten bien
+ 
+         .then(usuario => {
+             if(usuario == undefined) {
+                 res.render('perfil', {
+                   error: 'true', 
+                   tipo: 'ingresar'
+                 });
+                 //si el usuario esta undefined, es decir, no coincide, me devuelve al form de inicio de sesion    
+                 
+             } else {
+                 req.session.usuario = usuario; //SESSION
+                 res.redirect('/usuarios/miPerfil/'+ usuario.id)
+             //si el usuario existe, me redirige al perfil de ese usuario 
+             
+               }
+          })
+      },
 
-        .then(usuario => {
-            if(usuario == undefined) {
-                res.render('perfil', {
-                  error: 'true', 
-                  tipo: 'ingresar'
-                });
-                //si el usuario esta undefined, es decir, no coincide, me devuelve al form de inicio de sesion    
-                
-            } else {
-                req.session.usuario = usuario;
-                res.redirect('/usuarios/miPerfil/'+ usuario.id)
-            //si el usuario existe, me redirige al perfil de ese usuario 
-            //--> '/usuarios/resenias/:id' ESTE COMENTARIO ESTA MAL 
-              }
-         })
-     },
-
-
-
-
-    miPerfil: function(req, res){
+      miPerfil: function(req, res){
         db.Usuarios
         .findByPk(
             req.params.id,
@@ -85,46 +142,53 @@ module.exports = {
         
     },
 
-    cerrarSesion: function (req, res){
-        req.session.destroy()
-        res.redirect('/usuarios/perfil')
-    },
+    eliminarUsuario: (req, res) => {
+      //uso formulario del tipo borrar de la vista miPerfil 
+        res.render('miPerfil', { 
+            tipo: 'borrar', 
+            error: 'false',
+            id: req.params.id,
+        }) 
+     
+            
+    }, 
 
-
-    registrarse: function (req,res) {
-        res.render('registrarse', {error : "false"})
-    },
-
-    guardarUsuario: (req, res) => {
-        moduloLogin.buscarPorEmail(req.body.email)
+    usuarioEliminado: (req, res) => {
+        moduloLogin.validar(req.body.email, req.body.contrasenia)
+        //tomo datos del form
 
         .then(resultado => {
-            if(resultado == undefined){
-            const passEncriptada = bcrypt.hashSync(req.body.contrasenia, 10)
-
-            db.Usuarios.create({
-                nombre_usuario: req.body.nombre,
-                email: req.body.email,
-                fecha_nac: req.body.nacimiento,
-                password: passEncriptada,
-                genero_fav: req.body.genero, 
-                
-            })
-            res.redirect("/")
+            if (resultado != null){
+                //si el resultado es distinto a undefined, es decir, coincide, elimino la cuenta
+                db.Usuarios.destroy({
+                    where: { //que coincide con el id que viene como parametro
+                        id: req.params.id,
+                        }
+                    })
+                    res.render('registrarse', {
+                        error: 'false'
+                    }) 
+                    
             } else {
-            //res.send("Ya existe una cuenta registrada con ese email")
-            res.render('registrarse', {
-                error:  "true", 
-                tuError: "Ya existe una cuenta registrada con el e-mail que ingresaste"} )
-            
-       }
-    })
-       
+                res.render('miPerfil', {
+                    error: 'true',
+                    tipo: 'borrar',
+                    id: req.params.id,
+                })
+                } //si no coincide, muestra alerta
+            })
+
+    },
+
+    cerrarSesion: function (req, res){
+        req.session.destroy()
+        res.redirect('/usuarios/perfil') 
+        //cuando eliminas tu cuenta te redirige a la pagina de iniciar sesión
     },
 
     cambiarContrasena: (req, res) => {
         db.Usuarios
-        .findOne({ //tomo la resenia que coincida con el id (de una resenia) que viene como parametro
+        .findOne({ //tomo el usuario que coincida con el id que viene como parametro
             where: [
                 {id: req.params.id}
                 ]
@@ -140,7 +204,7 @@ module.exports = {
     contrasenaCambiada: (req, res) => {
         let usuario = req.session.usuario
        if (usuario) {
-
+    //si esta logueado
         const passEncriptada = bcrypt.hashSync(req.body.contrasenia, 10) 
             
             let actualizarContra = { 
@@ -167,91 +231,6 @@ module.exports = {
                 } 
     },
 
-    eliminarUsuario: (req, res) => {
-       
-        res.render('miPerfil', { 
-            tipo: 'borrar', 
-            error: 'false',
-            id: req.params.id,
-        }) 
-     
-            //uso formulario del tipo borrar de la vista perfil
-    }, 
-
-    usuarioEliminado: (req, res) => {
-        moduloLogin.validar(req.body.email, req.body.contrasenia)
-        //tomo datos del form
-
-        .then(resultado => {
-            if (resultado != null){
-                //si el resultado es distinto a undefined, es decir, coincide, elimino la cuenta
-                db.Usuarios.destroy({
-                    where: { //que coincide con el id que viene como parametro
-                        id: req.params.id,
-                        }
-                    })
-                    res.render('registrarse', {
-                        error: 'false'
-                    }) 
-                    
-            } else {
-                res.render('miPerfil', {
-                    error: 'true',
-                    tipo: 'borrar',
-                    id: req.params.id,
-                })
-                } //si no coincide, redirige a registrarse
-            })
-
-    },
-
-    
-    buscarUsuarios: (req, res) => {
-        //muestra formulario para buscar usuarios y todos los usuarios
-        db.Usuarios
-        .findAll()
-        .then(usuarios => {
-            return res.render('buscar-usuarios', {
-                listaUsuarios: usuarios
-            });
-        })
-        .catch(error => {
-            res.send(error);
-        })
-    
-    },
-    
-    resUsuario: (req,res)=> {  
-        //muestra las respuestas del buscador de usuarios
-   
-        var usuarioBuscado = req.body.usariobuscado; 
-          db.Usuarios
-               .findAll({    
-                   where: {
-                       [OP.or]: [
-                          { email: {[OP.like]: "%" + usuarioBuscado + "%" } }, 
-                           
-                           { nombre_usuario: {[OP.like]: "%" + usuarioBuscado + "%" } }
-                     ]
-                   }
-              })
-               .then(usuarios => {
-                   return res.render("respuesta-usuarios", {
-                       listadoUsuarios:usuarios,
-   
-                   });
-               })
-               .catch(error => {
-                   return res.send("error"+error)
-               })
-                   
-       }, 
-    
-    favoritos: function (req,res) {
-        res.render('favoritos')
-    },
-    
-
     listaMisResenias: function(req,res) {
         db.Resenas
         .findAll({
@@ -259,7 +238,7 @@ module.exports = {
                  {usuario_id: req.params.id}
                 ], //de la DB Resenias, me trae todas las resenias en las que la columna del id de usuario coincida con el id q viene como parametro
             include:[
-                    "usuario" //utilizo la relacion de modelos
+                    "usuario" //utilizo la relacion de usuario
                 ],
             order: [['updatedAt', 'DESC']]
             })
@@ -339,7 +318,31 @@ module.exports = {
             } 
            
     },
-
+    
+    perfilUsuario: function(req, res) {
+        //muestra el perfil publico de un usuario
+        db.Usuarios
+            .findByPk(
+                req.params.id,
+                {
+                    include: ['resenia']
+                }
+            )
+            .then(usuario => {
+                return res.render('perfil-usuario', {
+                    detalle: usuario, 
+                });
+            })
+            .catch(error => {
+                return res.send(error)
+            });
+        
+    },
+    
+    favoritos: function (req,res) {
+        res.render('favoritos')
+    },
+    
 
 
 }

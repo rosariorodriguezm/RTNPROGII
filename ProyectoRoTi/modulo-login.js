@@ -42,7 +42,8 @@ let moduloLogin = {
             return undefined
         } 
         })
-    }
+    },
+
 }
 
 

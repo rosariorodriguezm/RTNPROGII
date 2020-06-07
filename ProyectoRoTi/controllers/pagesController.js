@@ -5,7 +5,19 @@ const moduloLogin = require('../modulo-login')
 
 module.exports = {
     home: function (req,res) {
-        res.render('home')
+        let usuario = req.session.usuario
+        //si esta logueado
+        if (usuario) {
+            res.render('home', {
+            tipo:'usuarioLogueado',
+            nombre: usuario.nombre_usuario,
+            })
+        } else { //si no esta logueado
+            res.render('home', {
+            tipo: 'usuarioNoLogueado'
+        })
+        }
+
     },
     
     avanzado: function (req,res) {

@@ -1,7 +1,9 @@
 
 module.exports = function (sequelize, DataTypes){
-const resena = sequelize.define('Resenas', 
-{ //cols//
+
+const resena = sequelize.define(
+    'Resenas', { 
+    //columnas de la DB
     id: {
         type: DataTypes.INTEGER, 
         primaryKey: true,
@@ -17,7 +19,7 @@ const resena = sequelize.define('Resenas',
 );
 
 resena.associate = function(models){
-    //una reseña pertence a un usuario
+    //Una resena pertence a un usuario
     resena.belongsTo(models.Usuarios, {
         as: 'usuario',
         foreignKey: 'usuario_id'

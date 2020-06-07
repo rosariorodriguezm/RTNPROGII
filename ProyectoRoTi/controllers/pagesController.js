@@ -1,18 +1,18 @@
-const db = require('../database/models');
-const OP = db.Sequelize.Op //requiero operadores de sequelize
-const moduloLogin = require('../modulo-login')
-
+const db = require('../database/models'); //requerimos los modelos de la carpeta database
 
 module.exports = {
     home: function (req,res) {
         let usuario = req.session.usuario
-        //si esta logueado
-        if (usuario) {
+
+       //si esta logueado
+        if (usuario) {  
             res.render('home', {
             tipo:'usuarioLogueado',
             nombre: usuario.nombre_usuario,
             })
-        } else { //si no esta logueado
+
+        //si no esta logueado    
+        } else { 
             res.render('home', {
             tipo: 'usuarioNoLogueado'
         })
@@ -20,10 +20,7 @@ module.exports = {
 
     },
     
-    avanzado: function (req,res) {
-        res.render('avanzado')
-    },
-
+    //DETALLE Y RESENAS DE LA SERIE
     detalle: (req,res) => {
         
        db.Resenas
@@ -32,30 +29,22 @@ module.exports = {
           { serie_id: req.query.id }
             ],
             include: ['usuario']
+            //incluye la relacion 'usuario' entre el modelo de Resenas y Usuarios
         })
             .then(resenas => {
             return res.render('detalle', {
                 reseniaSerie: resenas,
                 id: req.query.id
                
-         }) ; 
+         }); 
         })
         .catch(error => {
             res.send(error)
         })
         
     },
-
-
-    resultadosBusq: function (req,res) {
-        res.render('resultadosbusq')
-    },
-
-    seriesPorGenero: function (req,res) {
-        res.render('series-por-genero')
     
-    },
-
+    //PROCESA LA CREACION DE LA NUEVA RESENA
     nuevaResenia: (req, res) => {
 
     let usuario = req.session.usuario 
@@ -76,9 +65,23 @@ module.exports = {
                 tuError: "Para escribir una reseña debes crear una cuenta"
             })
             } 
-          
-        
-        },
+    }, 
+
+    resultadosBusq: function (req,res) {
+        res.render('resultadosbusq')
+    }, 
+
+    avanzado: function (req,res) {
+        res.render('avanzado')
+    },
+
+    seriesPorGenero: function (req,res) {
+        res.render('series-por-genero')
+    
+    },
+
+    
+    
 
 }
 

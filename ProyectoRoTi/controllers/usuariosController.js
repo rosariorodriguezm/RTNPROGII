@@ -330,7 +330,7 @@ module.exports = {
                         id: req.params.id,
                         }
                     })
-                    res.redirect('/usuarios/perfil') 
+                    res.redirect('/usuarios/resenias/'+ usuario.id) 
                     
             } 
            

@@ -37,6 +37,7 @@
         
         
         <% } else { %>
+          <% if (error == 'true') { %>
 
           <form class="ingresar" method="POST" action="/usuarios/perfil"> 
 
@@ -55,7 +56,32 @@
 
             <a href="/usuarios/miPerfil"><button type="submit" name="button" class="boton">Ingresar</button></a>
             
-          </form>
+          </form> 
+          <p class="aviso"><i class="fas fa-exclamation-triangle alerta"></i></p> 
+            <p>Los datos ingresados son incorrectos</p>
+
+        <% } else { %>
+          <form class="ingresar" method="POST" action="/usuarios/perfil"> 
+
+            <h1>Iniciar sesión</h1>
+            <br>
+
+              <label for="email"class="label">Email</label>
+              <br>
+              <input type="text" name="email" value="" required placeholder="E-mail" id="email"class="input">
+        <br>
+              <label for="contraseña"class="label">Contraseña</label>
+              <br>
+              <input type="password" name="contrasenia" value="" required min="8" placeholder="Contraseña" class="input">
+        
+        <br>
+
+            <a href="/usuarios/miPerfil"><button type="submit" name="button" class="boton">Ingresar</button></a>
+            
+            
+
+          </form> 
+          <% } %>
 
     <% } %>
         

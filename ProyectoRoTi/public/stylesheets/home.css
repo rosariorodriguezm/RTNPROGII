@@ -31,3 +31,14 @@ main {
   .uk-container img:hover{
     opacity: 0.6;
   }
+
+  .bienvenido{
+    font-family: 'Fjalla One', sans-serif;
+    color: black;
+    font-size: 50px;
+    text-align: center;
+    margin-top: 40px;
+  }
+  .uk-section {
+    padding-top: unset;
+  }

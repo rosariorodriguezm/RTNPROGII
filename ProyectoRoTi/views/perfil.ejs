@@ -26,47 +26,14 @@
       <div class="uk-container">
 
 
-   <% if (tipo == 'borrar') { %>
-          <% if (error == 'false') { %>
-          <form  method="POST" class="iniciar_sesion" action="/usuarios/resenias/borrar/<%=id%>">
-          
-            <h1> Borrar reseña </h1>
-
-            <p class="borrar">Ingrese sus datos para borrar la reseña</p>
-              
-              <label for="email">Email</label>
-              <input type="text" name="email" value="" required placeholder="E-mail" id="email">
-        <br>
-              <label for="contraseña">Contraseña</label>
-              <input type="password" name="contrasenia" value="" required min="8" placeholder="Contraseña" >
-        <br>
-
-            <button id="bu" type="submit" name="button">¡Listo!</button>
-
-          </form>
-          <% } else { %>
-
-            <form  method="POST" class="iniciar_sesion" action="/usuarios/resenias/borrar/<%= id %>">
-          
-              <p class="aviso"><i class="fas fa-exclamation-triangle alerta"></i></p>    
-                    <p id="errorEmail"> Los datos ingresados no son válidos </p> 
-
-              <h1> Borrar reseña </h1>
-  
-              <p class="borrar">Ingrese sus datos para borrar la reseña </p>
-                
-                <label for="email">Email</label>
-                <input type="text" name="email" value="" required placeholder="E-mail" id="email">
-          <br>
-                <label for="contraseña">Contraseña</label>
-                <input type="password" name="contrasenia" value="" required min="8" placeholder="Contraseña" >
-          <br>
-  
-              <button id="bu" type="submit" name="button">¡Listo!</button>
-  
-            </form>
-
-            <% } %>
+     <% if (tipo == 'borrar') { %>
+        <p>¿Estás seguro que querés eliminar esta reseña?</p>
+        
+        <form action="/usuarios/resenias/borrar/<%=id%>" method="POST">
+        <button name="si" type="submit">Si</button>
+        </form>
+       <a href="/usuarios/perfil"> <button name="no" type="submit">No</button></a>
+        
         
         <% } else { %>
 
@@ -89,7 +56,7 @@
             
           </form>
 
-          <% } %>
+    <% } %>
         
       </div>
     </div>

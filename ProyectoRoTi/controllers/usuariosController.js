@@ -272,34 +272,25 @@ module.exports = {
     borrarResenia: function(req, res) {
         res.render('perfil', { 
             tipo: 'borrar', 
-            error: 'false',
-            id: req.params.id,
-        }) 
+            id: req.params.id
+             }) 
             //uso formulario del tipo borrar de la vista perfil
         },
 
     reseniaBorrada: function(req, res) {
-        moduloLogin.validar(req.body.email, req.body.contrasenia)
-        //tomo datos del form
+     
+        let usuario = req.session.usuario
+        if (usuario) {
 
-        .then(resultado => {
-            if (resultado != null){
-                //si el resultado es distinto a undefined, es decir, coincide, elimino la resenia
                 db.Resenas.destroy({
                     where: { //que coincide con el id que viene como parametro
                         id: req.params.id,
                         }
                     })
-                    res.redirect('/') 
+                    res.redirect('/usuarios/perfil') 
                     
-            } else {
-                res.render('perfil', {
-                    error: 'true',
-                    id: req.params.id,
-                })
-                } //si no coincide, sale una alerta
-            })
-
+            } 
+           
     },
 
 
@@ -313,38 +304,3 @@ module.exports = {
 
 }
 
-
-// INTENTO DE SESSION        
- //       let errors = validationResult(req);
-
-//        if (errors.isEmpty()) {
-//                let usersJSON = fs.readFileSync('users.json', {ACA FALTA ALGO})
-//                let users;
-//                if (usersJSON == ""){
-//                    useres = [];
-//                } else {
-//                    users = JSON.parse(usersJSON);
-//                }
-
-//                for (let i=0; i< users.length; i++){
-//                    if (users[i].email == req.body.email) {
-//                        if (bcrypt.compareSync(req.body.contrasenia, users[i].contrasenia)) {
-//                           let usuarioALoguearse = users[i];  
-//                           break;
-
-//                        }
-//                    }
-//                }
-//                    if (usuarioALoguearse == undefined) {
-//                        return res.render ('perfil', {errors: [
-//                            {msg: 'Datos incorrectos' }
-//                        ]}); 
-
-//                    }
-
-//                    req.session.usuarioALoguearse = usuarioALoguearse;
-
-//        } else {
-//           return res.render ('perfil', {errors: errors.errors}); 
-//        }
- 

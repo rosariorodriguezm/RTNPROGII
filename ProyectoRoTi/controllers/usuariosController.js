@@ -235,7 +235,9 @@ module.exports = {
         .findAll({
             where:[
                  {usuario_id: req.params.id}
-                ], //de la DB Resenias, me trae todas las resenias en las que la columna del id de usuario coincida con el id q viene como parametro
+                ], //de la DB Resenias, me trae todas las resenias
+                  // en las que la columna del id de usuario coincida
+                  // con el id q viene como parametro
             include:[
                     "usuario" //utilizo la relacion de usuario
                 ],
@@ -247,7 +249,7 @@ module.exports = {
                 })
             })
     },
-
+ 
     editarResenia: function(req, res) {
         db.Resenas
         .findOne({ //tomo la resenia que coincida 
@@ -338,7 +340,6 @@ module.exports = {
             .catch(error => {
                 return res.send(error)
             });
-        
     },
     
     favoritos: function (req,res) {

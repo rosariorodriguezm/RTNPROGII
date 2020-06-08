@@ -27,7 +27,8 @@ module.exports = {
           {
           include: ['usuario'], 
           order: [['createdAt', 'DESC']]
-          //aplico la relacion de los modelos y ordeno ultimas reseñas segun su fecha de creacion en forma descendente 
+          //aplico la relacion de los modelos y ordeno
+          // ultimas reseñas segun su fecha de creacion en forma descendente 
           }
         )
         .then(resenas => {

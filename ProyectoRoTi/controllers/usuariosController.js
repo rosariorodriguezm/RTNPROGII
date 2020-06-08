@@ -162,17 +162,22 @@ module.exports = {
 
         .then(resultado => {
             if (resultado != null){
-                //si el resultado es distinto a undefined, es decir, coincide, elimino la cuenta
+                //si el resultado coincide, primero elimino sus reseñas para poder eliminar su cuenta
+                db.Resenas.destroy({
+                    where:{
+                        usuario_id: req.params.id,
+                    }
+                }) .then(() => {
+                    //elimino la cuenta que coincide con el id que viene como parametro
                 db.Usuarios.destroy({
-                    where: { //que coincide con el id que viene como parametro
+                    where: { 
                         id: req.params.id,
                         }
                     })
-                    res.render('registrarse', {
-                        error: 'false'
-                    }) 
                     req.session.destroy()
-                    res.redirect('/usuarios/perfil') 
+                    res.redirect('/usuarios/registrarse') 
+                })
+                
                     
                     
             } else {

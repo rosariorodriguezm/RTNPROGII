@@ -38,6 +38,10 @@ input {
     color: yellow;
   }
 
+  .iniciar_sesion{
+    text-align: center;
+  }
+
   .iniciar_sesion label {
     color: #dc3545;
     padding: 5px;

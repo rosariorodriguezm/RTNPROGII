@@ -38,18 +38,29 @@
           <label for="contraseña">Contraseña</label>
 
           <input type="password" name="contrasenia" value="" required min="8" placeholder="Contraseña" >
-      <br>
+        <br>
 
         <button id="bu" type="submit" name="button">¡Listo!</button>
 
       </form>
+      <br>
+
+      <% if (error == 'true') { %>
+        <form  method="POST" class="iniciar_sesion" action="/usuarios/miPerfil/borrar/<%=id %>">
+
+            <p class="aviso"><i class="fas fa-exclamation-triangle aviso"></i></p>    
+            <p id="errorEmail"> Los datos ingresados no son válidos </p> 
+
+         <% } else { %>  
+          <p></p>
+          <% } %>
+      
+      
       </div>
     </div> 
          
       <% } else { %>
 
-    <div class="uk-section">
-      <div class="uk-container">
         <h1>¡Hola, <%= detalle.nombre_usuario %>!</h1>
         
         <h2>Mi Perfil <i class="fas fa-user"></i></h2>

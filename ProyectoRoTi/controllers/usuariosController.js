@@ -230,6 +230,28 @@ module.exports = {
                 } 
     },
 
+    cambiarGenero: function(req,res) {
+            let actualizarGenero = {
+                genero_fav: req.body.genero,
+                id: req.params.id
+            }
+
+            db.Usuarios.update({
+                genero_fav: actualizarGenero.genero_fav
+            },{
+                where: {
+                    id: actualizarGenero.id
+                }
+            })
+            .then(()=> {
+                db.Usuarios
+                .findByPk(req.params.id)
+                .then(resultado=>{
+                    res.redirect('/usuarios/miPerfil/'+ resultado.id)
+                } )
+            })
+    },
+
     listaMisResenias: function(req,res) {
         db.Resenas
         .findAll({

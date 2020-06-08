@@ -87,8 +87,17 @@
         <p>Email: <%= detalle.email %></p>
         <p>Fecha de nacimiento: <%= detalle.fecha_nac %></p>
         <p>Género favorito: <%= detalle.genero_fav %> </p>
+        <form action="/usuarios/miPerfil/cambiarGenero/<%=detalle.id%>" method="POST">
+          <label for="generoFav" class="label">Cambiar género favorito</label>
+          <select class="" name= "genero"  id="dropdown" class='select'required> 
+            <option  value=""></option>
+            </select>
+            <button type="submit" class="listo">Listo</button>
+        </form>
+        
     
-
+<br>
+<br>
 <br>
 
         <a href="/usuarios" class="enlace">  Explorar otros usuarios <i class="fas fa-user"></i></a>
@@ -108,8 +117,9 @@
         <a class="chau" href="/usuarios/miPerfil/cambiarContrasena/<%= detalle.id%>" class="enlace"> Cambiar contraseña <i class="fas fa-lock"></i></a>
         <br>
         <br>
-        <form method="POST" action="/usuarios/cerrarSesion">
-        <input type="submit" name="cerrarSesion" value="Cerrar sesión" id="cerrarSesion">
+
+        <form method="POST" action="/usuarios/cerrarSesion" class="cerrarSesion">
+        <input type="submit" name="cerrarSesion" value="Cerrar sesión" id="cerrarSesion" >
         </form>
 
 
@@ -141,5 +151,7 @@
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit-icons.min.js"></script>
 <script type="text/javascript" src="/javascripts/generos.js"></script>
 <script type="text/javascript" src="/javascripts/dropdown.js"></script>
+<script type="text/javascript" src="/javascripts/registrarse.js"></script>
+
 <script type="text/javascript" src="/javascripts/Sesion.js"></script>
 </html>

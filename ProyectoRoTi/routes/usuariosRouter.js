@@ -54,7 +54,8 @@ router.get('/miPerfil/cambiarContrasena/:id', controller.cambiarContrasena)
 //PROCESA Y CONFIRMA EL CAMBIO DE CONTRASEÑA
 router.post('/miPerfil/cambiarContrasena/:id', controller.contrasenaCambiada)
 
-
+//CAMBIAR GENERO FAVORITO
+router.post('/miPerfil/cambiarGenero/:id', controller.cambiarGenero)
 
                     // MIS RESENAS (LISTADO/EDITAR/ELIMINAR)
 

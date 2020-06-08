@@ -50,6 +50,7 @@ input {
     padding-bottom: 150px;
     padding-left: 20px;
   }
+
   
 
 
@@ -61,7 +62,7 @@ input {
   padding: 3px;
 }
 
-form {
+.cerrarSesion {
   text-align: center;
 }
 
@@ -79,3 +80,23 @@ form {
 
 }
 
+.listo{
+  
+  padding: 5px;
+  background-color: black;
+  border: 2px solid #dc3545;
+  color: white;
+
+}
+
+#dropdown {
+  border-radius: 10px;
+
+}
+
+.label {
+  color: white;
+  font-family: 'Fjalla One';
+  font-size: 18px;
+  
+}

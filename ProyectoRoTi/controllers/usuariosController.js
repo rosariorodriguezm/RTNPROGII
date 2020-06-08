@@ -66,8 +66,12 @@ module.exports = {
                 password: passEncriptada,
                 genero_fav: req.body.genero, 
                 
+            }) //una vez creado el usuario, inicia sesion en su cuenta automaticamente
+            .then(usuario => {
+                req.session.usuario = usuario;
+                res.redirect("/") 
             })
-            res.redirect("/")
+           
 
             } else {
             // si ya hay un usuario con ese mail

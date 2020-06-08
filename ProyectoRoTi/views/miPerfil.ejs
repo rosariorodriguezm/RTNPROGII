@@ -31,6 +31,7 @@
         <h1> Eliminar cuenta </h1>
 
         <p class="borrar">Por cuestiones de seguridad, confirme sus datos para eliminar su cuenta</p>
+        <p class="borrar"> <i class="fas fa-exclamation-triangle alerta"></i>  Recuerde que debe eliminar todas sus reseñas para poder eliminar su cuenta</p>
           
           <label for="email">Email</label>
 
@@ -51,13 +52,15 @@
             <div class="uk-container">
           <form  method="POST" class="iniciar_sesion" action="/usuarios/miPerfil/borrar/<%=id %>">
 
-            <p class="aviso"><i class="fas fa-exclamation-triangle alerta"></i></p>    
+            <p class="aviso"><i class="fas fa-exclamation-triangle aviso"></i></p>    
             <p id="errorEmail"> Los datos ingresados no son válidos </p> 
               
             <h1> Eliminar cuenta </h1>
     
             <p class="borrar">Ingrese sus datos para eliminar su cuenta</p>
-              
+            <p class="borrar"><i class="fas fa-exclamation-triangle aviso"></i>Recuerde que debe eliminar todas sus reseñas para poder eliminar su cuenta</p>
+            
+            
               <label for="email">Email</label>
     
               <input type="text" name="email" value="" required placeholder="E-mail" id="email">

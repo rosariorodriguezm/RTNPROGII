@@ -167,6 +167,9 @@ module.exports = {
                     res.render('registrarse', {
                         error: 'false'
                     }) 
+                    req.session.destroy()
+                    res.redirect('/usuarios/perfil') 
+                    
                     
             } else {
                 res.render('miPerfil', {

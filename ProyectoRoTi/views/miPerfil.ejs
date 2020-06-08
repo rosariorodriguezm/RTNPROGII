@@ -24,6 +24,14 @@
 
     <% if (tipo == 'borrar') { %>
       <% if (error == 'false') { %>
+        <form  method="POST" class="iniciar_sesion" action="/usuarios/miPerfil/borrar/<%=id %>">
+
+            <p class="aviso"><i class="fas fa-exclamation-triangle aviso"></i></p>    
+            <p id="errorEmail"> Los datos ingresados no son válidos </p> 
+
+         <% } else { %>  
+          <p></p>
+          <% } %>
       <div class="uk-section">
         <div class="uk-container">
       <form  method="POST" class="iniciar_sesion" action="/usuarios/miPerfil/borrar/<%=id %>">
@@ -46,36 +54,8 @@
 
       </form>
       </div>
-    </div>
-        <% } else { %>
-          <div class="uk-section">
-            <div class="uk-container">
-          <form  method="POST" class="iniciar_sesion" action="/usuarios/miPerfil/borrar/<%=id %>">
-
-            <p class="aviso"><i class="fas fa-exclamation-triangle aviso"></i></p>    
-            <p id="errorEmail"> Los datos ingresados no son válidos </p> 
-              
-            <h1> Eliminar cuenta </h1>
-    
-            <p class="borrar">Ingrese sus datos para eliminar su cuenta</p>
-            <p class="borrar"><i class="fas fa-exclamation-triangle aviso"></i>Recuerde que debe eliminar todas sus reseñas para poder eliminar su cuenta</p>
-            
-            
-              <label for="email">Email</label>
-    
-              <input type="text" name="email" value="" required placeholder="E-mail" id="email">
-          <br>
-              <label for="contraseña">Contraseña</label>
-    
-              <input type="password" name="contrasenia" value="" required min="8" placeholder="Contraseña" >
-          <br>
-    
-            <button id="bu" type="submit" name="button">¡Listo!</button>
-    
-          </form>
-          </div>
-        </div>
-          <% } %>
+    </div> 
+         
       <% } else { %>
 
     <div class="uk-section">

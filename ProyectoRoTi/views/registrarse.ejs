@@ -24,34 +24,30 @@
           <div class="uk-container registrarse">
             <section class="seccion">
 
+          <div class="divF">
+                              <p class="beneficio"> Crea una cuenta</p>
+                              <form action="/usuarios/registrarse" method="POST">
+              
+                                      <label for="nombre">Nombre</label>
+                                      <input type="text" name="nombre" id="" required>
+              
+                                      <label for="email">E-mail</label>
+                                      <input type="emial" name="email" required>
+              
+                                      <label for="fecha">Fecha de nacimiento</label>
+                                      <input type="date" min="1940-12-31" max="2006-12-31" name="nacimiento" required>
+              
+                                      <label for="contraseña">Contraseña</label>
+                                      <input type="password" minlength="8" name="contrasenia" required>
+                                    <br>
+                                    <label for="generoFav">Género favorito</label>
+                                    <select class="" name= "genero" required id="dropdown">
+                                </select>
 
+                                <br>
+                                      <button type="submit" class="enviar" id="regis">Enviar</button>
+                              </form>
                 <% if (error == "true") { %>
-                  
-                  <div class="divF">
-                    
-                   
-                    <p class="beneficio"> Crea una cuenta</p>
-                    <form action="/usuarios/registrarse" method="POST">
-    
-                            <label for="nombre">Nombre</label>
-                            <input type="text" name="nombre" id="" required>
-    
-                            <label for="email">E-mail</label>
-                            <input type="emial" name="email" required>
-    
-                            <label for="fecha">Fecha de nacimiento</label>
-                            <input type="date" min="1940-12-31" max="2006-12-31" name="nacimiento" required>
-    
-                            <label for="contraseña">Contraseña</label>
-                            <input type="password" minlength="8" name="contrasenia" required>
-                           <br>
-                           <label for="generoFav">Género favorito</label>
-                           <select class="" name= "genero" required id="dropdown">
-                      </select>
-
-                      <br>
-                            <button type="submit" class="enviar" id="regis">Enviar</button>
-                    </form>
                    
                     <p class="aviso"><i class="fas fa-exclamation-triangle alerta"></i></p>    
                     <p id="errorEmail"> <%= tuError %></p>
@@ -59,31 +55,8 @@
                     </div>
 
                     <% } else { %>
-                      <div class="divF">
-                        <p class="beneficio">Crea una cuenta</p>
-                        <form action="/usuarios/registrarse" method="POST">
-        
-                                <label for="nombre">Nombre</label>
-                                <input type="text" name="nombre" id="" required>
-        
-                                <label for="email">E-mail</label>
-                                <input type="emial" name="email" required>
-        
-                                <label for="fecha">Fecha de nacimiento</label>
-                                <input type="date" min="1940-12-31" max="2006-12-31" name="nacimiento" required>
-        
-                                <label for="contraseña">Contraseña</label>
-                                <input type="password" minlength="8" name="contrasenia" required>
-                               <br>
-                               <label for="generoFav">Género favorito</label>
-                               <select class="" name= "genero"  id="dropdown" required> 
-                                 <option  value=""></option>
-                              </select>
-                          
-                         
-<br>
-                                <button type="submit" class="enviar" id="regis">Enviar</button>
-                        </form>
+                     <p></p>
+                      <br>
                         <p id="cuenta_existente">¿Ya tenes una cuenta?<a href="/usuarios/perfil">Inicia sesión</a></p>
                        </div>
                       <% } %>

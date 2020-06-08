@@ -128,3 +128,7 @@ h3{
   font-family: 'Fjalla One';
   font-size: 30px;
 }
+
+#sinCuenta a{
+  color: white;
+}
